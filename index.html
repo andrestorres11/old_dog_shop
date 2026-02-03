@@ -1,1455 +1,1791 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aramacao Art - Artesanías Naturales</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Paleta inspirada en la naturaleza colombo-venezolana */
-            --bosque: #1B4332;
-            --selva: #2D6A4F;
-            --helecho: #52B788;
-            --bambu: #74C69D;
-            --guacamaya: #D62828;
-            --tucan: #F77F00;
-            --orquidea: #9D4EDD;
-            --sol: #FCBF49;
-            --tierra: #8B4513;
-            --arena: #F4E4C1;
-            --cielo: #4895EF;
-            --nube: #F8F9FA;
-        }
-
-        body {
-            font-family: 'Merriweather', serif;
-            background: linear-gradient(to bottom, var(--arena) 0%, #E8DCC4 100%);
-            color: var(--bosque);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Fondo con textura de hojas */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(45, 106, 79, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(116, 198, 157, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Decoraciones de hojas flotantes */
-        .leaf-decoration {
-            position: fixed;
-            font-size: 3rem;
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 1;
-            animation: float-leaf 20s infinite ease-in-out;
-        }
-
-        .leaf-1 { top: 10%; left: 10%; animation-delay: 0s; }
-        .leaf-2 { top: 30%; right: 15%; animation-delay: 3s; }
-        .leaf-3 { bottom: 20%; left: 20%; animation-delay: 6s; }
-        .leaf-4 { top: 60%; right: 25%; animation-delay: 9s; }
-        .leaf-5 { bottom: 10%; right: 10%; animation-delay: 12s; }
-
-        @keyframes float-leaf {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(20px, -20px) rotate(5deg); }
-            50% { transform: translate(-15px, -40px) rotate(-5deg); }
-            75% { transform: translate(25px, -30px) rotate(3deg); }
-        }
-
-        /* Header con degradado natural */
-        header {
-            background: linear-gradient(135deg, var(--bosque) 0%, var(--selva) 50%, var(--helecho) 100%);
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(27, 67, 50, 0.3);
-        }
-
-        /* Patrón de hojas en el header */
-        header::before {
-            content: '🌿 🍃 🌱 🌿 🍃 🌱 🌿 🍃 🌱 🌿 🍃 🌱';
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            font-size: 2rem;
-            opacity: 0.2;
-            animation: scroll-pattern 30s linear infinite;
-            white-space: nowrap;
-        }
-
-        @keyframes scroll-pattern {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        .logo {
-            font-family: 'Amatic SC', cursive;
-            font-size: 4.5rem;
-            color: var(--sol);
-            text-shadow: 3px 3px 0 var(--bosque), 6px 6px 0 rgba(0,0,0,0.2);
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-            animation: logo-glow 3s infinite ease-in-out;
-        }
-
-        @keyframes logo-glow {
-            0%, 100% { filter: drop-shadow(0 0 10px rgba(252, 191, 73, 0.3)); }
-            50% { filter: drop-shadow(0 0 20px rgba(252, 191, 73, 0.6)); }
-        }
-
-        .nature-divider {
-            font-size: 2rem;
-            margin: 1rem 0;
-            letter-spacing: 0.5rem;
-        }
-
-        .tagline {
-            color: var(--arena);
-            font-size: 1.3rem;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .tagline strong {
-            color: var(--sol);
-            font-weight: 700;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Sección de bienvenida */
-        .welcome-section {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,250,0.95));
-            border-radius: 30px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            border: 3px solid var(--helecho);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-section::before {
-            content: '🌺';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 8rem;
-            opacity: 0.1;
-            transform: rotate(15deg);
-        }
-
-        .welcome-section h2 {
-            font-family: 'Amatic SC', cursive;
-            font-size: 3rem;
-            color: var(--selva);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .welcome-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--bosque);
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        /* Botón de categorías */
-        .category-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            background: linear-gradient(135deg, var(--helecho), var(--bambu));
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .category-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .category-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .category-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .category-btn.active {
-            background: linear-gradient(135deg, var(--guacamaya), var(--tucan));
-            transform: scale(1.1);
-        }
-
-        /* Grid de productos */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: linear-gradient(to bottom, white, var(--nube));
-            border-radius: 25px;
-            padding: 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 4px solid transparent;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--helecho), var(--sol), var(--tucan), var(--orquidea));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px) rotate(-1deg);
-            box-shadow: 0 20px 60px rgba(45, 106, 79, 0.3);
-            border-color: var(--helecho);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, var(--bambu), var(--helecho));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent);
-        }
-
-        .product-info {
-            padding: 2rem;
-        }
-
-        .product-category {
-            display: inline-block;
-            background: var(--helecho);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-name {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2.2rem;
-            color: var(--bosque);
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        .product-price {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--tucan);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-        }
-
-        .product-stock {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--helecho);
-            color: white;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .product-stock.low {
-            background: var(--tucan);
-        }
-
-        .product-stock.out {
-            background: #999;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .add-to-cart-btn {
-            flex: 1;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--selva), var(--helecho));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(45, 106, 79, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .add-to-cart-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(45, 106, 79, 0.5);
-        }
-
-        .add-to-cart-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .view-details-btn {
-            padding: 1rem;
-            background: white;
-            color: var(--selva);
-            border: 2px solid var(--selva);
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .view-details-btn:hover {
-            background: var(--selva);
-            color: white;
-        }
-
-        /* Carrito flotante */
-        .cart-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .cart-button {
-            background: linear-gradient(135deg, var(--guacamaya), var(--tucan));
-            color: white;
-            border: none;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            font-size: 2rem;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(214, 40, 40, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-button:hover {
-            transform: scale(1.1) rotate(15deg);
-            box-shadow: 0 15px 40px rgba(214, 40, 40, 0.6);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--sol);
-            color: var(--bosque);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border: 3px solid white;
-        }
-
-        /* Modal del carrito */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(27, 67, 50, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .cart-modal.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .cart-content {
-            background: linear-gradient(to bottom, white, var(--arena));
-            border-radius: 30px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border: 5px solid var(--helecho);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .cart-header {
-            background: linear-gradient(135deg, var(--bosque), var(--selva));
-            color: white;
-            padding: 2rem;
-            border-radius: 25px 25px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-header h2 {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2.5rem;
-            margin: 0;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .close-cart:hover {
-            background: rgba(255,255,255,0.2);
-            transform: rotate(90deg);
-        }
-
-        .cart-items {
-            padding: 2rem;
-        }
-
-        .cart-item {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--helecho);
-        }
-
-        .cart-item-emoji {
-            font-size: 3rem;
-            flex-shrink: 0;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.8rem;
-            color: var(--bosque);
-            margin-bottom: 0.3rem;
-        }
-
-        .cart-item-price {
-            color: var(--tucan);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .qty-btn {
-            background: var(--helecho);
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .qty-btn:hover {
-            background: var(--selva);
-            transform: scale(1.1);
-        }
-
-        .remove-item {
-            background: var(--guacamaya);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .remove-item:hover {
-            background: #B41E1E;
-            transform: scale(1.05);
-        }
-
-        .cart-empty {
-            text-align: center;
-            padding: 3rem;
-            color: #999;
-        }
-
-        .cart-empty-emoji {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cart-total {
-            background: linear-gradient(135deg, var(--sol), var(--tucan));
-            padding: 2rem;
-            border-radius: 0 0 25px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .cart-total-label {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .cart-total-amount {
-            font-family: 'Amatic SC', cursive;
-            font-size: 3rem;
-            color: white;
-            font-weight: 700;
-        }
-
-        .whatsapp-btn {
-            width: 100%;
-            padding: 1.5rem;
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Amatic SC', cursive;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .whatsapp-btn:hover {
-            background: #20BA5A;
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Admin Panel */
-        .admin-section {
-            margin-top: 3rem;
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.98));
-            border-radius: 30px;
-            padding: 3rem;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            border: 3px solid var(--orquidea);
-        }
-
-        .admin-title {
-            font-family: 'Amatic SC', cursive;
-            font-size: 3.5rem;
-            color: var(--orquidea);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--bosque);
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 3px solid var(--bambu);
-            border-radius: 15px;
-            font-family: 'Merriweather', serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--helecho);
-            box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.2);
-        }
-
-        .admin-btn {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--orquidea), var(--guacamaya));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.3);
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .admin-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.5);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--bosque), var(--selva));
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '🌿';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 4rem;
-            opacity: 0.2;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--tucan), var(--sol));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.5rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .social-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 3rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .category-filter {
-                flex-direction: column;
-            }
-
-            .category-btn {
-                width: 100%;
-            }
-
-            .cart-float {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .cart-button {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Password Modal */
-        .password-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(27, 67, 50, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-        }
-
-        .password-modal.active {
-            display: flex;
-        }
-
-        .password-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 30px;
-            max-width: 400px;
-            width: 90%;
-            border: 5px solid var(--helecho);
-        }
-
-        .password-content h3 {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--bosque);
-            text-align: center;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 1rem;
-            border: 3px solid var(--bambu);
-            border-radius: 15px;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLD DOG — Calidad Real. Precios Justos.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & VARS ─── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --cream: #faf8f5;
+  --white: #ffffff;
+  --black: #111111;
+  --grey-100: #f2f0ed;
+  --grey-200: #e4e1dc;
+  --grey-400: #9a9590;
+  --grey-600: #6b6560;
+  --brown-warm: #8b6f47;
+  --brown-light: #c4a46b;
+  --gold: #b8960c;
+  /* Brand gold extrapolated from the OLD DOG logo */
+  --brand-gold: #d4a820;
+  --brand-gold-deep: #b8960c;
+  --brand-gold-soft: rgba(212,168,32,0.14);
+  --brand-brown-soft: rgba(139,111,71,0.12);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: var(--sans); border: none; background: none; cursor: pointer; }
+
+/* ─── ANNOUNCEMENT BAR ─── */
+.announce-bar { background: var(--black); color: #fff; text-align: center; padding: 9px 16px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.announce-bar a { color: var(--brand-gold); text-decoration: underline; margin-left: 6px; cursor:pointer; }
+
+/* ─── HEADER ─── */
+header { background: var(--white); border-bottom: 1px solid var(--grey-200); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+.nav-left { display: flex; align-items: center; gap: 28px; }
+.nav-left .dropdown { position: relative; }
+.nav-left .dropdown > a { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; display: flex; align-items: center; gap: 4px; padding: 8px 0; cursor:pointer; }
+.nav-left .dropdown > a .arrow { font-size: 9px; transition: transform 0.2s; }
+.nav-left .dropdown:hover > a .arrow { transform: rotate(180deg); }
+.nav-left .dropdown-menu { position: absolute; top: calc(100% + 8px); left: -16px; background: #fff; border: 1px solid var(--grey-200); box-shadow: 0 8px 32px rgba(0,0,0,0.1); min-width: 200px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.22s ease; z-index: 10; }
+.nav-left .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+.nav-left .dropdown-menu a { display: block; padding: 11px 20px; font-size: 13px; border-bottom: 1px solid var(--grey-100); transition: background 0.15s, border-left 0.15s; cursor:pointer; border-left: 3px solid transparent; }
+.nav-left .dropdown-menu a:last-child { border-bottom: none; }
+.nav-left .dropdown-menu a:hover { background: var(--grey-100); border-left-color: var(--brand-gold); }
+.nav-left > a { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; cursor:pointer; }
+/* Logo — subtle gold underline on hover matching brand */
+.logo { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); white-space: nowrap; cursor:pointer; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
+.logo:hover { border-bottom-color: var(--brand-gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-right a { font-size: 13px; font-weight: 500; cursor:pointer; }
+.nav-right .icon-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; position: relative; cursor:pointer; transition: color 0.2s; }
+.nav-right .icon-btn:hover { color: var(--brand-gold-deep); }
+.nav-right .icon-btn svg { width: 20px; height: 20px; }
+.cart-count { position: absolute; top: 4px; right: 4px; background: var(--black); color: #fff; font-size: 9px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+
+/* ─── HERO ─── */
+.hero { position: relative; width: 100%; height: 520px; background: var(--black); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(60,40,20,0.7) 0%, rgba(20,15,10,0.85) 50%, rgba(40,25,15,0.7) 100%); }
+.hero-bg::before { content:''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E"); opacity: 0.4; }
+.hero-boot-svg { position: absolute; right: 8%; bottom: 0; width: 380px; height: 420px; opacity: 0.18; }
+.hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 24px; }
+.hero-content h1 { font-family: var(--serif); font-size: 58px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 12px; }
+.hero-content .hero-sub { font-family: var(--serif); font-size: 20px; font-style: italic; font-weight: 400; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+.hero-btns { display: flex; gap: 16px; justify-content: center; }
+.hero-btn { padding: 14px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #fff; color: #fff; transition: background 0.25s, color 0.25s, border-color 0.25s; cursor:pointer; }
+.hero-btn:hover { background: #fff; color: var(--black); }
+/* Filled hero button: white bg, on hover gold border + black bg */
+.hero-btn.filled { background: #fff; color: var(--black); }
+.hero-btn.filled:hover { background: transparent; color: #fff; border-color: var(--brand-gold); }
+
+/* ─── SOCIAL PROOF ─── */
+.proof-section { padding: 56px 24px; text-align: center; background: var(--white); }
+.proof-section h2 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--grey-600); margin-bottom: 28px; }
+.quotes-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 32px; max-width: 900px; margin: 0 auto 32px; }
+.quote-item { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--grey-600); max-width: 260px; line-height: 1.5; }
+.press-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 28px; }
+.press-logo { font-family: var(--serif); font-weight: 700; font-size: 18px; color: var(--grey-400); letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.press-logo:hover { color: var(--brand-gold-deep); }
+.review-badge { font-size: 13px; color: var(--grey-600); font-weight: 500; }
+/* Stars use the brand gold */
+.review-badge .stars { color: var(--brand-gold); font-size: 15px; letter-spacing: 2px; }
+
+/* ─── CATEGORY GRID ─── */
+.category-grid-section { padding: 0 24px; max-width: 1320px; margin: 0 auto; }
+.cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.cat-card { position: relative; overflow: hidden; cursor: pointer; border-radius: 2px; }
+.cat-card.big { height: 340px; }
+.cat-card-bg { width: 100%; height: 100%; transition: transform 0.5s ease; }
+.cat-card:hover .cat-card-bg { transform: scale(1.04); }
+.cat-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 28px; }
+.cat-card-overlay h3 { color: #fff; font-family: var(--serif); font-size: 22px; font-weight: 600; }
+/* Subtle gold underline on category card titles on hover */
+.cat-card:hover .cat-card-overlay h3 { text-shadow: 0 2px 0 var(--brand-gold); }
+.cat-row-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
+.cat-row-4 .cat-card { height: 220px; }
+
+/* ─── PRODUCTS ─── */
+.products-section { padding: 64px 24px; max-width: 1320px; margin: 0 auto; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.section-header h2 { font-family: var(--serif); font-size: 30px; font-weight: 600; }
+.section-header a { font-size: 13px; font-weight: 500; color: var(--grey-600); text-decoration: underline; text-underline-offset: 3px; cursor:pointer; transition: color 0.2s; }
+.section-header a:hover { color: var(--brand-gold-deep); }
+.tab-pills { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap:wrap; }
+.tab-pill { padding: 8px 20px; font-size: 13px; font-weight: 500; border: 1px solid var(--grey-200); color: var(--grey-600); border-radius: 100px; transition: all 0.2s; background: transparent; cursor:pointer; }
+.tab-pill:hover { border-color: var(--black); color: var(--black); }
+/* Active pill: black bg, gold bottom shadow accent */
+.tab-pill.active { background: var(--black); color: #fff; border-color: var(--black); box-shadow: 0 2px 0 var(--brand-gold); }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-card { cursor: pointer; }
+.prod-img-wrap { aspect-ratio: 1; overflow: hidden; background: var(--grey-100); margin-bottom: 14px; border-radius: 2px; position: relative; transition: box-shadow 0.25s; }
+.product-card:hover .prod-img-wrap { box-shadow: 0 0 0 2px var(--brand-gold-soft); }
+.prod-img-wrap svg { transition: transform 0.4s ease; }
+.product-card:hover .prod-img-wrap svg { transform: scale(1.03); }
+.prod-img-wrap .quick-add { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%) translateY(12px); background: var(--black); color: #fff; padding: 10px 24px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transition: all 0.25s; white-space: nowrap; border-radius: 1px; cursor:pointer; border: 1px solid transparent; }
+.prod-img-wrap .quick-add:hover { border-color: var(--brand-gold); background: #222; }
+.product-card:hover .quick-add { opacity: 1; transform: translateX(-50%) translateY(0); }
+.prod-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 3px; }
+.prod-color { font-size: 13px; color: var(--grey-600); margin-bottom: 5px; }
+.prod-rating { font-size: 12px; color: var(--grey-600); margin-bottom: 5px; }
+/* Product star rating in brand gold */
+.prod-rating .stars-y { color: var(--brand-gold); }
+.prod-price { font-size: 15px; font-weight: 600; }
+
+/* ─── BRAND STRIP ─── */
+.brand-strip { background: var(--black); color: #fff; padding: 72px 24px; text-align: center; }
+.brand-strip h2 { font-family: var(--serif); font-size: 36px; font-weight: 600; margin-bottom: 16px; }
+/* "Why Old Dog" heading — subtle gold tint */
+.brand-strip h2 { color: #fff; }
+.brand-strip p { max-width: 560px; margin: 0 auto 36px; color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; }
+.brand-btns { display: flex; gap: 16px; justify-content: center; }
+.brand-btn { padding: 14px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.4); color: #fff; transition: background 0.25s, border-color 0.25s; cursor:pointer; }
+.brand-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--brand-gold); }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 960px; margin: 48px auto 0; text-align: center; }
+/* Pillar icons in brand gold */
+.pillar-icon { font-size: 28px; margin-bottom: 12px; color: var(--brand-gold); }
+.pillar h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.pillar p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--cream); border-top: 1px solid var(--grey-200); padding: 56px 24px 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.4fr; gap: 48px; }
+.footer-col h4 { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; color: var(--black); }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { font-size: 14px; color: var(--grey-600); transition: color 0.2s; cursor:pointer; }
+.footer-col ul li a:hover { color: var(--brand-gold-deep); }
+/* Footer brand name in brand gold */
+.footer-col .brand-text { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 12px; color: var(--brand-gold-deep); }
+.footer-col .brand-desc { font-size: 13px; color: var(--grey-600); line-height: 1.6; margin-bottom: 16px; }
+.social-row { display: flex; gap: 16px; }
+.social-row a { color: var(--grey-600); font-size: 18px; transition: color 0.2s; cursor:pointer; font-weight: 600; }
+.social-row a:hover { color: var(--brand-gold); }
+.newsletter-input-wrap { display: flex; margin-top: 8px; }
+.newsletter-input-wrap input { flex: 1; padding: 12px 14px; border: 1px solid var(--grey-200); border-right: none; font-size: 13px; font-family: var(--sans); background: #fff; outline: none; transition: border-color 0.2s; }
+.newsletter-input-wrap input:focus { border-color: var(--brand-gold); }
+.newsletter-input-wrap button { padding: 12px 20px; background: var(--black); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor:pointer; transition: background 0.2s; }
+.newsletter-input-wrap button:hover { background: var(--brown-warm); }
+.footer-bottom { max-width: 1200px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--grey-200); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--grey-400); flex-wrap:wrap; gap:12px; }
+.footer-bottom a { color: var(--grey-400); margin-left: 20px; cursor:pointer; }
+.footer-bottom a:hover { color: var(--black); }
+.country-sel { font-size: 12px; color: var(--grey-600); border: 1px solid var(--grey-200); padding: 6px 10px; border-radius: 3px; background: #fff; font-family: var(--sans); cursor: pointer; max-width: 220px; }
+.country-sel optgroup { font-size: 11px; color: var(--grey-400); font-weight: 600; }
+.country-sel option { font-size: 13px; color: var(--black); }
+
+/* ─── CART SIDEBAR ─── */
+.cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:200; opacity:0; visibility:hidden; transition:opacity 0.3s; }
+.cart-overlay.open { opacity:1; visibility:visible; }
+.cart-sidebar { position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100%; background: #fff; z-index: 201; transition: right 0.35s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.12); }
+.cart-sidebar.open { right: 0; }
+.cart-head { padding: 24px; border-bottom: 1px solid var(--grey-200); display: flex; justify-content: space-between; align-items: center; }
+.cart-head h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+.cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+.cart-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--grey-100); }
+.cart-item-img { width: 72px; height: 72px; background: var(--grey-100); flex-shrink: 0; border-radius: 2px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-info .ci-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+.cart-item-info .ci-color { font-size: 12px; color: var(--grey-600); }
+.cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.cart-item-right .ci-price { font-weight: 600; font-size: 14px; }
+.qty-control { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.qty-control button { width: 24px; height: 24px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 16px; cursor:pointer; background: none; transition: border-color 0.15s; }
+.qty-control button:hover { border-color: var(--brand-gold); }
+.cart-footer { padding: 24px; border-top: 1px solid var(--grey-200); }
+.cart-total { display: flex; justify-content: space-between; font-weight: 600; font-size: 16px; margin-bottom: 20px; }
+.checkout-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s, box-shadow 0.2s; cursor:pointer; border: none; }
+.checkout-btn:hover { background: #222; box-shadow: inset 0 -2px 0 var(--brand-gold); }
+.cart-empty { text-align: center; padding: 60px 0; color: var(--grey-400); font-size: 15px; }
+
+/* ─── DETAIL MODAL ─── */
+.detail-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; opacity:0; visibility:hidden; transition:opacity 0.3s; }
+.detail-overlay.open { opacity:1; visibility:visible; }
+.detail-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.96); width: 90vw; max-width: 860px; background: #fff; z-index: 201; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(.4,0,.2,1); border-radius: 4px; max-height: 90vh; overflow-y: auto; display: flex; }
+.detail-modal.open { opacity:1; visibility:visible; transform: translate(-50%,-50%) scale(1); }
+.detail-left { width: 50%; flex-shrink: 0; background: var(--grey-100); min-height: 480px; display: flex; align-items:center; justify-content:center; position:relative; }
+.detail-right { width: 50%; padding: 48px 40px; }
+.detail-right h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin-bottom: 6px; }
+.detail-right .detail-color { color: var(--grey-600); font-size: 14px; margin-bottom: 12px; }
+.detail-right .detail-rating { font-size: 13px; color: var(--brand-gold); margin-bottom: 16px; }
+.detail-right .detail-price { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+.detail-right .detail-desc { font-size: 14px; color: var(--grey-600); line-height: 1.7; margin-bottom: 28px; }
+.detail-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--grey-600); margin-bottom: 10px; }
+.size-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.size-opt { width: 48px; height: 48px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; background: #fff; }
+.size-opt:hover { border-color: var(--brand-gold); }
+/* Active size: black bg with brand-gold bottom accent */
+.size-opt.active { background: var(--black); color: #fff; border-color: var(--black); box-shadow: inset 0 -2px 0 var(--brand-gold); }
+.add-to-cart-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s, box-shadow 0.2s; margin-top: 8px; cursor:pointer; border: none; }
+.add-to-cart-btn:hover { background: #222; box-shadow: inset 0 -2px 0 var(--brand-gold); }
+.detail-close { position: absolute; top: 16px; right: 16px; z-index: 5; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; backdrop-filter: blur(4px); cursor:pointer; border: none; transition: background 0.2s; }
+.detail-close:hover { background: var(--brand-gold-soft); }
+
+/* ─── CHECKOUT ─── */
+.checkout-page { display: none; min-height: 100vh; background: var(--cream); }
+.checkout-page.active { display: block; }
+.checkout-inner { max-width: 1000px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; }
+.checkout-head { margin-bottom: 32px; }
+.checkout-head .back-link { font-size: 13px; color: var(--grey-600); margin-bottom: 8px; display: inline-flex; align-items: center; gap: 4px; cursor:pointer; transition: color 0.2s; }
+.checkout-head .back-link:hover { color: var(--brand-gold-deep); }
+.checkout-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; }
+.form-row { display: flex; gap: 16px; margin-bottom: 16px; }
+.form-group { flex: 1; }
+.form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey-600); margin-bottom: 8px; }
+.form-group input, .form-group select { width: 100%; padding: 13px 14px; border: 1px solid var(--grey-200); font-size: 14px; font-family: var(--sans); background: #fff; outline: none; transition: border-color 0.2s; }
+.form-group input:focus, .form-group select:focus { border-color: var(--brand-gold); }
+.form-group input.error { border-color: #e53935; }
+.payment-methods { display: flex; gap: 8px; margin-bottom: 24px; }
+.pay-method { flex: 1; padding: 12px 8px; border: 2px solid var(--grey-200); text-align: center; font-size: 12px; font-weight: 600; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: #fff; }
+.pay-method:hover { border-color: var(--grey-400); }
+/* Active payment method: gold border + soft gold bg */
+.pay-method.active { border-color: var(--brand-gold); background: var(--brand-gold-soft); }
+.place-order-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; transition: background 0.2s, box-shadow 0.2s; cursor:pointer; border: none; }
+.place-order-btn:hover { background: #222; box-shadow: inset 0 -2px 0 var(--brand-gold); }
+.order-summary { background: #fff; border: 1px solid var(--grey-200); padding: 28px; border-radius: 2px; height: fit-content; position: sticky; top: 80px; }
+.order-summary h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--grey-200); }
+.os-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--grey-100); font-size: 14px; }
+.os-item .os-name { color: var(--grey-600); }
+.os-total { display: flex; justify-content: space-between; padding: 16px 0 0; font-weight: 700; font-size: 16px; margin-top: 8px; }
+.os-shipping { font-size: 12px; color: var(--brown-warm); text-align: center; margin-top: 12px; font-weight: 500; }
+
+/* ─── SUCCESS ─── */
+.success-page { display: none; min-height: 100vh; background: var(--cream); }
+.success-page.active { display: flex; align-items: center; justify-content: center; }
+.success-card { background: #fff; padding: 72px 56px; text-align: center; border-radius: 4px; max-width: 480px; width: 90%; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+/* Success checkmark circle uses brand gold */
+.success-icon { width: 72px; height: 72px; margin: 0 auto 24px; background: var(--brand-gold-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.success-icon svg { width: 36px; height: 36px; stroke: var(--brand-gold-deep); }
+.success-card h2 { font-family: var(--serif); font-size: 26px; margin-bottom: 8px; }
+.success-card .order-num { color: var(--brand-gold-deep); font-size: 14px; margin-bottom: 24px; font-weight: 600; }
+.success-card p { color: var(--grey-600); font-size: 14px; line-height: 1.6; margin-bottom: 28px; }
+.continue-btn { display: inline-block; padding: 14px 40px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor:pointer; transition: background 0.2s, box-shadow 0.2s; border: none; }
+.continue-btn:hover { background: #222; box-shadow: inset 0 -2px 0 var(--brand-gold); }
+
+/* ─── PROCESSING ─── */
+.processing-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.92); z-index:500; display:none; align-items:center; justify-content:center; flex-direction:column; gap:16px; }
+.processing-overlay.active { display:flex; }
+/* Spinner top color = brand gold */
+.spinner { width:40px; height:40px; border: 3px solid var(--grey-200); border-top-color: var(--brand-gold); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.processing-overlay p { font-size:15px; color:var(--grey-600); font-weight:500; }
+
+/* ─── TOAST ─── */
+/* Toast bottom border = brand gold */
+.toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--black); color:#fff; padding:14px 28px; border-radius:4px; font-size:14px; font-weight:500; z-index:600; transition:transform 0.35s cubic-bezier(.4,0,.2,1); white-space: nowrap; max-width:90vw; text-align:center; border-bottom: 2px solid var(--brand-gold); }
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+/* ─── SEARCH OVERLAY ─── */
+.search-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.97); z-index:300; display:none; flex-direction:column; align-items:center; padding-top:100px; }
+.search-overlay.active { display:flex; }
+.search-close { position:absolute; top:24px; right:32px; font-size:28px; cursor:pointer; color:var(--grey-600); }
+.search-close:hover { color:var(--black); }
+/* Search bar bottom border animates to brand gold on focus */
+.search-bar { display:flex; align-items:center; width:90%; max-width:640px; border-bottom:2px solid var(--black); padding-bottom:12px; margin-bottom:40px; transition: border-color 0.2s; }
+.search-bar:focus-within { border-bottom-color: var(--brand-gold); }
+.search-bar input { flex:1; font-size:28px; font-family:var(--serif); border:none; outline:none; background:transparent; color:var(--black); }
+.search-bar input::placeholder { color:var(--grey-400); }
+.search-bar svg { width:28px; height:28px; color:var(--grey-400); flex-shrink:0; }
+.search-results { width:90%; max-width:900px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.search-no-results { color:var(--grey-600); font-size:16px; text-align:center; margin-top:20px; }
+
+/* ─── INNER PAGES (shared) ─── */
+.inner-page { display:none; min-height:100vh; background:var(--cream); }
+.inner-page.active { display:block; }
+.inner-header { background:var(--black); color:#fff; padding:80px 24px 56px; text-align:center; }
+.inner-header h1 { font-family:var(--serif); font-size:42px; font-weight:600; margin-bottom:10px; }
+/* Inner page subtitle in brand gold */
+.inner-header p { color:rgba(255,255,255,0.6); font-size:16px; max-width:560px; margin:0 auto; line-height:1.6; }
+.inner-body { max-width:860px; margin:0 auto; padding:60px 24px; }
+.inner-body h2 { font-family:var(--serif); font-size:24px; font-weight:600; margin:40px 0 14px; }
+.inner-body h2:first-child { margin-top:0; }
+/* Inner page h3 headings in brand gold-deep (warm brown-gold) */
+.inner-body h3 { font-family:var(--serif); font-size:18px; font-weight:600; margin:28px 0 10px; color:var(--brand-gold-deep); }
+.inner-body p { font-size:15px; color:var(--grey-600); line-height:1.8; margin-bottom:16px; }
+.inner-body ul { list-style:none; margin-bottom:16px; }
+.inner-body ul li { font-size:15px; color:var(--grey-600); line-height:1.8; padding-left:20px; position:relative; margin-bottom:6px; }
+/* List bullet in brand gold */
+.inner-body ul li::before { content:"›"; position:absolute; left:0; color:var(--brand-gold); font-weight:700; }
+.inner-back { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--grey-600); cursor:pointer; margin-bottom:32px; transition:color 0.2s; }
+.inner-back:hover { color:var(--brand-gold-deep); }
+
+/* FAQ accordion */
+.faq-item { border-bottom:1px solid var(--grey-200); transition: background 0.2s; }
+.faq-item.open { background: var(--brand-gold-soft); border-radius: 4px 4px 0 0; }
+.faq-q { padding:18px 0; font-size:15px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.faq-q .faq-icon { font-size:20px; transition:transform 0.2s; color:var(--grey-400); }
+.faq-item.open .faq-icon { transform:rotate(45deg); color: var(--brand-gold-deep); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+.faq-item.open .faq-a { max-height:200px; }
+.faq-a p { padding:0 0 18px; font-size:14px; color:var(--grey-600); line-height:1.7; }
+
+/* Stores grid */
+.stores-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:32px; }
+.store-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; padding:28px; transition: border-color 0.2s, box-shadow 0.2s; }
+.store-card:hover { border-color: var(--brand-gold); box-shadow: 0 2px 12px var(--brand-gold-soft); }
+.store-card h3 { font-family:var(--serif); font-size:18px; margin-bottom:8px; color:var(--black); }
+.store-card p { font-size:14px; color:var(--grey-600); margin-bottom:4px; line-height:1.6; }
+.store-card .store-hours { margin-top:12px; font-size:13px; color:var(--brand-gold-deep); font-weight:600; }
+
+/* Reviews grid */
+.reviews-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:32px; }
+.review-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; padding:24px; transition: border-color 0.2s; }
+.review-card:hover { border-color: var(--brand-gold-soft); }
+/* Review stars in brand gold */
+.review-card .rev-stars { color: var(--brand-gold); font-size:15px; margin-bottom:8px; }
+.review-card .rev-text { font-size:14px; color:var(--grey-600); line-height:1.7; font-style:italic; margin-bottom:12px; }
+.review-card .rev-author { font-size:13px; font-weight:600; }
+.review-card .rev-date { font-size:12px; color:var(--grey-400); }
+
+/* Contact form */
+.contact-form { margin-top:24px; }
+.contact-form .form-row { display:flex; gap:16px; margin-bottom:16px; }
+.contact-form .form-group { flex:1; }
+.contact-form .form-group label { display:block; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-600); margin-bottom:8px; }
+.contact-form .form-group input,
+.contact-form .form-group select,
+.contact-form .form-group textarea { width:100%; padding:13px 14px; border:1px solid var(--grey-200); font-size:14px; font-family:var(--sans); background:#fff; outline:none; transition:border-color 0.2s; border-radius:2px; }
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus { border-color:var(--brand-gold); }
+.contact-form textarea { resize:vertical; min-height:140px; }
+.contact-form .send-btn { padding:14px 40px; background:var(--black); color:#fff; font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; margin-top:8px; transition:background 0.2s, box-shadow 0.2s; border: none; }
+.contact-form .send-btn:hover { background:#222; box-shadow: inset 0 -2px 0 var(--brand-gold); }
+
+/* Gift cards */
+.gift-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; }
+.gift-card { background:linear-gradient(135deg,#1a1410 0%,#2c1e10 60%,#3d2a14 100%); border-radius:8px; padding:32px 24px; color:#fff; position:relative; overflow:hidden; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s; border: 1px solid rgba(212,168,32,0.25); }
+.gift-card:hover { transform:translateY(-4px); box-shadow: 0 6px 24px rgba(0,0,0,0.25); border-color: var(--brand-gold); }
+.gift-card::before { content:''; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border:2px solid rgba(255,255,255,0.1); border-radius:50%; }
+/* Gift card amount in brand gold */
+.gift-card .gc-amount { font-family:var(--serif); font-size:32px; font-weight:700; margin-bottom:8px; color: var(--brand-gold); }
+.gift-card .gc-label { font-size:13px; color:rgba(255,255,255,0.6); letter-spacing:0.05em; text-transform:uppercase; }
+.gift-card .gc-desc { font-size:13px; color:rgba(255,255,255,0.5); margin-top:16px; line-height:1.5; }
+
+/* Ambassadors */
+.ambassador-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+.ambassador-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; overflow:hidden; text-align:center; transition: border-color 0.2s, box-shadow 0.2s; }
+.ambassador-card:hover { border-color: var(--brand-gold); box-shadow: 0 2px 12px var(--brand-gold-soft); }
+.ambassador-avatar { width:100%; height:200px; display:flex; align-items:center; justify-content:center; font-size:64px; background: linear-gradient(135deg, var(--brand-brown-soft), var(--brand-gold-soft)); }
+.ambassador-card h3 { font-family:var(--serif); font-size:18px; margin:16px 0 4px; }
+.ambassador-card p { font-size:13px; color:var(--grey-600); padding:0 16px 20px; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .product-grid { grid-template-columns: repeat(3,1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .cat-row-4 { grid-template-columns: repeat(2,1fr); }
+  .hero-content h1 { font-size: 42px; }
+  .search-results { grid-template-columns:repeat(3,1fr); }
+  .stores-grid { grid-template-columns:1fr; }
+  .gift-cards-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width: 680px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  .cat-grid { grid-template-columns: 1fr; }
+  .cat-row-4 { grid-template-columns: 1fr 1fr; }
+  .hero { height: 380px; }
+  .hero-content h1 { font-size: 34px; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .detail-modal { flex-direction: column; }
+  .detail-left { width: 100%; min-height: 260px; }
+  .detail-right { width: 100%; padding: 28px 24px; }
+  .checkout-inner { grid-template-columns: 1fr; }
+  .nav-left .dropdown-menu, .nav-left > a:not(.logo) { display: none; }
+  .search-results { grid-template-columns:repeat(2,1fr); }
+  .reviews-grid { grid-template-columns:1fr; }
+  .ambassador-grid { grid-template-columns:1fr 1fr; }
+  .inner-header h1 { font-size:30px; }
+}
+@media (max-width: 420px) {
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hero-content h1 { font-size: 28px; }
+  .hero-content .hero-sub { font-size: 15px; }
+  .gift-cards-grid { grid-template-columns:1fr; }
+  .ambassador-grid { grid-template-columns:1fr; }
+}
+
+/* ─── PAGE SWITCHING ─── */
+.main-site { display: block; }
+.main-site.hidden { display: none; }
+</style>
 </head>
 <body>
-    <!-- Decoraciones de hojas -->
-    <div class="leaf-decoration leaf-1">🌿</div>
-    <div class="leaf-decoration leaf-2">🍃</div>
-    <div class="leaf-decoration leaf-3">🌱</div>
-    <div class="leaf-decoration leaf-4">🌺</div>
-    <div class="leaf-decoration leaf-5">🦜</div>
 
-    <header>
-        <div class="logo">ARAMACAO ART</div>
-        <div class="nature-divider">🌺 🦜 🌿 🦋 🌸</div>
-        <div class="tagline">
-            <strong>Artesanías con alma de la naturaleza</strong><br>
-            ✨Creer para crear✨ | ❌Sin moldes❌<br>
-            Inspiradas en la belleza de Colombia y Venezuela 🇨🇴🇻🇪
+<!-- ══════ MAIN SITE ══════ -->
+<div class="main-site" id="mainSite">
+
+<!-- Announcement -->
+<div class="announce-bar">
+  ENVÍOS GRATIS EN TODO COLOMBIA SOBRE $500.000 &nbsp;<a onclick="openShippingModal()">Detalles</a>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <nav class="nav-left">
+      <div class="dropdown">
+        <a><span>Colecciones</span> <span class="arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a onclick="filterTab('heritage')">Heritage Crupón</a>
+          <a onclick="filterTab('urban')">Urban Ligth</a>
+          <a onclick="filterTab('essentials')">Essentials</a>
+          <a onclick="filterTab('executive')">Executive</a>
         </div>
-    </header>
+      </div>
+      <a onclick="navigateTo('sobreNosotros')">Sobre Nosotros</a>
+    </nav>
+    <a class="logo" onclick="scrollToTop()">OLD DOG</a>
+    <nav class="nav-right">
+      <a onclick="navigateTo('tiendas')">Tiendas</a>
+      <a onclick="navigateTo('ayuda')">Ayuda</a>
+      <div class="icon-btn" onclick="openCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+      <div class="icon-btn" onclick="openSearch()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    <div class="container">
-        <!-- Bienvenida -->
-        <div class="welcome-section">
-            <h2>🌿 Bienvenidos a nuestra selva artesanal 🌿</h2>
-            <p>
-                Cada pieza está inspirada en la exuberante naturaleza de nuestras tierras.
-                Desde las montañas verdes de los Andes hasta las costas del Caribe,
-                cada creación lleva un pedacito de nuestra biodiversidad.
-            </p>
-            <p>
-                <strong>🦜 Explora nuestro catálogo y lleva la naturaleza contigo 🌺</strong>
-            </p>
-        </div>
-
-        <!-- Filtro de categorías -->
-        <div class="category-filter">
-            <button class="category-btn active" onclick="filterCategory('all')">🌈 Todo</button>
-            <button class="category-btn" onclick="filterCategory('aretes')">💎 Aretes</button>
-            <button class="category-btn" onclick="filterCategory('pines')">🎨 Pines</button>
-            <button class="category-btn" onclick="filterCategory('funko')">🎭 Funko Pop</button>
-            <button class="category-btn" onclick="filterCategory('decoracion')">🌸 Decoración</button>
-        </div>
-
-        <!-- Grid de productos -->
-        <div class="products-grid" id="productsGrid">
-            <!-- Los productos se cargan aquí -->
-        </div>
-
-        <!-- Admin Panel -->
-        <div class="admin-section" id="adminSection" style="display: none;">
-            <h2 class="admin-title">🔐 Panel de Administración Natural</h2>
-            
-            <div class="form-group">
-                <label>🏷️ Nombre del Producto</label>
-                <input type="text" id="productName" placeholder="Ej: Aretes de Guacamaya">
-            </div>
-
-            <div class="form-group">
-                <label>📝 Descripción</label>
-                <textarea id="productDescription" placeholder="Describe tu creación inspirada en la naturaleza..."></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>💰 Precio (COP)</label>
-                <input type="number" id="productPrice" placeholder="15000">
-            </div>
-
-            <div class="form-group">
-                <label>📦 Stock Disponible</label>
-                <input type="number" id="productStock" placeholder="10">
-            </div>
-
-            <div class="form-group">
-                <label>🗂️ Categoría</label>
-                <select id="productCategory">
-                    <option value="aretes">Aretes</option>
-                    <option value="pines">Pines</option>
-                    <option value="funko">Funko Pop</option>
-                    <option value="decoracion">Decoración</option>
-                    <option value="otros">Otros</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>🎨 Emoji (para visualización)</label>
-                <input type="text" id="productEmoji" placeholder="🦜" maxlength="5">
-            </div>
-
-            <button class="admin-btn" onclick="addProduct()">➕ Agregar Producto</button>
-            <button class="admin-btn" onclick="clearForm()" style="background: linear-gradient(135deg, var(--helecho), var(--bambu));">🔄 Limpiar</button>
-            <button class="admin-btn" onclick="toggleAdmin()" style="background: linear-gradient(135deg, #666, #999);">❌ Cerrar Admin</button>
-
-            <div id="adminProductList" style="margin-top: 2rem;">
-                <!-- Lista de productos para editar/eliminar -->
-            </div>
-        </div>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-boot-svg" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60 40 C60 40 80 30 120 35 L140 35 C160 35 170 50 170 70 L170 200 C170 220 175 240 190 250 L240 275 C260 285 270 300 270 320 L270 360 C270 375 260 385 245 385 L55 385 C40 385 35 375 35 360 L35 330 C35 310 45 295 60 290 L60 40Z" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M60 40 L60 290" stroke="white" stroke-width="1" opacity="0.3"/>
+    <path d="M170 70 L170 200" stroke="white" stroke-width="1" opacity="0.3"/>
+    <rect x="35" y="355" width="235" height="30" rx="3" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <line x1="95" y1="60" x2="140" y2="55" stroke="white" stroke-width="1.5" opacity="0.4"/>
+    <line x1="93" y1="75" x2="138" y2="70" stroke="white" stroke-width="1.5" opacity="0.4"/>
+    <line x1="91" y1="90" x2="136" y2="85" stroke="white" stroke-width="1.5" opacity="0.4"/>
+    <line x1="89" y1="105" x2="134" y2="100" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </svg>
+  <div class="hero-content">
+    <h1>Calidad Real.<br>Precios Justos.</h1>
+    <p class="hero-sub">Elaborado con integridad</p>
+    <div class="hero-btns">
+      <button class="hero-btn filled" onclick="filterTab('heritage')">Colección Heritage</button>
+      <button class="hero-btn" onclick="filterTab('executive')">Colección Executive</button>
     </div>
+  </div>
+</section>
 
-    <!-- Botón flotante del carrito -->
-    <div class="cart-float">
-        <button class="cart-button" onclick="toggleCart()">
-            🛒
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
+<!-- Social Proof -->
+<section class="proof-section">
+  <h2>Lo que dicen nuestros clientes</h2>
+  <div class="quotes-row">
+    <p class="quote-item">"Las mejores botas bajo $1.500.000"</p>
+    <p class="quote-item">"Perfectamente sutiles y muy bien hechas."</p>
+    <p class="quote-item">"Duraderas, versátiles y cómodas sin costar una fortuna."</p>
+  </div>
+  <div class="press-logos">
+    <span class="press-logo">El Tiempo</span>
+    <span class="press-logo">Semana</span>
+    <span class="press-logo">Portafolio</span>
+    <span class="press-logo">El Espectador</span>
+    <span class="press-logo">Blu Radio</span>
+  </div>
+  <div class="review-badge">
+    <span class="stars">★★★★★</span> &nbsp; Más de 12,000 reseñas de 5 estrellas
+  </div>
+</section>
+
+<!-- Category Grid -->
+<section class="category-grid-section">
+  <div class="cat-grid">
+    <div class="cat-card big" onclick="filterTab('heritage')">
+      <svg class="cat-card-bg" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2c1810"/><stop offset="100%" stop-color="#5a3a25"/></linearGradient></defs>
+        <rect width="600" height="340" fill="url(#g1)"/>
+        <g opacity="0.35" transform="translate(380,30) scale(0.7)">
+          <path d="M60 40 C60 40 80 30 120 35 L140 35 C160 35 170 50 170 70 L170 200 C170 220 175 240 190 250 L240 275 C260 285 270 300 270 320 L270 360 C270 375 260 385 245 385 L55 385 C40 385 35 375 35 360 L35 330 C35 310 45 295 60 290 L60 40Z" stroke="white" stroke-width="2.5" fill="none"/>
+          <rect x="35" y="355" width="235" height="30" rx="3" stroke="white" stroke-width="2" fill="none"/>
+        </g>
+      </svg>
+      <div class="cat-card-overlay"><h3>Heritage Crupón</h3></div>
     </div>
-
-    <!-- Modal del carrito -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>🛒 Tu Carrito Natural</h2>
-                <button class="close-cart" onclick="toggleCart()">✕</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <div class="cart-empty">
-                    <div class="cart-empty-emoji">🌿</div>
-                    <p>Tu carrito está vacío</p>
-                    <p>Agrega algunos productos de la naturaleza</p>
-                </div>
-            </div>
-            <div class="cart-total" id="cartTotalSection" style="display: none;">
-                <div style="width: 100%;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span class="cart-total-label">Total:</span>
-                        <span class="cart-total-amount" id="cartTotal">$0</span>
-                    </div>
-                    <button class="whatsapp-btn" onclick="sendWhatsApp()">
-                        <span>📱</span>
-                        <span>Enviar pedido por WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <div class="cat-card big" onclick="filterTab('executive')">
+      <svg class="cat-card-bg" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#3d3530"/></linearGradient></defs>
+        <rect width="600" height="340" fill="url(#g2)"/>
+        <g opacity="0.3" transform="translate(350,20) scale(0.75)">
+          <path d="M80 50 C80 50 100 40 130 42 L150 42 C165 42 172 55 172 72 L172 180 C172 195 178 210 195 218 L230 235 C248 243 255 258 255 275 L255 315 C255 328 247 338 234 338 L70 338 C57 338 52 328 52 315 L52 290 C52 273 60 260 75 256 L80 50Z" stroke="white" stroke-width="2.5" fill="none"/>
+          <rect x="52" y="330" width="183" height="25" rx="2" stroke="white" stroke-width="2" fill="none"/>
+        </g>
+      </svg>
+      <div class="cat-card-overlay"><h3>Executive</h3></div>
     </div>
-
-    <!-- Password Modal -->
-    <div class="password-modal" id="passwordModal">
-        <div class="password-content">
-            <h3>🔐 Acceso Admin</h3>
-            <input type="password" class="password-input" id="adminPassword" placeholder="Contraseña">
-            <button class="admin-btn" onclick="checkPassword()" style="width: 100%;">Acceder</button>
-        </div>
+  </div>
+  <div class="cat-row-4">
+    <div class="cat-card" onclick="filterTab('urban')">
+      <svg class="cat-card-bg" viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3a3a3a"/><stop offset="100%" stop-color="#5c5550"/></linearGradient></defs>
+        <rect width="300" height="220" fill="url(#g3)"/>
+        <g opacity="0.25" transform="translate(140,15) scale(0.52)">
+          <path d="M60 40 C60 40 80 30 120 35 L140 35 C160 35 170 50 170 70 L170 200 C170 220 175 240 190 250 L240 275 C260 285 270 300 270 320 L270 360 C270 375 260 385 245 385 L55 385 C40 385 35 375 35 360 L35 330 C35 310 45 295 60 290 L60 40Z" stroke="white" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+      <div class="cat-card-overlay"><h3>Urban Ligth</h3></div>
     </div>
+    <div class="cat-card" onclick="filterTab('essentials')">
+      <svg class="cat-card-bg" viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g4" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6b5a4a"/><stop offset="100%" stop-color="#8a7560"/></linearGradient></defs>
+        <rect width="300" height="220" fill="url(#g4)"/>
+        <rect x="100" y="65" width="100" height="70" rx="6" stroke="white" stroke-width="2.5" fill="none" opacity="0.3"/>
+        <line x1="100" y1="90" x2="200" y2="90" stroke="white" stroke-width="1.5" opacity="0.25"/>
+      </svg>
+      <div class="cat-card-overlay"><h3>Essentials</h3></div>
+    </div>
+    <div class="cat-card" onclick="filterTab('heritage')">
+      <svg class="cat-card-bg" viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g5" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#4a3525"/><stop offset="100%" stop-color="#6e5040"/></linearGradient></defs>
+        <rect width="300" height="220" fill="url(#g5)"/>
+      </svg>
+      <div class="cat-card-overlay"><h3>Botas Clásicas</h3></div>
+    </div>
+    <div class="cat-card" onclick="filterTab('executive')">
+      <svg class="cat-card-bg" viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="g6" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#222"/><stop offset="100%" stop-color="#444"/></linearGradient></defs>
+        <rect width="300" height="220" fill="url(#g6)"/>
+      </svg>
+      <div class="cat-card-overlay"><h3>Zapatos Formales</h3></div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p style="font-size: 1.5rem; margin-bottom: 1rem;">🌿 Aramacao Art 🌿</p>
-        <p>Artesanías hechas con amor y respeto por la naturaleza</p>
-        <p style="margin-top: 1rem; font-style: italic;">De las tierras de Colombia y Venezuela para el mundo 🌎</p>
-        
-        <div class="social-links">
-            <a href="https://instagram.com/aramacao_art" target="_blank" class="social-btn">
-                📸 Instagram
-            </a>
-            <a href="https://www.tiktok.com/@aramacao_art" target="_blank" class="social-btn">
-                🎵 TikTok
-            </a>
-            <a href="#" onclick="showAdminLogin(); return false;" class="social-btn">
-                🔐 Admin
-            </a>
+<!-- Products: Heritage -->
+<section class="products-section">
+  <div class="section-header">
+    <h2>Heritage Crupón</h2>
+    <a onclick="filterTab('heritage')">Ver todas →</a>
+  </div>
+  <div class="product-grid" id="heritageGrid"></div>
+</section>
+
+<!-- Products: Executive -->
+<section class="products-section">
+  <div class="section-header">
+    <h2>Executive</h2>
+    <a onclick="filterTab('executive')">Ver todas →</a>
+  </div>
+  <div class="product-grid" id="executiveGrid"></div>
+</section>
+
+<!-- Tabbed full collection -->
+<section class="products-section">
+  <h2 style="font-family:var(--serif);font-size:30px;font-weight:600;margin-bottom:20px;">Todas las Colecciones</h2>
+  <div class="tab-pills">
+    <button class="tab-pill active" onclick="switchTab(this,'all')">Todas</button>
+    <button class="tab-pill" onclick="switchTab(this,'heritage')">Heritage Crupón</button>
+    <button class="tab-pill" onclick="switchTab(this,'urban')">Urban Ligth</button>
+    <button class="tab-pill" onclick="switchTab(this,'essentials')">Essentials</button>
+    <button class="tab-pill" onclick="switchTab(this,'executive')">Executive</button>
+  </div>
+  <div class="product-grid" id="allGrid"></div>
+</section>
+
+<!-- Brand Strip -->
+<section class="brand-strip">
+  <h2>¿Por qué Old Dog?</h2>
+  <p>En Old Dog trabajamos duro, pero también sabemos que la vida tiene muchas facetas. Por eso diseñamos calzado que se adapta a cada momento: desde la oficina hasta el fin de semana. Tu vida no es unidimensional. Tu calzado no debería serlo tampoco.</p>
+  <div class="brand-btns">
+    <button class="brand-btn" onclick="filterTab('heritage')">Heritage</button>
+    <button class="brand-btn" onclick="filterTab('executive')">Executive</button>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">🍂</div>
+      <h4>Cuero Premium</h4>
+      <p>Crupón seleccionado de las mejores tanerias de Colombia y España.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">✋</div>
+      <h4>Hecho a Mano</h4>
+      <p>Cada pieza es elaborada por maestros artesanos con décadas de experiencia.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📦</div>
+      <h4>Envío Nacional</h4>
+      <p>Entrega gratuita a todo Colombia en pedidos superiores a $500,000 COP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="brand-text">OLD DOG</div>
+      <p class="brand-desc">Calzado de calidad premium, elaborado a mano en Colombia con materiales excepcionales y un compromiso irrenunciable con la excelencia.</p>
+      <div class="social-row">
+        <a onclick="socialClick('Instagram')">ig</a>
+        <a onclick="socialClick('Facebook')">fb</a>
+        <a onclick="socialClick('Twitter')">tw</a>
+        <a onclick="socialClick('YouTube')">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul>
+        <li><a onclick="filterTab('heritage')">Heritage Crupón</a></li>
+        <li><a onclick="filterTab('urban')">Urban Ligth</a></li>
+        <li><a onclick="filterTab('essentials')">Essentials</a></li>
+        <li><a onclick="filterTab('executive')">Executive</a></li>
+        <li><a onclick="navigateTo('giftCards')">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Sobre Nosotros</h4>
+      <ul>
+        <li><a onclick="navigateTo('historia')">Nuestra Historia</a></li>
+        <li><a onclick="navigateTo('prensa')">Prensa</a></li>
+        <li><a onclick="navigateTo('resenas')">Reseñas</a></li>
+        <li><a onclick="navigateTo('tiendas')">Tiendas Físicas</a></li>
+        <li><a onclick="navigateTo('embajadores')">Embajadores</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Soporte</h4>
+      <ul>
+        <li><a onclick="navigateTo('ayuda')">Preguntas Frecuentes</a></li>
+        <li><a onclick="navigateTo('envios')">Envíos &amp; Devoluciones</a></li>
+        <li><a onclick="navigateTo('cuidado')">Cuidado del Calzado</a></li>
+        <li><a onclick="navigateTo('terminos')">Términos de Servicio</a></li>
+        <li><a onclick="navigateTo('privacidad')">Política de Privacidad</a></li>
+        <li><a onclick="navigateTo('contacto')">Contacto</a></li>
+      </ul>
+      <h4 style="margin-top:24px;">Suscríbete</h4>
+      <p style="font-size:13px;color:var(--grey-600);margin-bottom:10px;">Acceso anticipado y eventos exclusivos.</p>
+      <div class="newsletter-input-wrap">
+        <input type="email" id="newsletterEmail" placeholder="Tu correo" onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+        <button onclick="subscribeNewsletter()">Unirse</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Old Dog. Todos los derechos reservados.</span>
+    <div>
+      <select class="country-sel" id="countrySel" onchange="changeCurrency(this.value)">
+        <optgroup label="── América del Sur ──">
+          <option value="COP">🇨🇴 Colombia (COP $)</option>
+          <option value="BRL">🇧🇷 Brasil (BRL R$)</option>
+          <option value="ARS">🇦🇷 Argentina (ARS $)</option>
+          <option value="CLP">🇨🇱 Chile (CLP $)</option>
+          <option value="PEN">🇵🇪 Perú (PEN S/.)</option>
+          <option value="VES">🇻🇪 Venezuela (VES Bs)</option>
+          <option value="UYU">🇺🇾 Uruguay (UYU $U)</option>
+          <option value="PYG">🇵🇾 Paraguay (PYG ₲)</option>
+          <option value="BOB">🇧🇴 Bolivia (BOB Bs)</option>
+          <option value="SUR">🇸🇷 Surinam (SRD $)</option>
+        </optgroup>
+        <optgroup label="── América Central &amp; Caribe ──">
+          <option value="MXN">🇲🇽 México (MXN $)</option>
+          <option value="CRC">🇨🇷 Costa Rica (CRC ₡)</option>
+          <option value="GTM">🇬🇹 Guatemala (GTQ Q)</option>
+          <option value="HND">🇭🇳 Honduras (HNL L)</option>
+          <option value="SLV">🇸🇻 El Salvador (USD $)</option>
+          <option value="NIC">🇳🇮 Nicaragua (NIO C$)</option>
+          <option value="PAN">🇵🇦 Panamá (USD $)</option>
+          <option value="DOM">🇩🇴 Rep. Dominicana (DOP $)</option>
+          <option value="CUB">🇨🇺 Cuba (CUP $)</option>
+          <option value="HTI">🇭🇹 Haití (HTG G)</option>
+        </optgroup>
+        <optgroup label="── Otros ──">
+          <option value="USD">🇺🇸 Estados Unidos (USD $)</option>
+          <option value="EUR">🇪🇸 España (EUR €)</option>
+        </optgroup>
+      </select>
+      <a onclick="navigateTo('privacidad')">Privacidad</a>
+      <a onclick="navigateTo('terminos')">Términos</a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end main-site -->
+
+<!-- ══════ CHECKOUT PAGE ══════ -->
+<div class="checkout-page" id="checkoutPage">
+  <div class="checkout-inner">
+    <div>
+      <div class="checkout-head">
+        <a class="back-link" onclick="closeCheckout()">← Volver al carrito</a>
+        <h2>Pago</h2>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Juan" id="co-first"></div>
+        <div class="form-group"><label>Apellido</label><input type="text" placeholder="García" id="co-last"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Correo</label><input type="email" placeholder="juan@email.com" id="co-email"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Dirección</label><input type="text" placeholder="Calle 10 # 5-20" id="co-addr"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Ciudad</label><input type="text" placeholder="Bogotá" id="co-city"></div>
+        <div class="form-group"><label>Departamento</label>
+          <select id="co-dept">
+            <option value="">Seleccione...</option>
+            <option>Bogotá D.C.</option><option>Antioquia</option><option>Valle del Cauca</option>
+            <option>Atlántico</option><option>Santander</option><option>Bolívar</option>
+            <option>Norte de Santander</option><option>Córdoba</option><option>Sucre</option>
+            <option>Cauca</option><option>Nariño</option><option>Cali</option>
+          </select>
         </div>
-        
-        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2026 - Todos los derechos reservados</p>
-    </footer>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="300 123 4567" id="co-phone" oninput="formatPhone(this)"></div>
+      </div>
 
-    <script>
-        // CONFIGURACIÓN - ¡IMPORTANTE! Cambia estos valores
-        const WHATSAPP_NUMBER = '573184747046'; // Cambia por tu número (incluye código de país sin +)
-        const ADMIN_PASSWORD = 'natura2024'; // Cambia esta contraseña
+      <h3 style="font-family:var(--serif);font-size:20px;margin:32px 0 16px;">Método de Pago</h3>
+      <div class="payment-methods">
+        <button class="pay-method active" onclick="selectPay(this,'card')">💳 Tarjeta</button>
+        <button class="pay-method" onclick="selectPay(this,'nequi')">📱 Nequi</button>
+        <button class="pay-method" onclick="selectPay(this,'daviplata')">📱 DaviPlata</button>
+        <button class="pay-method" onclick="selectPay(this,'transfer')">🏦 Transferencia</button>
+      </div>
+      <div id="cardFields">
+        <div class="form-row">
+          <div class="form-group"><label>Número de tarjeta</label><input type="text" placeholder="1234 5678 9012 3456" id="co-card" oninput="formatCard(this)" maxlength="19"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre en tarjeta</label><input type="text" placeholder="JUAN GARCIA" id="co-cardName"></div>
+          <div class="form-group"><label>Fecha venc.</label><input type="text" placeholder="MM/AA" id="co-exp" oninput="formatExp(this)" maxlength="5"></div>
+          <div class="form-group"><label>CVV</label><input type="text" placeholder="123" id="co-cvv" maxlength="4"></div>
+        </div>
+      </div>
+      <div id="nequiFields" style="display:none;">
+        <div class="form-row">
+          <div class="form-group"><label>Número de celular Nequi</label><input type="tel" placeholder="300 123 4567" id="co-nequi" oninput="formatPhone(this)"></div>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:8px;">Recibirás una solicitud de pago directamente en tu aplicación Nequi.</p>
+      </div>
+      <div id="daviPlataFields" style="display:none;">
+        <div class="form-row">
+          <div class="form-group"><label>Número de celular DaviPlata</label><input type="tel" placeholder="300 123 4567" id="co-daviplata" oninput="formatPhone(this)"></div>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:8px;">Recibirás una solicitud de pago directamente en tu aplicación DaviPlata.</p>
+      </div>
+      <div id="transferFields" style="display:none;">
+        <div style="background:var(--grey-100);padding:20px;border-radius:4px;margin-top:8px;">
+          <p style="font-size:14px;font-weight:600;margin-bottom:8px;">Datos de transferencia:</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">Banco: Bancolombia</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">Cuenta corriente: 123-456789-0</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">NIT: 901.234.567-8</p>
+          <p style="font-size:13px;color:var(--grey-600);">Nombre: Old Dog S.A.S.</p>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:12px;">Una vez realizada la transferencia, envíe el soporte a <strong>soporte@olddog.com.co</strong> para confirmar su pedido.</p>
+      </div>
+      <button class="place-order-btn" onclick="placeOrder()">Confirmar Pedido</button>
+    </div>
+    <div class="order-summary" id="orderSummary">
+      <h3>Resumen del Pedido</h3>
+      <div id="osSummaryItems"></div>
+      <div class="os-total"><span>Total</span><span id="osTotal">$0</span></div>
+      <p class="os-shipping">✓ Envío gratuito incluido</p>
+    </div>
+  </div>
+</div>
 
-        // Base de datos de productos (en producción usar backend/base de datos real)
-        let products = [
-            {
-                id: 1,
-                name: 'Aretes de Guacamaya',
-                description: 'Inspirados en las coloridas guacamayas de nuestras selvas. Hechos a mano con arcilla polimérica.',
-                price: 18000,
-                stock: 6,
-                category: 'aretes',
-                emoji: '🦜'
-            },
-            {
-                id: 2,
-                name: 'Pin de Orquídea',
-                description: 'Nuestra flor nacional plasmada en un pin único. Perfecto para tu chaqueta o mochila.',
-                price: 12000,
-                stock: 10,
-                category: 'pines',
-                emoji: '🌺'
-            },
-            {
-                id: 3,
-                name: 'Funko Cóndor Andino',
-                description: 'Figura personalizada del majestuoso cóndor de los Andes. Pieza de colección única.',
-                price: 50000,
-                stock: 3,
-                category: 'funko',
-                emoji: '🦅'
-            },
-            {
-                id: 4,
-                name: 'Aretes de Café',
-                description: 'Pequeños granos de café que celebran nuestro oro colombiano. Delicados y elegantes.',
-                price: 15000,
-                stock: 8,
-                category: 'aretes',
-                emoji: '☕'
-            },
-            {
-                id: 5,
-                name: 'Decoración Tucán',
-                description: 'Ave tropical colorida para decorar tu espacio. Llena de vida y color caribeño.',
-                price: 25000,
-                stock: 4,
-                category: 'decoracion',
-                emoji: '🦜'
-            },
-            {
-                id: 6,
-                name: 'Pin de Palma Wax',
-                description: 'La icónica palma de cera, árbol nacional de Colombia, en un pin artesanal.',
-                price: 13000,
-                stock: 7,
-                category: 'pines',
-                emoji: '🌴'
-            }
-        ];
+<!-- ══════ SUCCESS PAGE ══════ -->
+<div class="success-page" id="successPage">
+  <div class="success-card">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h2>¡Pedido Confirmado!</h2>
+    <p class="order-num" id="orderNum">Pedido #OD-00000</p>
+    <p>Gracias por elegir Old Dog. Recibirás un correo de confirmación con los detalles de tu envío en los próximos minutos.</p>
+    <button class="continue-btn" onclick="goHome()">Seguir Comprando</button>
+  </div>
+</div>
 
-        let cart = [];
-        let currentCategory = 'all';
-        let editingProductId = null;
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>Tu Carrito</h3>
+    <button onclick="closeCart()" style="font-size:22px;color:var(--grey-600);">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">Tu carrito está vacío</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0</span></div>
+    <button class="checkout-btn" onclick="goToCheckout()">Proceder al Pago</button>
+  </div>
+</div>
 
-        // Cargar productos al inicio
-        window.onload = function() {
-            renderProducts();
-            loadCartFromStorage();
-        };
+<!-- Detail Modal -->
+<div class="detail-overlay" id="detailOverlay" onclick="closeDetail()"></div>
+<div class="detail-modal" id="detailModal">
+  <div class="detail-left">
+    <svg id="detailSVG" viewBox="0 0 200 280" width="200" height="280"></svg>
+  </div>
+  <button class="detail-close" onclick="closeDetail()">✕</button>
+  <div class="detail-right">
+    <h2 id="detailName">—</h2>
+    <p class="detail-color" id="detailColor">—</p>
+    <p class="detail-rating" id="detailRating">★★★★☆ <span style="color:var(--grey-600);font-size:12px;">(1,234 reseñas)</span></p>
+    <p class="detail-price" id="detailPrice">$0</p>
+    <p class="detail-desc" id="detailDesc">Elaborado con crupón de primera calidad, costura a mano y suela resistente. Diseñado para el hombre moderno que aprecia la calidad sin renunciar al estilo.</p>
+    <p class="detail-label" id="detailSizeLabel">Talla</p>
+    <div class="size-options" id="sizeOptions">
+      <div class="size-opt" onclick="selectSize(this)">38</div>
+      <div class="size-opt active" onclick="selectSize(this)">39</div>
+      <div class="size-opt" onclick="selectSize(this)">40</div>
+      <div class="size-opt" onclick="selectSize(this)">41</div>
+      <div class="size-opt" onclick="selectSize(this)">42</div>
+      <div class="size-opt" onclick="selectSize(this)">43</div>
+    </div>
+    <button class="add-to-cart-btn" onclick="addCurrentToCart()">Agregar al Carrito</button>
+  </div>
+</div>
 
-        // Renderizar productos
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = '';
+<!-- Shipping Modal -->
+<div class="detail-overlay" id="shippingOverlay" onclick="closeShippingModal()"></div>
+<div class="detail-modal" id="shippingModal" style="max-width:560px;flex-direction:column;">
+  <button class="detail-close" onclick="closeShippingModal()">✕</button>
+  <div style="padding:48px 40px;">
+    <h2 style="font-family:var(--serif);font-size:24px;margin-bottom:24px;">Envíos &amp; Entrega</h2>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">📦 Envío Estándar</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:16px;line-height:1.6;">3 – 5 días hábiles. <strong style="color:#43a047;">Gratuito</strong> en pedidos superiores a $500.000 COP.</p>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">⚡ Envío Express</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:16px;line-height:1.6;">1 – 2 días hábiles. Disponible en Bogotá, Medellín, Cali y Barranquilla. Costo adicional según la ciudad.</p>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">🔄 Devoluciones</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:0;line-height:1.6;">Aceptamos devoluciones hasta 30 días después de la fecha de entrega. El producto debe estar en condiciones originales con la etiqueta puesta.</p>
+  </div>
+</div>
 
-            const filteredProducts = currentCategory === 'all' 
-                ? products 
-                : products.filter(p => p.category === currentCategory);
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <span class="search-close" onclick="closeSearch()">✕</span>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="searchProducts()" autofocus>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
 
-            filteredProducts.forEach(product => {
-                const stockClass = product.stock === 0 ? 'out' : product.stock < 5 ? 'low' : '';
-                const stockText = product.stock === 0 ? '❌ Agotado' : `✅ ${product.stock} disponibles`;
+<!-- ══════ INNER PAGES ══════ -->
 
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="product-image">${product.emoji}</div>
-                    <div class="product-info">
-                        <span class="product-category">${getCategoryName(product.category)}</span>
-                        <h3 class="product-name">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-price">$${product.price.toLocaleString('es-CO')}</div>
-                        <span class="product-stock ${stockClass}">${stockText}</span>
-                        <div class="product-actions">
-                            <button class="add-to-cart-btn" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
-                                <span>🛒</span>
-                                <span>Agregar</span>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+<!-- Sobre Nosotros -->
+<div class="inner-page" id="sobreNosotros">
+  <div class="inner-header">
+    <h1>Sobre Nosotros</h1>
+    <p>Una marca nacida del compromiso por la calidad y la honestidad en cada costura.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Nuestra Filosofía</h2>
+    <p>Old Dog nació de una pregunta simple: ¿Por qué el calzado de verdad buena calidad tiene que costar una fortuna? Creímos que no, y decidimos demostrarlo.</p>
+    <p>Cada par que sale de nuestro taller en Colombia es una declaración de que es posible hacer las cosas bien sin cobrar lo imposible. Usamos los mejores materiales, los mejores artesanos, y un proceso de producción que no tiene intermediarios innecesarios.</p>
+    <h2>Quiénes Somos</h2>
+    <p>Somos un equipo pequeño de personas apasionadas por el diseño, la producción y la cultura del calzado. Muchos de nosotros vinieron de la industria tradicional, otros del mundo del diseño y la moda. Lo que tenemos en común es la convicción de que se puede hacer mejor.</p>
+    <p>Trabajamos directamente con tanerias colombianas y españolas para obtener los mejores crupones. Nuestros maestros zapateros tienen décadas de experiencia en el oficio.</p>
+    <h2>Nuestro Compromiso</h2>
+    <ul>
+      <li>Materiales de primera calidad sin excepciones</li>
+      <li>Producción local, apoyando la economía colombiana</li>
+      <li>Precios justos y transparentes</li>
+      <li>Garantía de 2 años en cada producto</li>
+      <li>Impacto ambiental mínimo en nuestros procesos</li>
+    </ul>
+  </div>
+</div>
 
-            renderAdminProducts();
-        }
+<!-- Nuestra Historia -->
+<div class="inner-page" id="historia">
+  <div class="inner-header">
+    <h1>Nuestra Historia</h1>
+    <p>De un pequeño taller en Cali a una marca que recorre Colombia.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>2018 – El Origen</h2>
+    <p>Todo comenzó en un pequeño taller en Cali, Valle del Cauca. Dos amigos, una mesa de trabajo y una obsesión: crear calzado de calidad que cualquier persona pudiera permitirse.</p>
+    <h2>2020 – Los Primeros Pasos</h2>
+    <p>Tras dos años perfeccionando nuestras técnicas y estableciendo alianzas con las mejores tanerias del país, lanzamos nuestra primera colección: Heritage Crupón. La respuesta fue inmediata.</p>
+    <h2>2022 – Crecimiento</h2>
+    <p>Con más de 5,000 pares vendidos, abrimos nuestra primera tienda física en Bogotá y expandimos nuestra línea con la colección Executive, orientada al calzado de oficina premium.</p>
+    <h2>2024 – Hoy</h2>
+    <p>Old Dog tiene ahora tres tiendas físicas, una línea completa de accesorios (Essentials) y una comunidad de más de 12,000 clientes satisfechos en todo Colombia. Pero la historia no termina aquí.</p>
+  </div>
+</div>
 
-        // Obtener nombre de categoría
-        function getCategoryName(category) {
-            const names = {
-                'aretes': '💎 Aretes',
-                'pines': '🎨 Pines',
-                'funko': '🎭 Funko',
-                'decoracion': '🌸 Decoración',
-                'otros': '🌈 Otros'
-            };
-            return names[category] || category;
-        }
+<!-- Tiendas -->
+<div class="inner-page" id="tiendas">
+  <div class="inner-header">
+    <h1>Nuestras Tiendas</h1>
+    <p>Visítanos en persona y experimenta la calidad de mano.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="stores-grid">
+      <div class="store-card">
+        <h3>Old Dog – Bogotá</h3>
+        <p>Calle 82 # 11-37, Piso 2<br>Zona T, Bogotá D.C.</p>
+        <p>📞 +57 (1) 555-0182</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Cali</h3>
+        <p>Calle 18 # 8-15<br>Centro comercial El838, Cali</p>
+        <p>📞 +57 (2) 555-0294</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Medellín</h3>
+        <p>Carrera 10 # 52-12<br>El Poblado, Medellín</p>
+        <p>📞 +57 (4) 555-0401</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Barranquilla</h3>
+        <p>Calle 68 # 59-10<br>Zona Camarero, Barranquilla</p>
+        <p>📞 +57 (5) 555-0537</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // Filtrar por categoría
-        function filterCategory(category) {
-            currentCategory = category;
-            renderProducts();
+<!-- Ayuda / FAQ -->
+<div class="inner-page" id="ayuda">
+  <div class="inner-header">
+    <h1>Preguntas Frecuentes</h1>
+    <p>Respuestas rápidas a tus dudas más comunes.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cuánto tiempo tarda el envío? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>El envío estándar tarda entre 3 y 5 días hábiles a cualquier ciudad de Colombia. También ofrecemos envío express (1–2 días) en las principales ciudades.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Qué tallas están disponibles? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Ofrecemos tallas desde 38 hasta 43 en la mayoría de nuestros modelos. Si necesitas una talla especial, no dudes en contactarnos.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Puedo devolver un producto? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Sí, aceptamos devoluciones hasta 30 días después de la fecha de entrega. El producto debe estar en condiciones originales con la etiqueta de Old Dog puesta. Los gastos de envío de devolución son a cargo del cliente, excepto si el producto tiene defecto.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cómo pago? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Aceptamos tarjetas de crédito y débito, Nequi, DaviPlata y transferencias bancarias. Todas las transacciones son seguras y cifradas.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Los zapatos tienen garantía? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Todos los productos Old Dog vienen con una garantía de 2 años contra defectos de fabricación. Si encuentras algún problema, contáctenos y lo resolveremos sin cargos adicionales.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Pueden personalizar un par? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>¡Absolutamente! Ofrecemos servicio de personalización en colores, monogramas y materiales especiales. Escríbenos a <strong>custom@olddog.com.co</strong> para conocer las opciones.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Envían fuera de Colombia? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Por el momento nos enfocamos en el mercado colombiano. Estamos trabajando en expandir nuestro envío internacional y en poco tiempo estaremos disponibles en más países.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cómo debo cuidar mis botas? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Te recomendamos limpiarlas regularmente con un paño suave, aplicar crema de calzado cada 2 semanas y almacenarlas en un lugar seco y ventilado. Visita nuestra guía de cuidado completa en la sección de "Cuidado del Calzado".</p></div>
+    </div>
+  </div>
+</div>
 
-            // Actualizar botones activos
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
+<!-- Gift Cards -->
+<div class="inner-page" id="giftCards">
+  <div class="inner-header">
+    <h1>Gift Cards</h1>
+    <p>El regalo perfecto para quien aprecia la calidad.</p>
+  </div>
+  <div class="inner-body" style="max-width:900px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <p>Obsequía la experiencia Old Dog. Nuestras gift cards no vencen y puede usarse en tiendas físicas y online.</p>
+    <div class="gift-cards-grid">
+      <div class="gift-card" onclick="addGiftCard(250000)">
+        <div class="gc-amount" id="gcAmt1">$ 250,000</div>
+        <div class="gc-label">Gift Card</div>
+        <div class="gc-desc">Ideal para accesorios y detalles.</div>
+      </div>
+      <div class="gift-card" onclick="addGiftCard(500000)" style="background:linear-gradient(135deg,#3a2c1e,#6b5a4a);">
+        <div class="gc-amount" id="gcAmt2">$ 500,000</div>
+        <div class="gc-label">Gift Card</div>
+        <div class="gc-desc">Perfecto para un par de calzado clásico.</div>
+      </div>
+      <div class="gift-card" onclick="addGiftCard(1000000)" style="background:linear-gradient(135deg,#2c1810,#8b6f47);">
+        <div class="gc-amount" id="gcAmt3">$ 1,000,000</div>
+        <div class="gc-label">Gift Card Premium</div>
+        <div class="gc-desc">El regalo definitivo para el amante del calzado.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // FUNCIONES DEL CARRITO
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product || product.stock === 0) return;
+<!-- Prensa -->
+<div class="inner-page" id="prensa">
+  <div class="inner-header">
+    <h1>Prensa</h1>
+    <p>Lo que los medios dicen sobre Old Dog.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Menciones Recientes</h2>
+    <div style="border-left:3px solid var(--brand-gold);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Old Dog está redefintendo lo que significa comprar calzado de calidad en Colombia."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>El Tiempo</strong> – Sección Estilo, Marzo 2024</p>
+    </div>
+    <div style="border-left:3px solid var(--brand-gold);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Las mejores botas de calidad media-alta que puedes encontrar sin salir del país."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>Semana</strong> – Estilo de Vida, Enero 2024</p>
+    </div>
+    <div style="border-left:3px solid var(--brand-gold);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Una marca colombiana que merece estar en el radar de cualquier profesional fashionista."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>Portafolio</strong> – Lifestyle, Noviembre 2023</p>
+    </div>
+    <h2>Para la Prensa</h2>
+    <p>Si estás interesado en colaborar o necesitas información para un artículo, no dudes en escribirnos a <strong>prensa@olddog.com.co</strong>. Podemos enviar kits de prensa, imágenes de alta resolución y muestras de producto.</p>
+  </div>
+</div>
 
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                if (existingItem.quantity < product.stock) {
-                    existingItem.quantity++;
-                } else {
-                    alert('🌿 No hay más stock disponible de este producto');
-                    return;
-                }
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    emoji: product.emoji,
-                    quantity: 1,
-                    maxStock: product.stock
-                });
-            }
+<!-- Reseñas -->
+<div class="inner-page" id="resenas">
+  <div class="inner-header">
+    <h1>Reseñas</h1>
+    <p>Lo que dicen nuestros clientes reales.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Compré el Capitán en Café Oscuro hace 6 meses y se ven como nuevas. La calidad del cuero es impresionante. Valió la pena cada peso."</p>
+        <p class="rev-author">Carlos M.</p>
+        <p class="rev-date">Bogotá – Octubre 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Pedir fue muy fácil y llegaron en 3 días. El servicio al cliente es excelente. Las botas Urban Legend son perfectas para el día a día."</p>
+        <p class="rev-author">María José R.</p>
+        <p class="rev-date">Medellín – Septiembre 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Tenía dudas con el talla pero el chat de ayuda me orientó perfecto. Los Executive Oxford son mi nuevo favorito para la oficina."</p>
+        <p class="rev-author">Andrés F.</p>
+        <p class="rev-date">Cali – Agosto 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text">"La billetera ejecutiva llegó en un estuche hermoso. Muy detalladista. La única cosa es que me hubiera gustado más opciones de color."</p>
+        <p class="rev-author">Laura G.</p>
+        <p class="rev-date">Barranquilla – Julio 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Regalé un par de botas Heritage a mi esposo por su cumpleaños. Se fue un regalo increíble. El packaging era muy lindo."</p>
+        <p class="rev-author">Valentina C.</p>
+        <p class="rev-date">Bogotá – Junio 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Compré el Cinturón Heritage y es exactamente lo que necesitaba. El color Café Oscuro combina con todo. Muy recomendado."</p>
+        <p class="rev-author">Diego A.</p>
+        <p class="rev-date">Cali – Mayo 2024</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-            updateCart();
-            saveCartToStorage();
-            
-            // Animación de feedback
-            event.target.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                event.target.style.transform = '';
-            }, 200);
-        }
+<!-- Embajadores -->
+<div class="inner-page" id="embajadores">
+  <div class="inner-header">
+    <h1>Embajadores</h1>
+    <p>Las caras que representan la cultura Old Dog.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <p>Nuestros embajadores son personas que comparten nuestra visión: calidad sin pretensiones, estilo sin compromiso.</p>
+    <div class="ambassador-grid">
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#2c1810,#5a3a25);">👨‍💼</div>
+        <h3>Santiago Reyes</h3>
+        <p>Empresario y amante del estilo clásico. Embajador desde 2023.</p>
+      </div>
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#1a1a1a,#3d3530);">🎨</div>
+        <h3>Camila Vega</h3>
+        <p>Diseñadora industrial de Medellín. Representa la línea Urban Ligth.</p>
+      </div>
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#3a3a3a,#6b5a4a);">🏋️</div>
+        <h3>Mateo Ospina</h3>
+        <p>Atleta profesional de Cali. Colección Heritage en cada aventura.</p>
+      </div>
+    </div>
+    <h2 style="margin-top:48px;">¿Quieres ser embajador?</h2>
+    <p>Si eres influencer, profesional creativo o simplemente una persona apasionada por la calidad y el estilo, nos encantaría conocerte. Escríbenos a <strong>embajadores@olddog.com.co</strong> con tu perfil.</p>
+  </div>
+</div>
 
-        function updateCart() {
-            const cartCount = document.getElementById('cartCount');
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            const cartTotalSection = document.getElementById('cartTotalSection');
+<!-- Envíos & Devoluciones -->
+<div class="inner-page" id="envios">
+  <div class="inner-header">
+    <h1>Envíos &amp; Devoluciones</h1>
+    <p>Todo lo que necesitas saber sobre pedidos y retornos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Tiempos de Envío</h2>
+    <ul>
+      <li><strong>Envío Estándar:</strong> 3–5 días hábiles a cualquier ciudad de Colombia</li>
+      <li><strong>Envío Express:</strong> 1–2 días hábiles (Bogotá, Medellín, Cali, Barranquilla)</li>
+      <li><strong>Envío Gratuito:</strong> En todos los pedidos superiores a $500.000 COP</li>
+    </ul>
+    <h2>Costos de Envío</h2>
+    <p>El envío estándar tiene un costo fijo de $15.000 COP para pedidos menores a $500.000. El express varía según la ciudad de destino.</p>
+    <h2>Política de Devoluciones</h2>
+    <ul>
+      <li>Devoluciones aceptadas hasta <strong>30 días</strong> después de la entrega</li>
+      <li>El producto debe estar en condiciones originales, sin usar, con la etiqueta Old Dog</li>
+      <li>Los gastos de envío de devolución son a cargo del cliente</li>
+      <li>Si el producto tiene defecto de fabricación, el envío de devolución es gratuito</li>
+      <li>El reembolso se procesa en máximo 5 días hábiles después de recibir el producto</li>
+    </ul>
+    <h2>Cómo Solicitar una Devolución</h2>
+    <p>Escríbenos a <strong>soporte@olddog.com.co</strong> con tu número de pedido y la razón de la devolución. Te enviaremos las instrucciones paso a paso.</p>
+  </div>
+</div>
 
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+<!-- Cuidado del Calzado -->
+<div class="inner-page" id="cuidado">
+  <div class="inner-header">
+    <h1>Cuidado del Calzado</h1>
+    <p>Guía completa para mantener tus Old Dog como nuevos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Limpieza Diaria</h2>
+    <p>Después de cada uso, elimina el polvo y la suciedad superficial con un paño suave y seco. Si hay manchas de agua, déjalo secar al aire naturalmente, nunca cerca de una fuente de calor directa.</p>
+    <h2>Aplicación de Crema</h2>
+    <p>Cada 1–2 semanas, aplica una capa delgada de crema de calzado del mismo color que tus botas. Esto mantiene el cuero hidratado, flexible y con su brillo natural. Aplícala con un paño suave en movimientos circulares.</p>
+    <h2>Almacenamiento</h2>
+    <ul>
+      <li>Guárdas en un lugar seco y ventilado</li>
+      <li>Usa un calzador cuando los pones para no deformar el talón</li>
+      <li>Si tienes hormas, úsalas cuando no estás usando las botas</li>
+      <li>Evita guardarlos en bolsas plásticas por mucho tiempo</li>
+    </ul>
+    <h2>Protección</h2>
+    <p>Antes del primer uso, aplica un spray de protección de agua y manchas. Esto crea una capa invisible que protege el cuero de la lluvia y el derrame.</p>
+    <h2>Reparación</h2>
+    <p>Si la suela se desgasta, te recomendamos llevar tus botas a un zapatero de confianza. Old Dog ofrece servicio de re-solado en nuestras tiendas físicas.</p>
+  </div>
+</div>
 
-            cartCount.textContent = totalItems;
+<!-- Términos de Servicio -->
+<div class="inner-page" id="terminos">
+  <div class="inner-header">
+    <h1>Términos de Servicio</h1>
+    <p>Las condiciones que rigen el uso de nuestros servicios.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>1. Aceptación de los Términos</h2>
+    <p>Al usar nuestro sitio web o realizar una compra, aceptas estos términos de servicio. Old Dog S.A.S. se reserva el derecho de modificar estos términos en cualquier momento.</p>
+    <h2>2. Productos y Precios</h2>
+    <p>Los precios mostrados están en COP y pueden variar sin previo aviso. Old Dog no se responsabiliza por errores tipográficos en los precios. Cada producto tiene una cantidad limitada de stock.</p>
+    <h2>3. Pedidos y Pagos</h2>
+    <p>Al completar un pedido, confirmas que la información proporcionada es correcta. El pago debe completarse al momento del pedido. Old Dog se reserva el derecho de cancelar pedidos en caso de irregularidades.</p>
+    <h2>4. Responsabilidad</h2>
+    <p>Old Dog no se responsabiliza por daños indirectos o consecuenciales que puedan surgir del uso de nuestros productos o servicios. La responsabilidad máxima se limita al valor de la compra realizada.</p>
+    <h2>5. Ley Aplicable</h2>
+    <p>Estos términos están gobernados por las leyes de la República de Colombia. Cualquier disputa se resolverá en los tribunales de la ciudad de Cali, Valle del Cauca.</p>
+  </div>
+</div>
 
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <div class="cart-empty">
-                        <div class="cart-empty-emoji">🌿</div>
-                        <p>Tu carrito está vacío</p>
-                        <p>Agrega algunos productos de la naturaleza</p>
-                    </div>
-                `;
-                cartTotalSection.style.display = 'none';
-            } else {
-                cartItems.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <div class="cart-item-emoji">${item.emoji}</div>
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">$${item.price.toLocaleString('es-CO')}</div>
-                            <div class="cart-item-quantity">
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                                <span style="margin: 0 0.5rem; font-weight: 700;">${item.quantity}</span>
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                                <button class="remove-item" onclick="removeFromCart(${item.id})">🗑️ Eliminar</button>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-                cartTotalSection.style.display = 'block';
-                cartTotal.textContent = `$${totalPrice.toLocaleString('es-CO')}`;
-            }
-        }
+<!-- Política de Privacidad -->
+<div class="inner-page" id="privacidad">
+  <div class="inner-header">
+    <h1>Política de Privacidad</h1>
+    <p>Cómo protegemos tu información personal.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Información que Recopilamos</h2>
+    <p>Cuando realizas una compra, recopilamos información como tu nombre, correo electrónico, dirección de entrega y datos de pago. Esta información es necesaria para procesar tu pedido.</p>
+    <h2>Cómo Usamos tu Información</h2>
+    <ul>
+      <li>Procesamiento de pedidos y pagos</li>
+      <li>Comunicación sobre el estado de tu envío</li>
+      <li>Mejora de nuestros productos y servicios</li>
+      <li>Envío de ofertas especiales (solo si lo autorizas)</li>
+    </ul>
+    <h2>Seguridad de los Datos</h2>
+    <p>Implementamos medidas de seguridad estándar de la industria para proteger tu información, incluyendo cifrado SSL en todas las transacciones. No almacenamos datos completos de tarjetas de crédito.</p>
+    <h2>Derechos del Usuario</h2>
+    <p>Tienes derecho a acceder, modificar o eliminar tus datos personales en cualquier momento. Para ejercer estos derechos, contáctenos a <strong>privacidad@olddog.com.co</strong>.</p>
+    <h2>Cookies</h2>
+    <p>Usamos cookies para mejorar tu experiencia en nuestro sitio. Puedes controlar las cookies desde la configuración de tu navegador.</p>
+  </div>
+</div>
 
-        function updateQuantity(productId, change) {
-            const item = cart.find(i => i.id === productId);
-            if (!item) return;
+<!-- Contacto -->
+<div class="inner-page" id="contacto">
+  <div class="inner-header">
+    <h1>Contacto</h1>
+    <p>Estamos aquí para ayudarte. No dudes en escribirnos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <div>
+        <h2>Información de Contacto</h2>
+        <p><strong>Correo:</strong> soporte@olddog.com.co</p>
+        <p><strong>Teléfono:</strong> +57 (2) 555-0294</p>
+        <p><strong>WhatsApp:</strong> +57 300 123 4567</p>
+        <p><strong>Dirección:</strong><br>Calle 18 # 8-15, El 838<br>Cali, Valle del Cauca, Colombia</p>
+        <p><strong>Horario de Atención:</strong><br>Lunes – Viernes: 9:00 AM – 6:00 PM<br>Sábado: 10:00 AM – 2:00 PM</p>
+      </div>
+      <div>
+        <h2>Envíanos un Mensaje</h2>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Nombre</label><input type="text" id="ct-name" placeholder="Tu nombre"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Correo</label><input type="email" id="ct-email" placeholder="tu@correo.com"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Asunto</label>
+              <select id="ct-subject">
+                <option value="">Seleccione...</option>
+                <option>Consulta sobre producto</option>
+                <option>Problema con pedido</option>
+                <option>Devolución</option>
+                <option>Colaboración</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Mensaje</label><textarea id="ct-message" placeholder="Escribe tu mensaje aquí..."></textarea></div>
+          </div>
+          <button class="send-btn" onclick="sendContact()">Enviar Mensaje</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            const newQuantity = item.quantity + change;
+<!-- Processing -->
+<div class="processing-overlay" id="processingOverlay">
+  <div class="spinner"></div>
+  <p>Procesando tu pedido...</p>
+</div>
 
-            if (newQuantity <= 0) {
-                removeFromCart(productId);
-            } else if (newQuantity <= item.maxStock) {
-                item.quantity = newQuantity;
-                updateCart();
-                saveCartToStorage();
-            } else {
-                alert('🌿 No hay más stock disponible');
-            }
-        }
+<!-- Toast -->
+<div class="toast" id="toast"></div>
 
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-            saveCartToStorage();
-        }
+<!-- ══════ JAVASCRIPT ══════ -->
+<script>
+// ─── CURRENCY STATE ───
+let currentCurrency = 'COP';
+const rates = {
+  COP: 1,
+  BRL: 0.00083, ARS: 0.29, CLP: 0.24, PEN: 0.000095,
+  VES: 0.0018, UYU: 0.0088, PYG: 1.58, BOB: 0.00015, SUR: 0.0000087,
+  MXN: 0.0046, CRC: 0.011, GTM: 0.00017, HND: 0.00055, SLV: 0.00024,
+  NIC: 0.0058, PAN: 0.00024, DOM: 0.014, CUB: 0.0054, HTI: 0.032,
+  USD: 0.00024, EUR: 0.00022
+};
+const symbols = {
+  COP: '$ ', BRL: 'R$ ', ARS: '$ ', CLP: '$ ', PEN: 'S/. ',
+  VES: 'Bs ', UYU: '$U ', PYG: '₲ ', BOB: 'Bs ', SUR: 'SRD$ ',
+  MXN: '$ ', CRC: '₡ ', GTM: 'Q ', HND: 'L ', SLV: '$ ',
+  NIC: 'C$ ', PAN: '$ ', DOM: '$ ', CUB: '$ ', HTI: 'G ',
+  USD: 'US$ ', EUR: '€ '
+};
+const noDecimals = ['COP','ARS','CLP','PYG'];
 
-        function toggleCart() {
-            const modal = document.getElementById('cartModal');
-            modal.classList.toggle('active');
-        }
+// ─── DATA ───
+const products = [
+  { id:1, name:"Capitán", color:"Café Oscuro", price:890000, cat:"heritage", type:"boot", desc:"Bota clásica de cuero crupón con costuras a mano y suela de goma resistente. El modelo icónico de la colección Heritage." },
+  { id:2, name:"Presidente", color:"Nogal", price:950000, cat:"heritage", type:"boot", desc:"Elegancia traditional en cada detalle. Costuras dobles, horquilla de acero y acabado a mano por nuestros maestros artesanos." },
+  { id:3, name:"Diplomático", color:"Brandy", price:890000, cat:"heritage", type:"boot", desc:"Perfecto equilibrio entre estilo y confort. Suela flexible y plantilla de cuero genuino para máximo apoyo durante todo el día." },
+  { id:4, name:"Cadet", color:"Marrón Claro", price:780000, cat:"heritage", type:"boot", desc:"La entrada a la familia Heritage. Más ligera y versátil, ideal para uso diario sin renunciar a la calidad Old Dog." },
+  { id:5, name:"Legend", color:"Negro Matte", price:890000, cat:"urban", type:"boot", desc:"Diseño urbano audaz con acabado matte que absorbe la luz. Perfecta para la ciudad, desde la oficina hasta la noche." },
+  { id:6, name:"Scout", color:"Gris Urbano", price:690000, cat:"urban", type:"boot", desc:"La bota más accesible de la línea Urban. Sin comprometer la calidad, con un estilo que habla por sí solo." },
+  { id:7, name:"Cavalier", color:"Negro", price:850000, cat:"urban", type:"boot", desc:"Inspirada en la cultura del motociclismo, con refuerzos estratégicos y un diseño que se adapta a cualquier lifestyle." },
+  { id:8, name:"Casa Moto", color:"Negro Matte", price:980000, cat:"urban", type:"boot", desc:"La bota premium de la línea Urban. Materiales top-tier, diseño exclusivo y un nivel de acabado que no tiene competencia." },
+  { id:9, name:"Billetera Clásica", color:"Café", price:280000, cat:"essentials", type:"wallet", desc:"Billetera bifold de cuero genuino. Espaciosa, elegante y duradera. El complemento perfecto para cualquier outfit." },
+  { id:10, name:"Billetera Ejecutiva", color:"Negro", price:320000, cat:"essentials", type:"wallet", desc:"Billetera slim-fit para el profesional moderno. Ultra delgada con espacios para hasta 8 tarjetas y un bolsillo de billetes." },
+  { id:11, name:"Cinturón Heritage", color:"Café Oscuro", price:350000, cat:"essentials", type:"belt", desc:"Cinturón de cuero crupón que combina perfectamente con las botas Heritage. Hebilla de bronce envejecido." },
+  { id:12, name:"Estuche Cigar", color:"Cognac", price:420000, cat:"essentials", type:"wallet", desc:"Estuche de cuero para 2 cigarros con cierre magnético. Un detalle de lujo que eleva cualquier momento de ocio." },
+  { id:13, name:"Executive Oxford", color:"Negro Pulido", price:1100000, cat:"executive", type:"shoe", desc:"El Oxford clásico redefinido. Cuero pulido a espejo, suela de cuero y una silueta que domina cualquier sala de reuniones." },
+  { id:14, name:"Derby Clásico", color:"Marrón Oscuro", price:980000, cat:"executive", type:"shoe", desc:"Versatilidad pura. El Derby es el zapato que se adapta a todo: jeans, pantalón de traje o chinos de fin de semana." },
+  { id:15, name:"Loafer Premium", color:"Cognac", price:920000, cat:"executive", type:"shoe", desc:"Elegancia sin esfuerzo. Este loafer en Cognac es el definition del estilo casual-profesional que Colombia necesita." },
+  { id:16, name:"Wingtip Elite", color:"Bicolor", price:1050000, cat:"executive", type:"shoe", desc:"El zapato más audaz de la colección Executive. El brogan wingtip en bicolor es un statement de estilo que no pasa desapercibido." },
+];
 
-        function saveCartToStorage() {
-            localStorage.setItem('aramacao_cart', JSON.stringify(cart));
-        }
+const giftCardProduct = { id:99, name:"Gift Card Old Dog", color:"Premium", price:0, cat:"giftcard", type:"giftcard" };
 
-        function loadCartFromStorage() {
-            const saved = localStorage.getItem('aramacao_cart');
-            if (saved) {
-                cart = JSON.parse(saved);
-                updateCart();
-            }
-        }
+let cart = [];
+let currentProduct = null;
 
-        // ENVIAR POR WHATSAPP
-        function sendWhatsApp() {
-            if (cart.length === 0) {
-                alert('🌿 Tu carrito está vacío');
-                return;
-            }
+// ─── SVG GENERATORS ───
+function bootSVG(color1, color2) {
+  return `<path d="M45 30 C45 30 60 22 90 26 L105 26 C120 26 128 38 128 52 L128 150 C128 165 132 180 143 187 L175 205 C190 213 196 225 196 240 L196 268 C196 278 190 285 180 285 L38 285 C28 285 24 278 24 268 L24 248 C24 233 32 222 45 218 L45 30Z" fill="${color1}" stroke="${color2}" stroke-width="2"/>
+  <rect x="24" y="275" width="172" height="22" rx="3" fill="${color2}" opacity="0.7"/>
+  <line x1="68" y1="44" x2="108" y2="40" stroke="${color2}" stroke-width="2" opacity="0.6"/>
+  <line x1="66" y1="56" x2="106" y2="52" stroke="${color2}" stroke-width="2" opacity="0.6"/>
+  <line x1="64" y1="68" x2="104" y2="64" stroke="${color2}" stroke-width="2" opacity="0.6"/>
+  <line x1="62" y1="80" x2="102" y2="76" stroke="${color2}" stroke-width="2" opacity="0.6"/>`;
+}
+function walletSVG(color1, color2) {
+  return `<rect x="30" y="60" width="140" height="100" rx="10" fill="${color1}" stroke="${color2}" stroke-width="2.5"/>
+  <line x1="30" y1="95" x2="170" y2="95" stroke="${color2}" stroke-width="1.5" opacity="0.5"/>
+  <rect x="120" y="95" width="35" height="30" rx="4" fill="${color2}" opacity="0.3"/>`;
+}
+function shoeSVG(color1, color2) {
+  return `<path d="M30 140 C30 100 50 80 90 75 L150 72 C170 72 185 82 185 95 L185 130 C185 145 175 155 160 158 L25 158 C18 158 15 153 18 148 Z" fill="${color1}" stroke="${color2}" stroke-width="2.5"/>
+  <path d="M15 148 L190 148 L195 158 L10 158 Z" fill="${color2}" opacity="0.6"/>
+  <path d="M85 78 L85 128" stroke="${color2}" stroke-width="1.5" opacity="0.4"/>`;
+}
+function beltSVG(color1, color2) {
+  return `<rect x="15" y="85" width="170" height="30" rx="4" fill="${color1}" stroke="${color2}" stroke-width="2"/>
+  <rect x="80" y="80" width="40" height="40" rx="3" fill="${color2}" opacity="0.7"/>
+  <rect x="86" y="86" width="28" height="28" rx="2" fill="${color1}" stroke="${color2}" stroke-width="1"/>`;
+}
+function giftcardSVG(color1, color2) {
+  return `<rect x="20" y="50" width="160" height="100" rx="8" fill="${color1}" stroke="${color2}" stroke-width="2"/>
+  <line x1="20" y1="80" x2="180" y2="80" stroke="${color2}" stroke-width="1" opacity="0.4"/>
+  <text x="100" y="130" text-anchor="middle" fill="${color2}" font-size="18" font-weight="bold" opacity="0.6">GIFT</text>`;
+}
 
-            let message = '🌿 *PEDIDO ARAMACAO ART* 🌿\n\n';
-            
-            cart.forEach(item => {
-                message += `${item.emoji} *${item.name}*\n`;
-                message += `   Cantidad: ${item.quantity}\n`;
-                message += `   Precio: $${item.price.toLocaleString('es-CO')}\n`;
-                message += `   Subtotal: $${(item.price * item.quantity).toLocaleString('es-CO')}\n\n`;
-            });
+const colorMap = {
+  "Café Oscuro":["#5a3520","#3a2010"], "Nogal":["#6b4c2a","#4a3018"],
+  "Brandy":["#8b5e3c","#5a3a20"], "Marrón Claro":["#a07850","#6b4a2c"],
+  "Negro Matte":["#1a1a1a","#333"], "Gris Urbano":["#5a5a5a","#3a3a3a"],
+  "Negro":["#111","#2a2a2a"], "Café":["#7a5535","#4a3318"],
+  "Cognac":["#8b6230","#5a3f1e"], "Negro Pulido":["#0d0d0d","#2a2a2a"],
+  "Marrón Oscuro":["#4a2c14","#2f1c0c"], "Bicolor":["#c4a46b","#3a2810"],
+  "Premium":["#2c1810","#8b6f47"]
+};
 
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            message += `💰 *TOTAL: $${total.toLocaleString('es-CO')}*\n\n`;
-            message += '¡Gracias por tu pedido! 🌺';
+function getProductSVG(p) {
+  const c = colorMap[p.color] || ["#7a6050","#4a3525"];
+  if(p.type==="wallet") return walletSVG(c[0],c[1]);
+  if(p.type==="shoe") return shoeSVG(c[0],c[1]);
+  if(p.type==="belt") return beltSVG(c[0],c[1]);
+  if(p.type==="giftcard") return giftcardSVG(c[0],c[1]);
+  return bootSVG(c[0],c[1]);
+}
 
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
+// ─── CURRENCY ───
+function fmt(n) {
+  const converted = n * (rates[currentCurrency] || 1);
+  const sym = symbols[currentCurrency] || '$ ';
+  if(noDecimals.includes(currentCurrency)) {
+    return sym + Math.round(converted).toLocaleString("es-CO");
+  }
+  const parts = converted.toFixed(2).split('.');
+  const intPart = parseInt(parts[0]).toLocaleString("es-CO");
+  return sym + intPart + ',' + parts[1];
+}
+function changeCurrency(val) {
+  currentCurrency = val;
+  renderGrid("heritageGrid","heritage");
+  renderGrid("executiveGrid","executive");
+  renderGrid("allGrid", currentActiveTab || "all");
+  updateCart();
+  updateGiftCardAmounts();
+  showToast("Moneda cambiada a " + val);
+}
+function updateGiftCardAmounts() {
+  const el1 = document.getElementById('gcAmt1');
+  const el2 = document.getElementById('gcAmt2');
+  const el3 = document.getElementById('gcAmt3');
+  if(el1) el1.textContent = fmt(250000);
+  if(el2) el2.textContent = fmt(500000);
+  if(el3) el3.textContent = fmt(1000000);
+}
 
-        // FUNCIONES DE ADMIN
-        function showAdminLogin() {
-            document.getElementById('passwordModal').classList.add('active');
-        }
+// ─── RENDER ───
+let currentActiveTab = 'all';
+function renderGrid(containerId, filter) {
+  const list = filter==="all" ? products : products.filter(p=>p.cat===filter);
+  document.getElementById(containerId).innerHTML = list.map(p => {
+    const bgColor = (colorMap[p.color] || ["#7a6050"])[0];
+    return `
+    <div class="product-card" onclick="openDetail(${p.id})">
+      <div class="prod-img-wrap">
+        <svg viewBox="0 0 200 200" width="100%" height="100%" style="background:${bgColor}33">
+          <g transform="translate(20,10) scale(0.8)">${getProductSVG(p)}</g>
+        </svg>
+        <div class="quick-add" onclick="event.stopPropagation();addToCart(${p.id})">+ Agregar</div>
+      </div>
+      <p class="prod-name">${p.name}</p>
+      <p class="prod-color">${p.color}</p>
+      <p class="prod-rating"><span class="stars-y">★★★★</span>☆ <span style="color:var(--grey-400);font-size:11px;">(${800+p.id*137} reseñas)</span></p>
+      <p class="prod-price">${fmt(p.price)}</p>
+    </div>`;
+  }).join("");
+}
 
-        function checkPassword() {
-            const password = document.getElementById('adminPassword').value;
-            if (password === ADMIN_PASSWORD) {
-                sessionStorage.setItem('adminAuth', 'true');
-                document.getElementById('passwordModal').classList.remove('active');
-                toggleAdmin();
-                document.getElementById('adminPassword').value = '';
-            } else {
-                alert('❌ Contraseña incorrecta');
-            }
-        }
+renderGrid("heritageGrid","heritage");
+renderGrid("executiveGrid","executive");
+renderGrid("allGrid","all");
 
-        function toggleAdmin() {
-            if (!sessionStorage.getItem('adminAuth')) {
-                showAdminLogin();
-                return;
-            }
+// ─── TABS ───
+function switchTab(btn, cat) {
+  document.querySelectorAll(".tab-pill").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  currentActiveTab = cat;
+  renderGrid("allGrid", cat);
+}
+function filterTab(cat) {
+  document.querySelectorAll(".tab-pill").forEach(b=>{
+    b.classList.remove("active");
+    if(b.textContent.toLowerCase().includes(cat) || (cat==="all" && b.textContent==="Todas")) b.classList.add("active");
+  });
+  if(cat==="all") document.querySelectorAll(".tab-pill")[0].classList.add("active");
+  currentActiveTab = cat;
+  renderGrid("allGrid", cat);
+  goHome();
+  setTimeout(()=>{ const pills = document.querySelector(".tab-pills"); if(pills) pills.scrollIntoView({behavior:"smooth",block:"start"}); }, 100);
+}
+function scrollToTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
 
-            const adminSection = document.getElementById('adminSection');
-            adminSection.style.display = adminSection.style.display === 'none' ? 'block' : 'none';
-            
-            if (adminSection.style.display === 'block') {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }
-        }
+// ─── DETAIL MODAL ───
+function openDetail(id) {
+  currentProduct = products.find(p=>p.id===id);
+  if(!currentProduct) return;
+  document.getElementById("detailName").textContent = currentProduct.name;
+  document.getElementById("detailColor").textContent = currentProduct.color;
+  document.getElementById("detailPrice").textContent = fmt(currentProduct.price);
+  document.getElementById("detailDesc").textContent = currentProduct.desc;
+  const reviews = 800 + currentProduct.id * 137;
+  document.getElementById("detailRating").innerHTML = `★★★★☆ <span style="color:var(--grey-600);font-size:12px;">(${reviews} reseñas)</span>`;
+  const c = colorMap[currentProduct.color] || ["#7a6050","#4a3525"];
+  document.getElementById("detailSVG").innerHTML = getProductSVG(currentProduct);
+  document.getElementById("detailSVG").style.background = c[0]+"22";
+  // Hide/show size options for non-footwear
+  const sizeDiv = document.getElementById("sizeOptions");
+  const sizeLabel = document.getElementById("detailSizeLabel");
+  if(currentProduct.type === "wallet" || currentProduct.type === "belt" || currentProduct.type === "giftcard") {
+    sizeDiv.style.display = "none";
+    sizeLabel.style.display = "none";
+  } else {
+    sizeDiv.style.display = "flex";
+    sizeLabel.style.display = "block";
+  }
+  document.getElementById("detailOverlay").classList.add("open");
+  document.getElementById("detailModal").classList.add("open");
+}
+function closeDetail(){
+  document.getElementById("detailOverlay").classList.remove("open");
+  document.getElementById("detailModal").classList.remove("open");
+}
+function selectSize(el){
+  document.querySelectorAll(".size-opt").forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+}
+function addCurrentToCart(){
+  if(currentProduct) addToCart(currentProduct.id);
+  closeDetail();
+}
 
-        function addProduct() {
-            const name = document.getElementById('productName').value;
-            const description = document.getElementById('productDescription').value;
-            const price = parseInt(document.getElementById('productPrice').value);
-            const stock = parseInt(document.getElementById('productStock').value);
-            const category = document.getElementById('productCategory').value;
-            const emoji = document.getElementById('productEmoji').value || '🎨';
+// ─── CART ───
+function addToCart(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  const existing = cart.find(c=>c.id===id);
+  if(existing) existing.qty++;
+  else cart.push({...p, qty:1});
+  updateCart();
+  showToast("✓ Agregado: "+p.name);
+}
+function addGiftCard(amount) {
+  const gcId = 99000 + amount;
+  const gc = {...giftCardProduct, id: gcId, price:amount, name:`Gift Card ${fmt(amount)}`};
+  const existing = cart.find(c=>c.id===gcId);
+  if(existing) existing.qty++;
+  else cart.push({...gc, qty:1});
+  updateCart();
+  showToast("✓ Gift Card agregada al carrito");
+}
+function removeFromCart(id){
+  cart = cart.filter(c=>c.id!==id);
+  updateCart();
+}
+function changeQty(id, delta){
+  const item = cart.find(c=>c.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty<=0) removeFromCart(id);
+  else updateCart();
+}
+function updateCart(){
+  const count = cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById("cartCount").textContent = count;
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById("cartTotal").textContent = fmt(total);
+  const body = document.getElementById("cartBody");
+  if(cart.length===0){ body.innerHTML='<div class="cart-empty">Tu carrito está vacío</div>'; return; }
+  body.innerHTML = cart.map(c=>{
+    const bgColor = (colorMap[c.color] || ["#7a6050"])[0];
+    return `
+    <div class="cart-item">
+      <div class="cart-item-img">
+        <svg viewBox="0 0 200 200" width="56" height="56" style="background:${bgColor}22">
+          <g transform="translate(20,10) scale(0.8)">${getProductSVG(c)}</g>
+        </svg>
+      </div>
+      <div class="cart-item-info">
+        <p class="ci-name">${c.name}</p>
+        <p class="ci-color">${c.color}</p>
+      </div>
+      <div class="cart-item-right">
+        <span class="ci-price">${fmt(c.price*c.qty)}</span>
+        <div class="qty-control">
+          <button onclick="changeQty(${c.id},-1)">−</button>
+          <span>${c.qty}</span>
+          <button onclick="changeQty(${c.id},1)">+</button>
+        </div>
+        <button onclick="removeFromCart(${c.id})" style="font-size:12px;color:var(--grey-400);text-decoration:underline;background:none;border:none;cursor:pointer;">Eliminar</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+function openCart(){ document.getElementById("cartOverlay").classList.add("open"); document.getElementById("cartSidebar").classList.add("open"); }
+function closeCart(){ document.getElementById("cartOverlay").classList.remove("open"); document.getElementById("cartSidebar").classList.remove("open"); }
 
-            if (!name || !description || !price || stock === undefined) {
-                alert('⚠️ Completa todos los campos');
-                return;
-            }
+// ─── SEARCH ───
+function openSearch(){ document.getElementById("searchOverlay").classList.add("active"); document.getElementById("searchInput").value=""; document.getElementById("searchResults").innerHTML=""; setTimeout(()=>document.getElementById("searchInput").focus(),100); }
+function closeSearch(){ document.getElementById("searchOverlay").classList.remove("active"); }
+function searchProducts(){
+  const q = document.getElementById("searchInput").value.toLowerCase().trim();
+  const res = document.getElementById("searchResults");
+  if(!q){ res.innerHTML=""; return; }
+  const matches = products.filter(p=>
+    p.name.toLowerCase().includes(q)||
+    p.color.toLowerCase().includes(q)||
+    p.cat.toLowerCase().includes(q)||
+    p.desc.toLowerCase().includes(q)
+  );
+  if(matches.length===0){ res.innerHTML='<div class="search-no-results" style="grid-column:1/-1;">No se encontraron productos.</div>'; return; }
+  res.innerHTML = matches.map(p=>{
+    const bgColor = (colorMap[p.color] || ["#7a6050"])[0];
+    return `
+    <div class="product-card" onclick="closeSearch();openDetail(${p.id})">
+      <div class="prod-img-wrap">
+        <svg viewBox="0 0 200 200" width="100%" height="100%" style="background:${bgColor}33">
+          <g transform="translate(20,10) scale(0.8)">${getProductSVG(p)}</g>
+        </svg>
+        <div class="quick-add" onclick="event.stopPropagation();closeSearch();addToCart(${p.id})">+ Agregar</div>
+      </div>
+      <p class="prod-name">${p.name}</p>
+      <p class="prod-color">${p.color}</p>
+      <p class="prod-price">${fmt(p.price)}</p>
+    </div>`;
+  }).join("");
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeSearch(); closeDetail(); closeCart(); closeShippingModal(); }});
 
-            if (editingProductId) {
-                const index = products.findIndex(p => p.id === editingProductId);
-                products[index] = {
-                    ...products[index],
-                    name, description, price, stock, category, emoji
-                };
-                editingProductId = null;
-                alert('✅ Producto actualizado');
-            } else {
-                products.push({
-                    id: Date.now(),
-                    name, description, price, stock, category, emoji
-                });
-                alert('✅ Producto agregado');
-            }
+// ─── SHIPPING MODAL ───
+function openShippingModal(){ document.getElementById("shippingOverlay").classList.add("open"); document.getElementById("shippingModal").classList.add("open"); }
+function closeShippingModal(){ document.getElementById("shippingOverlay").classList.remove("open"); document.getElementById("shippingModal").classList.remove("open"); }
 
-            clearForm();
-            renderProducts();
-        }
+// ─── NAVIGATION ───
+function navigateTo(pageId){
+  document.getElementById("mainSite").classList.add("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("checkoutPage").classList.remove("active");
+  document.getElementById("successPage").classList.remove("active");
+  document.getElementById(pageId).classList.add("active");
+  window.scrollTo(0,0);
+  if(pageId==='giftCards') setTimeout(updateGiftCardAmounts, 50);
+}
+function goHome(){
+  document.getElementById("mainSite").classList.remove("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("checkoutPage").classList.remove("active");
+  document.getElementById("successPage").classList.remove("active");
+  window.scrollTo(0,0);
+}
 
-        function editProduct(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
+// ─── SOCIAL ───
+function socialClick(platform){ showToast("Visita nuestra página de "+platform+" 🎯"); }
 
-            document.getElementById('productName').value = product.name;
-            document.getElementById('productDescription').value = product.description;
-            document.getElementById('productPrice').value = product.price;
-            document.getElementById('productStock').value = product.stock;
-            document.getElementById('productCategory').value = product.category;
-            document.getElementById('productEmoji').value = product.emoji;
+// ─── NEWSLETTER ───
+function subscribeNewsletter(){
+  const input = document.getElementById("newsletterEmail");
+  const email = input.value.trim();
+  if(!email || !email.includes("@") || !email.includes(".")){
+    showToast("Por favor ingresa un correo válido");
+    input.style.borderColor = "#e53935";
+    setTimeout(()=>input.style.borderColor="",2000);
+    return;
+  }
+  input.value = "";
+  showToast("✓ ¡Suscripción exitosa! Gracias por unirte.");
+}
 
-            editingProductId = id;
-            window.scrollTo({ top: document.getElementById('adminSection').offsetTop - 100, behavior: 'smooth' });
-        }
+// ─── FAQ ───
+function toggleFAQ(item){
+  const wasOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-item").forEach(i=>i.classList.remove("open"));
+  if(!wasOpen) item.classList.add("open");
+}
 
-        function deleteProduct(id) {
-            if (confirm('¿Eliminar este producto?')) {
-                products = products.filter(p => p.id !== id);
-                renderProducts();
-                alert('✅ Producto eliminado');
-            }
-        }
+// ─── CONTACT ───
+function sendContact(){
+  const name = document.getElementById("ct-name").value.trim();
+  const email = document.getElementById("ct-email").value.trim();
+  const subject = document.getElementById("ct-subject").value;
+  const message = document.getElementById("ct-message").value.trim();
+  if(!name || !email || !subject || !message){
+    showToast("Por favor completa todos los campos");
+    return;
+  }
+  if(!email.includes("@")){
+    showToast("Ingresa un correo válido");
+    return;
+  }
+  document.getElementById("ct-name").value="";
+  document.getElementById("ct-email").value="";
+  document.getElementById("ct-subject").value="";
+  document.getElementById("ct-message").value="";
+  showToast("✓ Mensaje enviado. Te responderemos pronto.");
+}
 
-        function clearForm() {
-            document.getElementById('productName').value = '';
-            document.getElementById('productDescription').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productStock').value = '';
-            document.getElementById('productCategory').value = 'aretes';
-            document.getElementById('productEmoji').value = '';
-            editingProductId = null;
-        }
+// ─── INPUT FORMATTERS ───
+function formatPhone(el){
+  let v = el.value.replace(/\D/g,'');
+  if(v.length > 3 && v.length <= 6) v = v.slice(0,3)+' '+v.slice(3);
+  else if(v.length > 6) v = v.slice(0,3)+' '+v.slice(3,6)+' '+v.slice(6,10);
+  el.value = v;
+}
+function formatCard(el){
+  let v = el.value.replace(/\D/g,'').slice(0,16);
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+function formatExp(el){
+  let v = el.value.replace(/\D/g,'').slice(0,4);
+  if(v.length >= 2) v = v.slice(0,2)+'/'+v.slice(2);
+  el.value = v;
+}
 
-        function renderAdminProducts() {
-            if (!sessionStorage.getItem('adminAuth')) return;
+// ─── CHECKOUT ───
+function goToCheckout(){
+  if(cart.length===0){ showToast("El carrito está vacío"); return; }
+  closeCart();
+  document.getElementById("mainSite").classList.add("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("checkoutPage").classList.add("active");
+  document.getElementById("successPage").classList.remove("active");
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById("osTotal").textContent = fmt(total);
+  document.getElementById("osSummaryItems").innerHTML = cart.map(c=>`
+    <div class="os-item"><span class="os-name">${c.name} × ${c.qty}</span><span>${fmt(c.price*c.qty)}</span></div>
+  `).join("") + `<div class="os-item"><span class="os-name">Envío</span><span style="color:#43a047;font-weight:600;">Gratuito</span></div>`;
+  window.scrollTo(0,0);
+}
+function closeCheckout(){
+  document.getElementById("checkoutPage").classList.remove("active");
+  document.getElementById("mainSite").classList.remove("hidden");
+  openCart();
+}
+function selectPay(btn, method){
+  document.querySelectorAll(".pay-method").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("cardFields").style.display = method==="card" ? "block" : "none";
+  document.getElementById("nequiFields").style.display = method==="nequi" ? "block" : "none";
+  document.getElementById("daviPlataFields").style.display = method==="daviplata" ? "block" : "none";
+  document.getElementById("transferFields").style.display = method==="transfer" ? "block" : "none";
+}
 
-            const list = document.getElementById('adminProductList');
-            list.innerHTML = `
-                <h3 style="font-family: 'Amatic SC', cursive; font-size: 2rem; color: var(--bosque); margin-bottom: 1rem;">
-                    📦 Productos Actuales
-                </h3>
-            `;
+// ─── VALIDATION & ORDER ───
+function placeOrder(){
+  const fields = [
+    {id:'co-first', label:'Nombre'},
+    {id:'co-last', label:'Apellido'},
+    {id:'co-email', label:'Correo'},
+    {id:'co-addr', label:'Dirección'},
+    {id:'co-city', label:'Ciudad'},
+    {id:'co-phone', label:'Teléfono'}
+  ];
+  for(const f of fields){
+    const el = document.getElementById(f.id);
+    if(!el.value.trim()){
+      showToast("Por favor ingresa tu " + f.label);
+      el.classList.add("error");
+      el.focus();
+      setTimeout(()=>el.classList.remove("error"),2000);
+      return;
+    }
+  }
+  const email = document.getElementById('co-email').value.trim();
+  if(!email.includes("@") || !email.includes(".")){
+    showToast("Ingresa un correo válido");
+    document.getElementById('co-email').classList.add("error");
+    setTimeout(()=>document.getElementById('co-email').classList.remove("error"),2000);
+    return;
+  }
+  if(!document.getElementById('co-dept').value){
+    showToast("Selecciona un departamento");
+    return;
+  }
+  // Payment validation
+  const activePayBtn = document.querySelector('.pay-method.active');
+  const activeMethod = activePayBtn ? activePayBtn.textContent : '';
+  if(activeMethod.includes('Tarjeta')){
+    const card = document.getElementById('co-card').value.replace(/\s/g,'');
+    if(card.length < 16){ showToast("Ingresa el número de tarjeta completo"); return; }
+    if(!document.getElementById('co-cardName').value.trim()){ showToast("Ingresa el nombre en la tarjeta"); return; }
+    if(document.getElementById('co-exp').value.length < 5){ showToast("Ingresa la fecha de vencimiento"); return; }
+    if(!document.getElementById('co-cvv').value.trim()){ showToast("Ingresa el CVV"); return; }
+  }
+  if(activeMethod.includes('Nequi')){
+    if(document.getElementById('co-nequi').value.replace(/\s/g,'').length < 10){ showToast("Ingresa un número de celular válido"); return; }
+  }
+  if(activeMethod.includes('DaviPlata')){
+    if(document.getElementById('co-daviplata').value.replace(/\s/g,'').length < 10){ showToast("Ingresa un número de celular válido"); return; }
+  }
+  // Show processing
+  document.getElementById("processingOverlay").classList.add("active");
+  setTimeout(()=>{
+    document.getElementById("processingOverlay").classList.remove("active");
+    document.getElementById("checkoutPage").classList.remove("active");
+    document.getElementById("mainSite").classList.add("hidden");
+    document.getElementById("successPage").classList.add("active");
+    const orderNum = "OD-" + (10000 + Math.floor(Math.random()*90000));
+    document.getElementById("orderNum").textContent = "Pedido #" + orderNum;
+    // Clear cart
+    cart = [];
+    updateCart();
+    // Clear form fields
+    fields.forEach(f=>document.getElementById(f.id).value="");
+    document.getElementById('co-dept').value="";
+    document.getElementById('co-card').value="";
+    document.getElementById('co-cardName').value="";
+    document.getElementById('co-exp').value="";
+    document.getElementById('co-cvv').value="";
+    document.getElementById('co-nequi').value="";
+    document.getElementById('co-daviplata').value="";
+    window.scrollTo(0,0);
+  }, 2600);
+}
 
-            products.forEach(product => {
-                const item = document.createElement('div');
-                item.style.cssText = 'background: white; border-radius: 15px; padding: 1.5rem; margin-bottom: 1rem; border-left: 5px solid var(--helecho);';
-                item.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="font-size: 1.2rem;">${product.emoji} ${product.name}</strong><br>
-                            <small>$${product.price.toLocaleString('es-CO')} | Stock: ${product.stock} | ${getCategoryName(product.category)}</small>
-                        </div>
-                        <div style="display: flex; gap: 0.5rem;">
-                            <button onclick="editProduct(${product.id})" style="padding: 0.5rem 1rem; background: var(--cielo); color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: 600;">
-                                ✏️ Editar
-                            </button>
-                            <button onclick="deleteProduct(${product.id})" style="padding: 0.5rem 1rem; background: var(--guacamaya); color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: 600;">
-                                🗑️ Eliminar
-                            </button>
-                        </div>
-                    </div>
-                `;
-                list.appendChild(item);
-            });
-        }
-
-        // Cerrar modal de contraseña con Enter
-        document.getElementById('adminPassword')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') checkPassword();
-        });
-    </script>
+// ─── TOAST ───
+let toastTimeout;
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(()=>t.classList.remove("show"), 2800);
+}
+</script>
 </body>
 </html>
