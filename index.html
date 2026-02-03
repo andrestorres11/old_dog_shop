@@ -29,521 +29,149 @@ img { display: block; max-width: 100%; }
 button { font-family: var(--sans); border: none; background: none; cursor: pointer; }
 
 /* ─── ANNOUNCEMENT BAR ─── */
-.announce-bar {
-  background: var(--black);
-  color: #fff;
-  text-align: center;
-  padding: 9px 16px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.announce-bar a { color: var(--brown-light); text-decoration: underline; margin-left: 6px; }
+.announce-bar { background: var(--black); color: #fff; text-align: center; padding: 9px 16px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.announce-bar a { color: var(--brown-light); text-decoration: underline; margin-left: 6px; cursor:pointer; }
 
 /* ─── HEADER ─── */
-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--grey-200);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-/* LEFT NAV */
+header { background: var(--white); border-bottom: 1px solid var(--grey-200); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; position: relative; }
 .nav-left { display: flex; align-items: center; gap: 28px; }
 .nav-left .dropdown { position: relative; }
-.nav-left .dropdown > a {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 0;
-}
+.nav-left .dropdown > a { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; display: flex; align-items: center; gap: 4px; padding: 8px 0; cursor:pointer; }
 .nav-left .dropdown > a .arrow { font-size: 9px; transition: transform 0.2s; }
 .nav-left .dropdown:hover > a .arrow { transform: rotate(180deg); }
-.nav-left .dropdown-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: -16px;
-  background: #fff;
-  border: 1px solid var(--grey-200);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: all 0.22s ease;
-  z-index: 10;
-}
+.nav-left .dropdown-menu { position: absolute; top: calc(100% + 8px); left: -16px; background: #fff; border: 1px solid var(--grey-200); box-shadow: 0 8px 32px rgba(0,0,0,0.1); min-width: 200px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.22s ease; z-index: 10; }
 .nav-left .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
-.nav-left .dropdown-menu a {
-  display: block;
-  padding: 11px 20px;
-  font-size: 13px;
-  border-bottom: 1px solid var(--grey-100);
-  transition: background 0.15s;
-}
+.nav-left .dropdown-menu a { display: block; padding: 11px 20px; font-size: 13px; border-bottom: 1px solid var(--grey-100); transition: background 0.15s; cursor:pointer; }
 .nav-left .dropdown-menu a:last-child { border-bottom: none; }
 .nav-left .dropdown-menu a:hover { background: var(--grey-100); }
-.nav-left > a { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; }
-
-/* CENTER LOGO */
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--black);
-  white-space: nowrap;
-}
-
-/* RIGHT NAV */
+.nav-left > a { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; cursor:pointer; }
+.logo { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); white-space: nowrap; cursor:pointer; }
 .nav-right { display: flex; align-items: center; gap: 20px; }
-.nav-right a { font-size: 13px; font-weight: 500; }
-.nav-right .icon-btn {
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
+.nav-right a { font-size: 13px; font-weight: 500; cursor:pointer; }
+.nav-right .icon-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; position: relative; cursor:pointer; }
 .nav-right .icon-btn svg { width: 20px; height: 20px; }
-.cart-count {
-  position: absolute;
-  top: 4px; right: 4px;
-  background: var(--black);
-  color: #fff;
-  font-size: 9px;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 600;
-}
+.cart-count { position: absolute; top: 4px; right: 4px; background: var(--black); color: #fff; font-size: 9px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
 
 /* ─── HERO ─── */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  background: var(--black);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(135deg, rgba(60,40,20,0.7) 0%, rgba(20,15,10,0.85) 50%, rgba(40,25,15,0.7) 100%);
-}
-/* Decorative leather texture feel */
-.hero-bg::before {
-  content:'';
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
-  opacity: 0.4;
-}
-.hero-boot-svg {
-  position: absolute;
-  right: 8%;
-  bottom: 0;
-  width: 380px;
-  height: 420px;
-  opacity: 0.18;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #fff;
-  padding: 0 24px;
-}
-.hero-content h1 {
-  font-family: var(--serif);
-  font-size: 58px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 12px;
-}
-.hero-content .hero-sub {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 36px;
-}
+.hero { position: relative; width: 100%; height: 520px; background: var(--black); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(60,40,20,0.7) 0%, rgba(20,15,10,0.85) 50%, rgba(40,25,15,0.7) 100%); }
+.hero-bg::before { content:''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E"); opacity: 0.4; }
+.hero-boot-svg { position: absolute; right: 8%; bottom: 0; width: 380px; height: 420px; opacity: 0.18; }
+.hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 24px; }
+.hero-content h1 { font-family: var(--serif); font-size: 58px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 12px; }
+.hero-content .hero-sub { font-family: var(--serif); font-size: 20px; font-style: italic; font-weight: 400; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
 .hero-btns { display: flex; gap: 16px; justify-content: center; }
-.hero-btn {
-  padding: 14px 36px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 2px solid #fff;
-  color: #fff;
-  transition: background 0.25s, color 0.25s;
-}
+.hero-btn { padding: 14px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #fff; color: #fff; transition: background 0.25s, color 0.25s; cursor:pointer; }
 .hero-btn:hover { background: #fff; color: var(--black); }
 .hero-btn.filled { background: #fff; color: var(--black); }
 .hero-btn.filled:hover { background: transparent; color: #fff; }
 
-/* ─── SOCIAL PROOF / PRESS ─── */
+/* ─── SOCIAL PROOF ─── */
 .proof-section { padding: 56px 24px; text-align: center; background: var(--white); }
-.proof-section h2 {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--grey-600);
-  margin-bottom: 28px;
-}
-.quotes-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 32px;
-  max-width: 900px;
-  margin: 0 auto 32px;
-}
-.quote-item {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--grey-600);
-  max-width: 260px;
-  line-height: 1.5;
-}
-.press-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.press-logo {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--grey-400);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.review-badge {
-  font-size: 13px;
-  color: var(--grey-600);
-  font-weight: 500;
-}
+.proof-section h2 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--grey-600); margin-bottom: 28px; }
+.quotes-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 32px; max-width: 900px; margin: 0 auto 32px; }
+.quote-item { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--grey-600); max-width: 260px; line-height: 1.5; }
+.press-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 28px; }
+.press-logo { font-family: var(--serif); font-weight: 700; font-size: 18px; color: var(--grey-400); letter-spacing: 0.05em; text-transform: uppercase; }
+.review-badge { font-size: 13px; color: var(--grey-600); font-weight: 500; }
 .review-badge .stars { color: var(--black); font-size: 15px; letter-spacing: 2px; }
 
 /* ─── CATEGORY GRID ─── */
 .category-grid-section { padding: 0 24px; max-width: 1320px; margin: 0 auto; }
-.cat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.cat-card {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 2px;
-}
+.cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.cat-card { position: relative; overflow: hidden; cursor: pointer; border-radius: 2px; }
 .cat-card.big { height: 340px; }
-.cat-card.small { height: 240px; }
-.cat-card-bg {
-  width: 100%; height: 100%;
-  transition: transform 0.5s ease;
-}
+.cat-card-bg { width: 100%; height: 100%; transition: transform 0.5s ease; }
 .cat-card:hover .cat-card-bg { transform: scale(1.04); }
-.cat-card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
-  display: flex;
-  align-items: flex-end;
-  padding: 28px;
-}
-.cat-card-overlay h3 {
-  color: #fff;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 600;
-}
-.cat-row-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 12px;
-}
+.cat-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 28px; }
+.cat-card-overlay h3 { color: #fff; font-family: var(--serif); font-size: 22px; font-weight: 600; }
+.cat-row-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
 .cat-row-4 .cat-card { height: 220px; }
 
-/* ─── PRODUCT SECTION (with tabs) ─── */
+/* ─── PRODUCTS ─── */
 .products-section { padding: 64px 24px; max-width: 1320px; margin: 0 auto; }
 .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
 .section-header h2 { font-family: var(--serif); font-size: 30px; font-weight: 600; }
-.section-header a { font-size: 13px; font-weight: 500; color: var(--grey-600); text-decoration: underline; text-underline-offset: 3px; }
-/* Tabs */
-.tab-pills { display: flex; gap: 8px; margin-bottom: 32px; }
-.tab-pill {
-  padding: 8px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid var(--grey-200);
-  color: var(--grey-600);
-  border-radius: 100px;
-  transition: all 0.2s;
-  background: transparent;
-}
+.section-header a { font-size: 13px; font-weight: 500; color: var(--grey-600); text-decoration: underline; text-underline-offset: 3px; cursor:pointer; }
+.tab-pills { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap:wrap; }
+.tab-pill { padding: 8px 20px; font-size: 13px; font-weight: 500; border: 1px solid var(--grey-200); color: var(--grey-600); border-radius: 100px; transition: all 0.2s; background: transparent; cursor:pointer; }
 .tab-pill:hover { border-color: var(--black); color: var(--black); }
 .tab-pill.active { background: var(--black); color: #fff; border-color: var(--black); }
-/* Product grid */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .product-card { cursor: pointer; }
-.product-card:hover .prod-img-wrap img { transform: scale(1.03); }
-.prod-img-wrap {
-  aspect-ratio: 1;
-  overflow: hidden;
-  background: var(--grey-100);
-  margin-bottom: 14px;
-  border-radius: 2px;
-  position: relative;
-}
-.prod-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.prod-img-wrap .quick-add {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  background: var(--black);
-  color: #fff;
-  padding: 10px 24px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: all 0.25s;
-  white-space: nowrap;
-  border-radius: 1px;
-}
+.prod-img-wrap { aspect-ratio: 1; overflow: hidden; background: var(--grey-100); margin-bottom: 14px; border-radius: 2px; position: relative; }
+.prod-img-wrap svg { transition: transform 0.4s ease; }
+.product-card:hover .prod-img-wrap svg { transform: scale(1.03); }
+.prod-img-wrap .quick-add { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%) translateY(12px); background: var(--black); color: #fff; padding: 10px 24px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transition: all 0.25s; white-space: nowrap; border-radius: 1px; cursor:pointer; }
 .product-card:hover .quick-add { opacity: 1; transform: translateX(-50%) translateY(0); }
-.prod-name {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 3px;
-}
+.prod-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 3px; }
 .prod-color { font-size: 13px; color: var(--grey-600); margin-bottom: 5px; }
 .prod-rating { font-size: 12px; color: var(--grey-600); margin-bottom: 5px; }
 .prod-rating .stars-y { color: var(--black); }
 .prod-price { font-size: 15px; font-weight: 600; }
 
-/* ─── BRAND STRIP (Why Old Dog) ─── */
-.brand-strip {
-  background: var(--black);
-  color: #fff;
-  padding: 72px 24px;
-  text-align: center;
-}
-.brand-strip h2 {
-  font-family: var(--serif);
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.brand-strip p {
-  max-width: 560px;
-  margin: 0 auto 36px;
-  color: rgba(255,255,255,0.6);
-  font-size: 15px;
-  line-height: 1.7;
-}
+/* ─── BRAND STRIP ─── */
+.brand-strip { background: var(--black); color: #fff; padding: 72px 24px; text-align: center; }
+.brand-strip h2 { font-family: var(--serif); font-size: 36px; font-weight: 600; margin-bottom: 16px; }
+.brand-strip p { max-width: 560px; margin: 0 auto 36px; color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; }
 .brand-btns { display: flex; gap: 16px; justify-content: center; }
-.brand-btn {
-  padding: 14px 36px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  transition: background 0.25s, border-color 0.25s;
-}
+.brand-btn { padding: 14px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.4); color: #fff; transition: background 0.25s, border-color 0.25s; cursor:pointer; }
 .brand-btn:hover { background: rgba(255,255,255,0.08); border-color: #fff; }
-
-/* ─── PILLARS ─── */
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 960px;
-  margin: 48px auto 0;
-  text-align: center;
-}
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 960px; margin: 48px auto 0; text-align: center; }
 .pillar-icon { font-size: 28px; margin-bottom: 12px; }
 .pillar h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
 .pillar p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; }
 
 /* ─── FOOTER ─── */
 footer { background: var(--cream); border-top: 1px solid var(--grey-200); padding: 56px 24px 32px; }
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
-  gap: 48px;
-}
-.footer-col h4 {
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--black);
-}
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.4fr; gap: 48px; }
+.footer-col h4 { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; color: var(--black); }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
-.footer-col ul li a { font-size: 14px; color: var(--grey-600); transition: color 0.2s; }
+.footer-col ul li a { font-size: 14px; color: var(--grey-600); transition: color 0.2s; cursor:pointer; }
 .footer-col ul li a:hover { color: var(--black); }
 .footer-col .brand-text { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 12px; }
 .footer-col .brand-desc { font-size: 13px; color: var(--grey-600); line-height: 1.6; margin-bottom: 16px; }
 .social-row { display: flex; gap: 16px; }
-.social-row a { color: var(--grey-600); font-size: 18px; transition: color 0.2s; }
+.social-row a { color: var(--grey-600); font-size: 18px; transition: color 0.2s; cursor:pointer; }
 .social-row a:hover { color: var(--black); }
-/* Newsletter */
 .newsletter-input-wrap { display: flex; margin-top: 8px; }
-.newsletter-input-wrap input {
-  flex: 1;
-  padding: 12px 14px;
-  border: 1px solid var(--grey-200);
-  border-right: none;
-  font-size: 13px;
-  font-family: var(--sans);
-  background: #fff;
-  outline: none;
-}
+.newsletter-input-wrap input { flex: 1; padding: 12px 14px; border: 1px solid var(--grey-200); border-right: none; font-size: 13px; font-family: var(--sans); background: #fff; outline: none; transition: border-color 0.2s; }
 .newsletter-input-wrap input:focus { border-color: var(--black); }
-.newsletter-input-wrap button {
-  padding: 12px 20px;
-  background: var(--black);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.footer-bottom {
-  max-width: 1200px;
-  margin: 48px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--grey-200);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: var(--grey-400);
-}
-.footer-bottom a { color: var(--grey-400); margin-left: 20px; }
+.newsletter-input-wrap button { padding: 12px 20px; background: var(--black); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor:pointer; }
+.footer-bottom { max-width: 1200px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--grey-200); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--grey-400); flex-wrap:wrap; gap:12px; }
+.footer-bottom a { color: var(--grey-400); margin-left: 20px; cursor:pointer; }
 .footer-bottom a:hover { color: var(--black); }
-/* Country selector */
-.country-sel {
-  font-size: 12px;
-  color: var(--grey-600);
-  border: 1px solid var(--grey-200);
-  padding: 6px 10px;
-  border-radius: 3px;
-  background: #fff;
-  font-family: var(--sans);
-}
+.country-sel { font-size: 12px; color: var(--grey-600); border: 1px solid var(--grey-200); padding: 6px 10px; border-radius: 3px; background: #fff; font-family: var(--sans); }
 
 /* ─── CART SIDEBAR ─── */
 .cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:200; opacity:0; visibility:hidden; transition:opacity 0.3s; }
 .cart-overlay.open { opacity:1; visibility:visible; }
-.cart-sidebar {
-  position: fixed;
-  top: 0; right: -420px;
-  width: 400px; max-width: 90vw;
-  height: 100%;
-  background: #fff;
-  z-index: 201;
-  transition: right 0.35s cubic-bezier(.4,0,.2,1);
-  display: flex; flex-direction: column;
-  box-shadow: -8px 0 40px rgba(0,0,0,0.12);
-}
+.cart-sidebar { position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100%; background: #fff; z-index: 201; transition: right 0.35s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.12); }
 .cart-sidebar.open { right: 0; }
-.cart-head {
-  padding: 24px;
-  border-bottom: 1px solid var(--grey-200);
-  display: flex; justify-content: space-between; align-items: center;
-}
+.cart-head { padding: 24px; border-bottom: 1px solid var(--grey-200); display: flex; justify-content: space-between; align-items: center; }
 .cart-head h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
 .cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
-.cart-item {
-  display: flex; gap: 16px; padding: 16px 0;
-  border-bottom: 1px solid var(--grey-100);
-}
-.cart-item-img { width: 72px; height: 72px; background: var(--grey-100); flex-shrink: 0; border-radius: 2px; display:flex; align-items:center; justify-content:center; }
+.cart-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--grey-100); }
+.cart-item-img { width: 72px; height: 72px; background: var(--grey-100); flex-shrink: 0; border-radius: 2px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .cart-item-info { flex: 1; min-width: 0; }
 .cart-item-info .ci-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
 .cart-item-info .ci-color { font-size: 12px; color: var(--grey-600); }
 .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 .cart-item-right .ci-price { font-weight: 600; font-size: 14px; }
 .qty-control { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-.qty-control button { width: 24px; height: 24px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.qty-control button { width: 24px; height: 24px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 16px; cursor:pointer; }
 .cart-footer { padding: 24px; border-top: 1px solid var(--grey-200); }
 .cart-total { display: flex; justify-content: space-between; font-weight: 600; font-size: 16px; margin-bottom: 20px; }
-.checkout-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--black);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: background 0.2s;
-}
+.checkout-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s; cursor:pointer; }
 .checkout-btn:hover { background: #333; }
 .cart-empty { text-align: center; padding: 60px 0; color: var(--grey-400); font-size: 15px; }
 
-/* ─── PRODUCT DETAIL MODAL ─── */
+/* ─── DETAIL MODAL ─── */
 .detail-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; opacity:0; visibility:hidden; transition:opacity 0.3s; }
 .detail-overlay.open { opacity:1; visibility:visible; }
-.detail-modal {
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%) scale(0.96);
-  width: 90vw; max-width: 860px;
-  background: #fff;
-  z-index: 201;
-  opacity: 0; visibility: hidden;
-  transition: all 0.3s cubic-bezier(.4,0,.2,1);
-  border-radius: 4px;
-  max-height: 90vh;
-  overflow-y: auto;
-  display: flex;
-}
+.detail-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.96); width: 90vw; max-width: 860px; background: #fff; z-index: 201; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(.4,0,.2,1); border-radius: 4px; max-height: 90vh; overflow-y: auto; display: flex; }
 .detail-modal.open { opacity:1; visibility:visible; transform: translate(-50%,-50%) scale(1); }
 .detail-left { width: 50%; flex-shrink: 0; background: var(--grey-100); min-height: 480px; display: flex; align-items:center; justify-content:center; position:relative; }
 .detail-right { width: 50%; padding: 48px 40px; }
@@ -554,79 +182,32 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 .detail-right .detail-desc { font-size: 14px; color: var(--grey-600); line-height: 1.7; margin-bottom: 28px; }
 .detail-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--grey-600); margin-bottom: 10px; }
 .size-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.size-opt {
-  width: 48px; height: 48px;
-  border: 1px solid var(--grey-200);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 500;
-  cursor: pointer; transition: all 0.15s;
-}
+.size-opt { width: 48px; height: 48px; border: 1px solid var(--grey-200); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
 .size-opt:hover { border-color: var(--black); }
 .size-opt.active { background: var(--black); color: #fff; border-color: var(--black); }
-.add-to-cart-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--black);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: background 0.2s;
-  margin-top: 8px;
-}
+.add-to-cart-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s; margin-top: 8px; cursor:pointer; }
 .add-to-cart-btn:hover { background: #333; }
-.detail-close {
-  position: absolute;
-  top: 16px; right: 16px;
-  z-index: 5;
-  width: 36px; height: 36px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  backdrop-filter: blur(4px);
-}
+.detail-close { position: absolute; top: 16px; right: 16px; z-index: 5; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; backdrop-filter: blur(4px); cursor:pointer; }
 
-/* ─── CHECKOUT PAGE ─── */
+/* ─── CHECKOUT ─── */
 .checkout-page { display: none; min-height: 100vh; background: var(--cream); }
 .checkout-page.active { display: block; }
 .checkout-inner { max-width: 1000px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; }
 .checkout-head { margin-bottom: 32px; }
-.checkout-head .back-link { font-size: 13px; color: var(--grey-600); margin-bottom: 8px; display: inline-flex; align-items: center; gap: 4px; }
+.checkout-head .back-link { font-size: 13px; color: var(--grey-600); margin-bottom: 8px; display: inline-flex; align-items: center; gap: 4px; cursor:pointer; }
 .checkout-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; }
 .form-row { display: flex; gap: 16px; margin-bottom: 16px; }
 .form-group { flex: 1; }
 .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey-600); margin-bottom: 8px; }
-.form-group input, .form-group select {
-  width: 100%; padding: 13px 14px;
-  border: 1px solid var(--grey-200);
-  font-size: 14px; font-family: var(--sans);
-  background: #fff; outline: none;
-  transition: border-color 0.2s;
-}
+.form-group input, .form-group select { width: 100%; padding: 13px 14px; border: 1px solid var(--grey-200); font-size: 14px; font-family: var(--sans); background: #fff; outline: none; transition: border-color 0.2s; }
 .form-group input:focus, .form-group select:focus { border-color: var(--black); }
+.form-group input.error { border-color: #e53935; }
 .payment-methods { display: flex; gap: 8px; margin-bottom: 24px; }
-.pay-method {
-  flex: 1; padding: 12px 8px;
-  border: 2px solid var(--grey-200);
-  text-align: center;
-  font-size: 12px; font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
+.pay-method { flex: 1; padding: 12px 8px; border: 2px solid var(--grey-200); text-align: center; font-size: 12px; font-weight: 600; cursor: pointer; transition: border-color 0.2s; }
 .pay-method:hover { border-color: var(--grey-400); }
 .pay-method.active { border-color: var(--black); background: var(--grey-100); }
-.place-order-btn {
-  width: 100%; padding: 16px;
-  background: var(--black); color: #fff;
-  font-size: 14px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  margin-top: 8px;
-  transition: background 0.2s;
-}
+.place-order-btn { width: 100%; padding: 16px; background: var(--black); color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; transition: background 0.2s; cursor:pointer; }
 .place-order-btn:hover { background: #333; }
-/* Order summary sidebar */
 .order-summary { background: #fff; border: 1px solid var(--grey-200); padding: 28px; border-radius: 2px; height: fit-content; position: sticky; top: 80px; }
 .order-summary h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--grey-200); }
 .os-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--grey-100); font-size: 14px; }
@@ -634,61 +215,110 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 .os-total { display: flex; justify-content: space-between; padding: 16px 0 0; font-weight: 700; font-size: 16px; margin-top: 8px; }
 .os-shipping { font-size: 12px; color: var(--brown-warm); text-align: center; margin-top: 12px; font-weight: 500; }
 
-/* ─── SUCCESS PAGE ─── */
+/* ─── SUCCESS ─── */
 .success-page { display: none; min-height: 100vh; background: var(--cream); }
 .success-page.active { display: flex; align-items: center; justify-content: center; }
-.success-card {
-  background: #fff;
-  padding: 72px 56px;
-  text-align: center;
-  border-radius: 4px;
-  max-width: 480px;
-  width: 90%;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-}
+.success-card { background: #fff; padding: 72px 56px; text-align: center; border-radius: 4px; max-width: 480px; width: 90%; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 .success-icon { width: 72px; height: 72px; margin: 0 auto 24px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .success-icon svg { width: 36px; height: 36px; stroke: #43a047; }
 .success-card h2 { font-family: var(--serif); font-size: 26px; margin-bottom: 8px; }
 .success-card .order-num { color: var(--grey-600); font-size: 14px; margin-bottom: 24px; }
 .success-card p { color: var(--grey-600); font-size: 14px; line-height: 1.6; margin-bottom: 28px; }
-.continue-btn {
-  display: inline-block;
-  padding: 14px 40px;
-  background: var(--black); color: #fff;
-  font-size: 13px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-}
+.continue-btn { display: inline-block; padding: 14px 40px; background: var(--black); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor:pointer; }
 
-/* ─── PROCESSING OVERLAY ─── */
-.processing-overlay {
-  position:fixed; inset:0;
-  background:rgba(255,255,255,0.92);
-  z-index:500;
-  display:none; align-items:center; justify-content:center; flex-direction:column; gap:16px;
-}
+/* ─── PROCESSING ─── */
+.processing-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.92); z-index:500; display:none; align-items:center; justify-content:center; flex-direction:column; gap:16px; }
 .processing-overlay.active { display:flex; }
-.spinner {
-  width:40px; height:40px;
-  border: 3px solid var(--grey-200);
-  border-top-color: var(--black);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
+.spinner { width:40px; height:40px; border: 3px solid var(--grey-200); border-top-color: var(--black); border-radius: 50%; animation: spin 0.7s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 .processing-overlay p { font-size:15px; color:var(--grey-600); font-weight:500; }
 
 /* ─── TOAST ─── */
-.toast {
-  position:fixed; bottom:28px; left:50%;
-  transform:translateX(-50%) translateY(100px);
-  background:var(--black); color:#fff;
-  padding:14px 28px; border-radius:4px;
-  font-size:14px; font-weight:500;
-  z-index:600;
-  transition:transform 0.35s cubic-bezier(.4,0,.2,1);
-  white-space: nowrap;
-}
+.toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--black); color:#fff; padding:14px 28px; border-radius:4px; font-size:14px; font-weight:500; z-index:600; transition:transform 0.35s cubic-bezier(.4,0,.2,1); white-space: nowrap; max-width:90vw; text-align:center; }
 .toast.show { transform:translateX(-50%) translateY(0); }
+
+/* ─── SEARCH OVERLAY ─── */
+.search-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.97); z-index:300; display:none; flex-direction:column; align-items:center; padding-top:100px; }
+.search-overlay.active { display:flex; }
+.search-close { position:absolute; top:24px; right:32px; font-size:28px; cursor:pointer; color:var(--grey-600); }
+.search-close:hover { color:var(--black); }
+.search-bar { display:flex; align-items:center; width:90%; max-width:640px; border-bottom:2px solid var(--black); padding-bottom:12px; margin-bottom:40px; }
+.search-bar input { flex:1; font-size:28px; font-family:var(--serif); border:none; outline:none; background:transparent; color:var(--black); }
+.search-bar input::placeholder { color:var(--grey-400); }
+.search-bar svg { width:28px; height:28px; color:var(--grey-400); flex-shrink:0; }
+.search-results { width:90%; max-width:900px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.search-no-results { color:var(--grey-600); font-size:16px; text-align:center; margin-top:20px; }
+
+/* ─── INNER PAGES (shared) ─── */
+.inner-page { display:none; min-height:100vh; background:var(--cream); }
+.inner-page.active { display:block; }
+.inner-header { background:var(--black); color:#fff; padding:80px 24px 56px; text-align:center; }
+.inner-header h1 { font-family:var(--serif); font-size:42px; font-weight:600; margin-bottom:10px; }
+.inner-header p { color:rgba(255,255,255,0.6); font-size:16px; max-width:560px; margin:0 auto; line-height:1.6; }
+.inner-body { max-width:860px; margin:0 auto; padding:60px 24px; }
+.inner-body h2 { font-family:var(--serif); font-size:24px; font-weight:600; margin:40px 0 14px; }
+.inner-body h2:first-child { margin-top:0; }
+.inner-body h3 { font-family:var(--serif); font-size:18px; font-weight:600; margin:28px 0 10px; color:var(--brown-warm); }
+.inner-body p { font-size:15px; color:var(--grey-600); line-height:1.8; margin-bottom:16px; }
+.inner-body ul { list-style:none; margin-bottom:16px; }
+.inner-body ul li { font-size:15px; color:var(--grey-600); line-height:1.8; padding-left:20px; position:relative; margin-bottom:6px; }
+.inner-body ul li::before { content:"›"; position:absolute; left:0; color:var(--brown-warm); font-weight:700; }
+.inner-back { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--grey-600); cursor:pointer; margin-bottom:32px; transition:color 0.2s; }
+.inner-back:hover { color:var(--black); }
+
+/* FAQ accordion */
+.faq-item { border-bottom:1px solid var(--grey-200); }
+.faq-q { padding:18px 0; font-size:15px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.faq-q .faq-icon { font-size:20px; transition:transform 0.2s; color:var(--grey-400); }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+.faq-item.open .faq-a { max-height:200px; }
+.faq-a p { padding:0 0 18px; font-size:14px; color:var(--grey-600); line-height:1.7; }
+
+/* Stores grid */
+.stores-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:32px; }
+.store-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; padding:28px; }
+.store-card h3 { font-family:var(--serif); font-size:18px; margin-bottom:8px; color:var(--black); }
+.store-card p { font-size:14px; color:var(--grey-600); margin-bottom:4px; line-height:1.6; }
+.store-card .store-hours { margin-top:12px; font-size:13px; color:var(--brown-warm); font-weight:600; }
+
+/* Reviews grid */
+.reviews-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:32px; }
+.review-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; padding:24px; }
+.review-card .rev-stars { color:var(--black); font-size:15px; margin-bottom:8px; }
+.review-card .rev-text { font-size:14px; color:var(--grey-600); line-height:1.7; font-style:italic; margin-bottom:12px; }
+.review-card .rev-author { font-size:13px; font-weight:600; }
+.review-card .rev-date { font-size:12px; color:var(--grey-400); }
+
+/* Contact form */
+.contact-form { margin-top:24px; }
+.contact-form .form-row { display:flex; gap:16px; margin-bottom:16px; }
+.contact-form .form-group { flex:1; }
+.contact-form .form-group label { display:block; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-600); margin-bottom:8px; }
+.contact-form .form-group input,
+.contact-form .form-group select,
+.contact-form .form-group textarea { width:100%; padding:13px 14px; border:1px solid var(--grey-200); font-size:14px; font-family:var(--sans); background:#fff; outline:none; transition:border-color 0.2s; border-radius:2px; }
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus { border-color:var(--black); }
+.contact-form textarea { resize:vertical; min-height:140px; }
+.contact-form .send-btn { padding:14px 40px; background:var(--black); color:#fff; font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; margin-top:8px; transition:background 0.2s; }
+.contact-form .send-btn:hover { background:#333; }
+
+/* Gift cards */
+.gift-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; }
+.gift-card { background:linear-gradient(135deg,var(--black),#3a2c1e); border-radius:8px; padding:32px 24px; color:#fff; position:relative; overflow:hidden; cursor:pointer; transition:transform 0.2s; }
+.gift-card:hover { transform:translateY(-4px); }
+.gift-card::before { content:''; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border:2px solid rgba(255,255,255,0.1); border-radius:50%; }
+.gift-card .gc-amount { font-family:var(--serif); font-size:32px; font-weight:700; margin-bottom:8px; }
+.gift-card .gc-label { font-size:13px; color:rgba(255,255,255,0.6); letter-spacing:0.05em; text-transform:uppercase; }
+.gift-card .gc-desc { font-size:13px; color:rgba(255,255,255,0.5); margin-top:16px; line-height:1.5; }
+
+/* Ambassadors */
+.ambassador-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+.ambassador-card { background:#fff; border:1px solid var(--grey-200); border-radius:4px; overflow:hidden; text-align:center; }
+.ambassador-avatar { width:100%; height:200px; display:flex; align-items:center; justify-content:center; font-size:64px; }
+.ambassador-card h3 { font-family:var(--serif); font-size:18px; margin:16px 0 4px; }
+.ambassador-card p { font-size:13px; color:var(--grey-600); padding:0 16px 20px; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
@@ -696,6 +326,9 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .cat-row-4 { grid-template-columns: repeat(2,1fr); }
   .hero-content h1 { font-size: 42px; }
+  .search-results { grid-template-columns:repeat(3,1fr); }
+  .stores-grid { grid-template-columns:1fr; }
+  .gift-cards-grid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width: 680px) {
   .product-grid { grid-template-columns: repeat(2,1fr); }
@@ -709,12 +342,18 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
   .detail-left { width: 100%; min-height: 260px; }
   .detail-right { width: 100%; padding: 28px 24px; }
   .checkout-inner { grid-template-columns: 1fr; }
-  .nav-left .dropdown-menu, .nav-left > a:not(.logo) { display: none; } /* simplified mobile */
+  .nav-left .dropdown-menu, .nav-left > a:not(.logo) { display: none; }
+  .search-results { grid-template-columns:repeat(2,1fr); }
+  .reviews-grid { grid-template-columns:1fr; }
+  .ambassador-grid { grid-template-columns:1fr 1fr; }
+  .inner-header h1 { font-size:30px; }
 }
 @media (max-width: 420px) {
   .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .hero-content h1 { font-size: 28px; }
   .hero-content .hero-sub { font-size: 15px; }
+  .gift-cards-grid { grid-template-columns:1fr; }
+  .ambassador-grid { grid-template-columns:1fr; }
 }
 
 /* ─── PAGE SWITCHING ─── */
@@ -729,7 +368,7 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 
 <!-- Announcement -->
 <div class="announce-bar">
-  ENVÍOS GRATIS EN TODO COLOMBIA SOBRE $500.000 &nbsp;<a href="#">Detalles</a>
+  ENVÍOS GRATIS EN TODO COLOMBIA SOBRE $500.000 &nbsp;<a onclick="openShippingModal()">Detalles</a>
 </div>
 
 <!-- Header -->
@@ -737,29 +376,25 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
   <div class="header-inner">
     <nav class="nav-left">
       <div class="dropdown">
-        <a href="#"><span>Colecciones</span> <span class="arrow">▾</span></a>
+        <a><span>Colecciones</span> <span class="arrow">▾</span></a>
         <div class="dropdown-menu">
-          <a href="#" onclick="filterTab('heritage')">Heritage Crupón</a>
-          <a href="#" onclick="filterTab('urban')">Urban Ligth</a>
-          <a href="#" onclick="filterTab('essentials')">Essentials</a>
-          <a href="#" onclick="filterTab('executive')">Executive</a>
+          <a onclick="filterTab('heritage')">Heritage Crupón</a>
+          <a onclick="filterTab('urban')">Urban Ligth</a>
+          <a onclick="filterTab('essentials')">Essentials</a>
+          <a onclick="filterTab('executive')">Executive</a>
         </div>
       </div>
-      <a href="#">Sobre Nosotros</a>
+      <a onclick="navigateTo('sobreNosotros')">Sobre Nosotros</a>
     </nav>
-
-    <a href="#" class="logo" onclick="scrollToTop()">OLD DOG</a>
-
+    <a class="logo" onclick="scrollToTop()">OLD DOG</a>
     <nav class="nav-right">
-      <a href="#">Tiendas</a>
-      <a href="#">Ayuda</a>
+      <a onclick="navigateTo('tiendas')">Tiendas</a>
+      <a onclick="navigateTo('ayuda')">Ayuda</a>
       <div class="icon-btn" onclick="openCart()">
-        <!-- Cart SVG -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </div>
-      <div class="icon-btn">
-        <!-- Search SVG -->
+      <div class="icon-btn" onclick="openSearch()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       </div>
     </nav>
@@ -769,13 +404,11 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 <!-- Hero -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <!-- Decorative boot silhouette -->
   <svg class="hero-boot-svg" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M60 40 C60 40 80 30 120 35 L140 35 C160 35 170 50 170 70 L170 200 C170 220 175 240 190 250 L240 275 C260 285 270 300 270 320 L270 360 C270 375 260 385 245 385 L55 385 C40 385 35 375 35 360 L35 330 C35 310 45 295 60 290 L60 40Z" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
     <path d="M60 40 L60 290" stroke="white" stroke-width="1" opacity="0.3"/>
     <path d="M170 70 L170 200" stroke="white" stroke-width="1" opacity="0.3"/>
     <rect x="35" y="355" width="235" height="30" rx="3" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
-    <!-- Laces -->
     <line x1="95" y1="60" x2="140" y2="55" stroke="white" stroke-width="1.5" opacity="0.4"/>
     <line x1="93" y1="75" x2="138" y2="70" stroke="white" stroke-width="1.5" opacity="0.4"/>
     <line x1="91" y1="90" x2="136" y2="85" stroke="white" stroke-width="1.5" opacity="0.4"/>
@@ -818,7 +451,6 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
       <svg class="cat-card-bg" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
         <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2c1810"/><stop offset="100%" stop-color="#5a3a25"/></linearGradient></defs>
         <rect width="600" height="340" fill="url(#g1)"/>
-        <!-- Boot illustration -->
         <g opacity="0.35" transform="translate(380,30) scale(0.7)">
           <path d="M60 40 C60 40 80 30 120 35 L140 35 C160 35 170 50 170 70 L170 200 C170 220 175 240 190 250 L240 275 C260 285 270 300 270 320 L270 360 C270 375 260 385 245 385 L55 385 C40 385 35 375 35 360 L35 330 C35 310 45 295 60 290 L60 40Z" stroke="white" stroke-width="2.5" fill="none"/>
           <rect x="35" y="355" width="235" height="30" rx="3" stroke="white" stroke-width="2" fill="none"/>
@@ -853,7 +485,6 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
       <svg class="cat-card-bg" viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice">
         <defs><linearGradient id="g4" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6b5a4a"/><stop offset="100%" stop-color="#8a7560"/></linearGradient></defs>
         <rect width="300" height="220" fill="url(#g4)"/>
-        <!-- Wallet silhouette -->
         <rect x="100" y="65" width="100" height="70" rx="6" stroke="white" stroke-width="2.5" fill="none" opacity="0.3"/>
         <line x1="100" y1="90" x2="200" y2="90" stroke="white" stroke-width="1.5" opacity="0.25"/>
       </svg>
@@ -880,7 +511,7 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 <section class="products-section">
   <div class="section-header">
     <h2>Heritage Crupón</h2>
-    <a href="#" onclick="filterTab('heritage')">Ver todas →</a>
+    <a onclick="filterTab('heritage')">Ver todas →</a>
   </div>
   <div class="product-grid" id="heritageGrid"></div>
 </section>
@@ -889,7 +520,7 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 <section class="products-section">
   <div class="section-header">
     <h2>Executive</h2>
-    <a href="#" onclick="filterTab('executive')">Ver todas →</a>
+    <a onclick="filterTab('executive')">Ver todas →</a>
   </div>
   <div class="product-grid" id="executiveGrid"></div>
 </section>
@@ -941,60 +572,60 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
       <div class="brand-text">OLD DOG</div>
       <p class="brand-desc">Calzado de calidad premium, elaborado a mano en Colombia con materiales excepcionales y un compromiso irrenunciable con la excelencia.</p>
       <div class="social-row">
-        <a href="#">ig</a>
-        <a href="#">fb</a>
-        <a href="#">tw</a>
-        <a href="#">yt</a>
+        <a onclick="socialClick('Instagram')">ig</a>
+        <a onclick="socialClick('Facebook')">fb</a>
+        <a onclick="socialClick('Twitter')">tw</a>
+        <a onclick="socialClick('YouTube')">yt</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Tienda</h4>
       <ul>
-        <li><a href="#">Heritage Crupón</a></li>
-        <li><a href="#">Urban Ligth</a></li>
-        <li><a href="#">Essentials</a></li>
-        <li><a href="#">Executive</a></li>
-        <li><a href="#">Gift Cards</a></li>
+        <li><a onclick="filterTab('heritage')">Heritage Crupón</a></li>
+        <li><a onclick="filterTab('urban')">Urban Ligth</a></li>
+        <li><a onclick="filterTab('essentials')">Essentials</a></li>
+        <li><a onclick="filterTab('executive')">Executive</a></li>
+        <li><a onclick="navigateTo('giftCards')">Gift Cards</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Sobre Nosotros</h4>
       <ul>
-        <li><a href="#">Nuestra Historia</a></li>
-        <li><a href="#">Prensa</a></li>
-        <li><a href="#">Reseñas</a></li>
-        <li><a href="#">Tiendas Físicas</a></li>
-        <li><a href="#">Embajadores</a></li>
+        <li><a onclick="navigateTo('historia')">Nuestra Historia</a></li>
+        <li><a onclick="navigateTo('prensa')">Prensa</a></li>
+        <li><a onclick="navigateTo('resenas')">Reseñas</a></li>
+        <li><a onclick="navigateTo('tiendas')">Tiendas Físicas</a></li>
+        <li><a onclick="navigateTo('embajadores')">Embajadores</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Soporte</h4>
       <ul>
-        <li><a href="#">Preguntas Frecuentes</a></li>
-        <li><a href="#">Envíos & Devoluciones</a></li>
-        <li><a href="#">Cuidado del Calzado</a></li>
-        <li><a href="#">Términos de Servicio</a></li>
-        <li><a href="#">Política de Privacidad</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a onclick="navigateTo('ayuda')">Preguntas Frecuentes</a></li>
+        <li><a onclick="navigateTo('envios')">Envíos & Devoluciones</a></li>
+        <li><a onclick="navigateTo('cuidado')">Cuidado del Calzado</a></li>
+        <li><a onclick="navigateTo('terminos')">Términos de Servicio</a></li>
+        <li><a onclick="navigateTo('privacidad')">Política de Privacidad</a></li>
+        <li><a onclick="navigateTo('contacto')">Contacto</a></li>
       </ul>
       <h4 style="margin-top:24px;">Suscríbete</h4>
       <p style="font-size:13px;color:var(--grey-600);margin-bottom:10px;">Acceso anticipado y eventos exclusivos.</p>
       <div class="newsletter-input-wrap">
-        <input type="email" placeholder="Tu correo">
-        <button>Unirse</button>
+        <input type="email" id="newsletterEmail" placeholder="Tu correo" onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+        <button onclick="subscribeNewsletter()">Unirse</button>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 Old Dog. Todos los derechos reservados.</span>
     <div>
-      <select class="country-sel">
-        <option>Colombia (COP $)</option>
-        <option>Estados Unidos (USD $)</option>
-        <option>España (EUR €)</option>
+      <select class="country-sel" id="countrySel" onchange="changeCurrency(this.value)">
+        <option value="COP">Colombia (COP $)</option>
+        <option value="USD">Estados Unidos (USD $)</option>
+        <option value="EUR">España (EUR €)</option>
       </select>
-      <a href="#">Privacidad</a>
-      <a href="#">Términos</a>
+      <a onclick="navigateTo('privacidad')">Privacidad</a>
+      <a onclick="navigateTo('terminos')">Términos</a>
     </div>
   </div>
 </footer>
@@ -1006,7 +637,7 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
   <div class="checkout-inner">
     <div>
       <div class="checkout-head">
-        <a href="#" class="back-link" onclick="closeCheckout()">← Volver al carrito</a>
+        <a class="back-link" onclick="closeCheckout()">← Volver al carrito</a>
         <h2>Pago</h2>
       </div>
       <div class="form-row">
@@ -1022,11 +653,17 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
       <div class="form-row">
         <div class="form-group"><label>Ciudad</label><input type="text" placeholder="Bogotá" id="co-city"></div>
         <div class="form-group"><label>Departamento</label>
-          <select id="co-dept"><option>Bogotá D.C.</option><option>Antioquia</option><option>Valle del Cauca</option><option>Atlántico</option><option>Santander</option></select>
+          <select id="co-dept">
+            <option value="">Seleccione...</option>
+            <option>Bogotá D.C.</option><option>Antioquia</option><option>Valle del Cauca</option>
+            <option>Atlántico</option><option>Santander</option><option>Bolívar</option>
+            <option>Norte de Santander</option><option>Córdoba</option><option>Sucre</option>
+            <option>Cauca</option><option>Nariño</option><option>Cali</option>
+          </select>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="300 123 4567" id="co-phone"></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="300 123 4567" id="co-phone" oninput="formatPhone(this)"></div>
       </div>
 
       <h3 style="font-family:var(--serif);font-size:20px;margin:32px 0 16px;">Método de Pago</h3>
@@ -1041,10 +678,32 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
           <div class="form-group"><label>Número de tarjeta</label><input type="text" placeholder="1234 5678 9012 3456" id="co-card" oninput="formatCard(this)" maxlength="19"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Nombre en tarjeta</label><input type="text" placeholder="JUAN GARCIA"></div>
+          <div class="form-group"><label>Nombre en tarjeta</label><input type="text" placeholder="JUAN GARCIA" id="co-cardName"></div>
           <div class="form-group"><label>Fecha venc.</label><input type="text" placeholder="MM/AA" id="co-exp" oninput="formatExp(this)" maxlength="5"></div>
-          <div class="form-group"><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+          <div class="form-group"><label>CVV</label><input type="text" placeholder="123" id="co-cvv" maxlength="4"></div>
         </div>
+      </div>
+      <div id="nequiFields" style="display:none;">
+        <div class="form-row">
+          <div class="form-group"><label>Número de celular Nequi</label><input type="tel" placeholder="300 123 4567" id="co-nequi" oninput="formatPhone(this)"></div>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:8px;">Recibirás una solicitud de pago directamente en tu aplicación Nequi.</p>
+      </div>
+      <div id="daviPlataFields" style="display:none;">
+        <div class="form-row">
+          <div class="form-group"><label>Número de celular DaviPlata</label><input type="tel" placeholder="300 123 4567" id="co-daviplata" oninput="formatPhone(this)"></div>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:8px;">Recibirás una solicitud de pago directamente en tu aplicación DaviPlata.</p>
+      </div>
+      <div id="transferFields" style="display:none;">
+        <div style="background:var(--grey-100);padding:20px;border-radius:4px;margin-top:8px;">
+          <p style="font-size:14px;font-weight:600;margin-bottom:8px;">Datos de transferencia:</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">Banco: Bancolombia</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">Cuenta corriente: 123-456789-0</p>
+          <p style="font-size:13px;color:var(--grey-600);margin-bottom:2px;">NIT: 901.234.567-8</p>
+          <p style="font-size:13px;color:var(--grey-600);">Nombre: Old Dog S.A.S.</p>
+        </div>
+        <p style="font-size:13px;color:var(--grey-600);margin-top:12px;">Una vez realizada la transferencia, envíe el soporte a <strong>pagos@olddog.co</strong> para confirmar su pedido.</p>
       </div>
       <button class="place-order-btn" onclick="placeOrder()">Confirmar Pedido</button>
     </div>
@@ -1066,7 +725,7 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
     <h2>¡Pedido Confirmado!</h2>
     <p class="order-num" id="orderNum">Pedido #OD-00000</p>
     <p>Gracias por elegir Old Dog. Recibirás un correo de confirmación con los detalles de tu envío en los próximos minutos.</p>
-    <a href="#" class="continue-btn" onclick="goHome()">Seguir Compando</a>
+    <a class="continue-btn" onclick="goHome2()">Seguir Compando</a>
   </div>
 </div>
 
@@ -1096,9 +755,9 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
   <div class="detail-right">
     <h2 id="detailName">—</h2>
     <p class="detail-color" id="detailColor">—</p>
-    <p class="detail-rating">★★★★☆ <span style="color:var(--grey-600);font-size:12px;">(1,234 reseñas)</span></p>
+    <p class="detail-rating" id="detailRating">★★★★☆ <span style="color:var(--grey-600);font-size:12px;">(1,234 reseñas)</span></p>
     <p class="detail-price" id="detailPrice">$0</p>
-    <p class="detail-desc">Elaborado con crupón de primera calidad, costura a mano y suela resistente. Diseñado para el hombre moderno que aprecia la calidad sin renunciar al estilo.</p>
+    <p class="detail-desc" id="detailDesc">Elaborado con crupón de primera calidad, costura a mano y suela resistente. Diseñado para el hombre moderno que aprecia la calidad sin renunciar al estilo.</p>
     <p class="detail-label">Talla</p>
     <div class="size-options" id="sizeOptions">
       <div class="size-opt" onclick="selectSize(this)">38</div>
@@ -1109,6 +768,442 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
       <div class="size-opt" onclick="selectSize(this)">43</div>
     </div>
     <button class="add-to-cart-btn" onclick="addCurrentToCart()">Agregar al Carrito</button>
+  </div>
+</div>
+
+<!-- Shipping Modal -->
+<div class="detail-overlay" id="shippingOverlay" onclick="closeShippingModal()"></div>
+<div class="detail-modal" id="shippingModal" style="max-width:560px;flex-direction:column;">
+  <button class="detail-close" onclick="closeShippingModal()">✕</button>
+  <div style="padding:48px 40px;">
+    <h2 style="font-family:var(--serif);font-size:24px;margin-bottom:24px;">Envíos & Entrega</h2>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">📦 Envío Estándar</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:16px;line-height:1.6;">3 – 5 días hábiles. <strong style="color:#43a047;">Gratuito</strong> en pedidos superiores a $500.000 COP.</p>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">⚡ Envío Express</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:16px;line-height:1.6;">1 – 2 días hábiles. Disponible en Bogotá, Medellín, Cali y Barranquilla. Costo adicional según la ciudad.</p>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">🔄 Devoluciones</h3>
+    <p style="font-size:14px;color:var(--grey-600);margin-bottom:0;line-height:1.6;">Aceptamos devoluciones hasta 30 días después de la fecha de entrega. El producto debe estar en condiciones originales con la etiqueta puesta.</p>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <span class="search-close" onclick="closeSearch()">✕</span>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="searchProducts()" autofocus>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- ══════ INNER PAGES ══════ -->
+
+<!-- Sobre Nosotros -->
+<div class="inner-page" id="sobreNosotros">
+  <div class="inner-header">
+    <h1>Sobre Nosotros</h1>
+    <p>Una marca nacida del compromiso por la calidad y la honestidad en cada costura.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Nuestra Filosofía</h2>
+    <p>Old Dog nació de una pregunta simple: ¿Por qué el calzado de verdad buena calidad tiene que costar una fortuna? Creímos que no, y decidimos demostrarlo.</p>
+    <p>Cada par que sale de nuestro taller en Colombia es una declaración de que es posible hacer las cosas bien sin cobrar lo imposible. Usamos los mejores materiales, los mejores artesanos, y un proceso de producción que no tiene intermediarios innecesarios.</p>
+    <h2>Quiénes Somos</h2>
+    <p>Somos un equipo pequeño de personas apasionadas por el diseño, la producción y la cultura del calzado. Muchos de nosotros vinieron de la industria tradicional, otros del mundo del diseño y la moda. Lo que tenemos en común es la convicción de que se puede hacer mejor.</p>
+    <p>Trabajamos directamente con tanerias colombianas y españolas para obtener los mejores crupones. Nuestros maestros zapateros tienen décadas de experiencia en el oficio.</p>
+    <h2>Nuestro Compromiso</h2>
+    <ul>
+      <li>Materiales de primera calidad sin excepciones</li>
+      <li>Producción local, apoyando la economía colombiana</li>
+      <li>Precios justos y transparentes</li>
+      <li>Garantía de 2 años en cada producto</li>
+      <li>Impacto ambiental mínimo en nuestros procesos</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Nuestra Historia -->
+<div class="inner-page" id="historia">
+  <div class="inner-header">
+    <h1>Nuestra Historia</h1>
+    <p>De un pequeño taller en Cali a una marca que recorre Colombia.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>2018 – El Origen</h2>
+    <p>Todo comenzó en un pequeño taller en Cali, Valle del Cauca. Dos amigos, una mesa de trabajo y una obsesión: crear calzado de calidad que cualquier persona pudiera permitirse.</p>
+    <h2>2020 – Los Primeros Pasos</h2>
+    <p>Tras dos años perfeccionando nuestras técnicas y estableciendo alianzas con las mejores tanerias del país, lanzamos nuestra primera colección: Heritage Crupón. La respuesta fue inmediata.</p>
+    <h2>2022 – Crecimiento</h2>
+    <p>Con más de 5,000 pares vendidos, abrimos nuestra primera tienda física en Bogotá y expandimos nuestra línea con la colección Executive, orientada al calzado de oficina premium.</p>
+    <h2>2024 – Hoy</h2>
+    <p>Old Dog tiene ahora tres tiendas físicas, una línea completa de accesorios (Essentials) y una comunidad de más de 12,000 clientes satisfechos en todo Colombia. Pero la historia no termina aquí.</p>
+  </div>
+</div>
+
+<!-- Tiendas -->
+<div class="inner-page" id="tiendas">
+  <div class="inner-header">
+    <h1>Nuestras Tiendas</h1>
+    <p>Visítanos en persona y experimenta la calidad de mano.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="stores-grid">
+      <div class="store-card">
+        <h3>Old Dog – Bogotá</h3>
+        <p>Calle 82 # 11-37, Piso 2<br>Zona T, Bogotá D.C.</p>
+        <p>📞 +57 (1) 555-0182</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Cali</h3>
+        <p>Calle 18 # 8-15<br>Centro comercial El838, Cali</p>
+        <p>📞 +57 (2) 555-0294</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Medellín</h3>
+        <p>Carrera 10 # 52-12<br>El Poblado, Medellín</p>
+        <p>📞 +57 (4) 555-0401</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+      <div class="store-card">
+        <h3>Old Dog – Barranquilla</h3>
+        <p>Calle 68 # 59-10<br>Zona Camarero, Barranquilla</p>
+        <p>📞 +57 (5) 555-0537</p>
+        <div class="store-hours">Lunes – Sábado: 10:00 AM – 8:00 PM<br>Domingo: 12:00 PM – 6:00 PM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ayuda / FAQ -->
+<div class="inner-page" id="ayuda">
+  <div class="inner-header">
+    <h1>Preguntas Frecuentes</h1>
+    <p>Respuestas rápidas a tus dudas más comunes.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cuánto tiempo tarda el envío? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>El envío estándar tarda entre 3 y 5 días hábiles a cualquier ciudad de Colombia. También ofrecemos envío express (1–2 días) en las principales ciudades.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Qué tallas están disponibles? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Ofrecemos tallas desde 38 hasta 43 en la mayoría de nuestros modelos. Si necesitas una talla especial, no dudes en contactarnos.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Puedo devolver un producto? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Sí, aceptamos devoluciones hasta 30 días después de la fecha de entrega. El producto debe estar en condiciones originales con la etiqueta de Old Dog puesta. Los gastos de envío de devolución son a cargo del cliente, excepto si el producto tiene defecto.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cómo pago? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Aceptamos tarjetas de crédito y débito, Nequi, DaviPlata y transferencias bancarias. Todas las transacciones son seguras y cifradas.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Los zapatos tienen garantía? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Todos los productos Old Dog vienen con una garantía de 2 años contra defectos de fabricación. Si encuentras algún problema, contáctenos y lo resolveremos sin cargos adicionales.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Pueden personalizar un par? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>¡Absolutamente! Ofrecemos servicio de personalización en colores, monogramas y materiales especiales. Escríbenos a contacto@olddog.co para conocer las opciones.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Envían fuera de Colombia? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Por el momento nos enfocamos en el mercado colombiano. Estamos trabajando en expandir nuestro envío internacional y en poco tiempo estaremos disponibles en más países.</p></div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q">¿Cómo debo cuidar mis botas? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Te recomendamos limpiarlas regularmente con un paño suave, aplicar crema de calzado cada 2 semanas y almacenarlas en un lugar seco y ventilado. Visita nuestra guía de cuidado completa en la sección de "Cuidado del Calzado".</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Gift Cards -->
+<div class="inner-page" id="giftCards">
+  <div class="inner-header">
+    <h1>Gift Cards</h1>
+    <p>El regalo perfecto para quien aprecia la calidad.</p>
+  </div>
+  <div class="inner-body" style="max-width:900px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <p>Obsequía la experiencia Old Dog. Nuestras gift cards no vencen y puede usarse en tiendas físicas y online.</p>
+    <div class="gift-cards-grid">
+      <div class="gift-card" onclick="addGiftCard(250000)">
+        <div class="gc-amount" id="gcAmt1">$ 250,000</div>
+        <div class="gc-label">Gift Card</div>
+        <div class="gc-desc">Ideal para accesorios y detalles.</div>
+      </div>
+      <div class="gift-card" onclick="addGiftCard(500000)" style="background:linear-gradient(135deg,#3a2c1e,#6b5a4a);">
+        <div class="gc-amount" id="gcAmt2">$ 500,000</div>
+        <div class="gc-label">Gift Card</div>
+        <div class="gc-desc">Perfecto para un par de calzado clásico.</div>
+      </div>
+      <div class="gift-card" onclick="addGiftCard(1000000)" style="background:linear-gradient(135deg,#2c1810,#8b6f47);">
+        <div class="gc-amount" id="gcAmt3">$ 1,000,000</div>
+        <div class="gc-label">Gift Card Premium</div>
+        <div class="gc-desc">El regalo definitivo para el amante del calzado.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Prensa -->
+<div class="inner-page" id="prensa">
+  <div class="inner-header">
+    <h1>Prensa</h1>
+    <p>Lo que los medios dicen sobre Old Dog.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Menciones Recientes</h2>
+    <div style="border-left:3px solid var(--brown-warm);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Old Dog está redefintendo lo que significa comprar calzado de calidad en Colombia."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>El Tiempo</strong> – Sección Estilo, Marzo 2024</p>
+    </div>
+    <div style="border-left:3px solid var(--brown-warm);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Las mejores botas de calidad media-alta que puedes encontrar sin salir del país."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>Semana</strong> – Estilo de Vida, Enero 2024</p>
+    </div>
+    <div style="border-left:3px solid var(--brown-warm);padding-left:20px;margin-bottom:28px;">
+      <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--black);margin-bottom:8px;">"Una marca colombiana que merece estar en el radar de cualquier profesional fashionista."</p>
+      <p style="font-size:13px;color:var(--grey-400);"><strong>Portafolio</strong> – Lifestyle, Noviembre 2023</p>
+    </div>
+    <h2>Para la Prensa</h2>
+    <p>Si estás interesado en colaborar o necesitas información para un artículo, no dudes en escribirnos a <strong>prensa@olddog.co</strong>. Podemos enviar kits de prensa, imágenes de alta resolución y muestras de producto.</p>
+  </div>
+</div>
+
+<!-- Reseñas -->
+<div class="inner-page" id="resenas">
+  <div class="inner-header">
+    <h1>Reseñas</h1>
+    <p>Lo que dicen nuestros clientes reales.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Compré el Capitán en Café Oscuro hace 6 meses y se ven como nuevas. La calidad del cuero es impresionante. Valió la pena cada peso."</p>
+        <p class="rev-author">Carlos M.</p>
+        <p class="rev-date">Bogotá – Octubre 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Pedir fue muy fácil y llegaron en 3 días. El servicio al cliente es excelente. Las botas Urban Legend son perfectas para el día a día."</p>
+        <p class="rev-author">María José R.</p>
+        <p class="rev-date">Medellín – Septiembre 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Tenía dudas con el talla pero el chat de ayuda me orientó perfecto. Los Executive Oxford son mi nuevo favorito para la oficina."</p>
+        <p class="rev-author">Andrés F.</p>
+        <p class="rev-date">Cali – Agosto 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text">"La billetera ejecutiva llegó en un estuche hermoso. Muy detalladista. La única cosa es que me hubiera gustado más opciones de color."</p>
+        <p class="rev-author">Laura G.</p>
+        <p class="rev-date">Barranquilla – Julio 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Regalé un par de botas Heritage a mi esposo por su cumpleaños. Se fue un regalo increíble. El packaging era muy lindo."</p>
+        <p class="rev-author">Valentina C.</p>
+        <p class="rev-date">Bogotá – Junio 2024</p>
+      </div>
+      <div class="review-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Compré el Cinturón Heritage y es exactamente lo que necesitaba. El color Café Oscuro combina con todo. Muy recomendado."</p>
+        <p class="rev-author">Diego A.</p>
+        <p class="rev-date">Cali – Mayo 2024</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Embajadores -->
+<div class="inner-page" id="embajadores">
+  <div class="inner-header">
+    <h1>Embajadores</h1>
+    <p>Las caras que representan la cultura Old Dog.</p>
+  </div>
+  <div class="inner-body" style="max-width:960px;">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <p>Nuestros embajadores son personas que comparten nuestra visión: calidad sin pretensiones, estilo sin compromiso.</p>
+    <div class="ambassador-grid">
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#2c1810,#5a3a25);">👨‍💼</div>
+        <h3>Santiago Reyes</h3>
+        <p>Empresario y amante del estilo clásico. Embajador desde 2023.</p>
+      </div>
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#1a1a1a,#3d3530);">🎨</div>
+        <h3>Camila Vega</h3>
+        <p>Diseñadora industrial de Medellín. Representa la línea Urban Ligth.</p>
+      </div>
+      <div class="ambassador-card">
+        <div class="ambassador-avatar" style="background:linear-gradient(135deg,#3a3a3a,#6b5a4a);">🏋️</div>
+        <h3>Mateo Ospina</h3>
+        <p>Atleta profesional de Cali. Colección Heritage en cada aventura.</p>
+      </div>
+    </div>
+    <h2 style="margin-top:48px;">¿Quieres ser embajador?</h2>
+    <p>Si eres influencer, profesional creativo o simplemente una persona apasionada por la calidad y el estilo, nos encantaría conocerte. Escríbenos a <strong>embajadores@olddog.co</strong> con tu perfil.</p>
+  </div>
+</div>
+
+<!-- Envíos & Devoluciones -->
+<div class="inner-page" id="envios">
+  <div class="inner-header">
+    <h1>Envíos & Devoluciones</h1>
+    <p>Todo lo que necesitas saber sobre pedidos y retornos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Tiempos de Envío</h2>
+    <ul>
+      <li><strong>Envío Estándar:</strong> 3–5 días hábiles a cualquier ciudad de Colombia</li>
+      <li><strong>Envío Express:</strong> 1–2 días hábiles (Bogotá, Medellín, Cali, Barranquilla)</li>
+      <li><strong>Envío Gratuito:</strong> En todos los pedidos superiores a $500.000 COP</li>
+    </ul>
+    <h2>Costos de Envío</h2>
+    <p>El envío estándar tiene un costo fijo de $15.000 COP para pedidos menores a $500.000. El express varía según la ciudad de destino.</p>
+    <h2>Política de Devoluciones</h2>
+    <ul>
+      <li>Devoluciones aceptadas hasta <strong>30 días</strong> después de la entrega</li>
+      <li>El producto debe estar en condiciones originales, sin usar, con la etiqueta Old Dog</li>
+      <li>Los gastos de envío de devolución son a cargo del cliente</li>
+      <li>Si el producto tiene defecto de fabricación, el envío de devolución es gratuito</li>
+      <li>El reembolso se procesa en máximo 5 días hábiles después de recibir el producto</li>
+    </ul>
+    <h2>Cómo Solicitar una Devolución</h2>
+    <p>Escríbenos a <strong>soporte@olddog.co</strong> con tu número de pedido y la razón de la devolución. Te enviaremos las instrucciones paso a paso.</p>
+  </div>
+</div>
+
+<!-- Cuidado del Calzado -->
+<div class="inner-page" id="cuidado">
+  <div class="inner-header">
+    <h1>Cuidado del Calzado</h1>
+    <p>Guía completa para mantener tus Old Dog como nuevos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Limpieza Diaria</h2>
+    <p>Después de cada uso, elimina el polvo y la suciedad superficial con un paño suave y seco. Si hay manchas de agua, déjalo secar al aire naturalmente, nunca cerca de una fuente de calor directa.</p>
+    <h2>Aplicación de Crema</h2>
+    <p>Cada 1–2 semanas, aplica una capa delgada de crema de calzado del mismo color que tus botas. Esto mantiene el cuero hidratado, flexible y con su brillo natural. Aplícala con un paño suave en movimientos circulares.</p>
+    <h2>Almacenamiento</h2>
+    <ul>
+      <li>Guárdas en un lugar seco y ventilado</li>
+      <li>Usa un calzador cuando los pones para no deformar el talón</li>
+      <li>Si tienes hormas, úsalas cuando no estás usando las botas</li>
+      <li>Evita guardarlos en bolsas plásticas por mucho tiempo</li>
+    </ul>
+    <h2>Protección</h2>
+    <p>Antes del primer uso, aplica un spray de protección de agua y manchas. Esto crea una capa invisible que protege el cuero de la lluvia y el derrame.</p>
+    <h2>Reparación</h2>
+    <p>Si la suela se desgasta, te recomendamos llevar tus botas a un zapatero de confianza. Old Dog ofrece servicio de re-solado en nuestras tiendas físicas.</p>
+  </div>
+</div>
+
+<!-- Términos de Servicio -->
+<div class="inner-page" id="terminos">
+  <div class="inner-header">
+    <h1>Términos de Servicio</h1>
+    <p>Las condiciones que rigen el uso de nuestros servicios.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>1. Aceptación de los Términos</h2>
+    <p>Al usar nuestro sitio web o realizar una compra, aceptas estos términos de servicio. Old Dog S.A.S. se reserva el derecho de modificar estos términos en cualquier momento.</p>
+    <h2>2. Productos y Precios</h2>
+    <p>Los precios mostrados están en COP y pueden variar sin previo aviso. Old Dog no se responsabiliza por errores tipográficos en los precios. Cada producto tiene una cantidad limitada de stock.</p>
+    <h2>3. Pedidos y Pagos</h2>
+    <p>Al completar un pedido, confirmas que la información proporcionada es correcta. El pago debe completarse al momento del pedido. Old Dog se reserva el derecho de cancelar pedidos en caso de irregularidades.</p>
+    <h2>4. Responsabilidad</h2>
+    <p>Old Dog no se responsabiliza por daños indirectos o consecuenciales que puedan surgir del uso de nuestros productos o servicios. La responsabilidad máxima se limita al valor de la compra realizada.</p>
+    <h2>5. Ley Aplicable</h2>
+    <p>Estos términos están gobernados por las leyes de la República de Colombia. Cualquier disputa se resolverá en los tribunales de la ciudad de Cali, Valle del Cauca.</p>
+  </div>
+</div>
+
+<!-- Política de Privacidad -->
+<div class="inner-page" id="privacidad">
+  <div class="inner-header">
+    <h1>Política de Privacidad</h1>
+    <p>Cómo protegemos tu información personal.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <h2>Información que Recopilamos</h2>
+    <p>Cuando realizas una compra, recopilamos información como tu nombre, correo electrónico, dirección de entrega y datos de pago. Esta información es necesaria para procesar tu pedido.</p>
+    <h2>Cómo Usamos tu Información</h2>
+    <ul>
+      <li>Procesamiento de pedidos y pagos</li>
+      <li>Comunicación sobre el estado de tu envío</li>
+      <li>Mejora de nuestros productos y servicios</li>
+      <li>Envío de ofertas especiales (solo si lo autorizas)</li>
+    </ul>
+    <h2>Seguridad de los Datos</h2>
+    <p>Implementamos medidas de seguridad estándar de la industria para proteger tu información, incluyendo cifrado SSL en todas las transacciones. No almacenamos datos completos de tarjetas de crédito.</p>
+    <h2>Derechos del Usuario</h2>
+    <p>Tienes derecho a acceder, modificar o eliminar tus datos personales en cualquier momento. Para ejercer estos derechos, contáctenos a <strong>privacidad@olddog.co</strong>.</p>
+    <h2>Cookies</h2>
+    <p>Usamos cookies para mejorar tu experiencia en nuestro sitio. Puedes controlar las cookies desde la configuración de tu navegador.</p>
+  </div>
+</div>
+
+<!-- Contacto -->
+<div class="inner-page" id="contacto">
+  <div class="inner-header">
+    <h1>Contacto</h1>
+    <p>Estamos aquí para ayudarte. No dudes en escribirnos.</p>
+  </div>
+  <div class="inner-body">
+    <a class="inner-back" onclick="goHome()">← Volver al inicio</a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <div>
+        <h2>Información de Contacto</h2>
+        <p><strong>Correo:</strong> contacto@olddog.co</p>
+        <p><strong>Teléfono:</strong> +57 (2) 555-0294</p>
+        <p><strong>WhatsApp:</strong> +57 300 123 4567</p>
+        <p><strong>Dirección:</strong><br>Calle 18 # 8-15, El 838<br>Cali, Valle del Cauca, Colombia</p>
+        <p><strong>Horario de Atención:</strong><br>Lunes – Viernes: 9:00 AM – 6:00 PM<br>Sábado: 10:00 AM – 2:00 PM</p>
+      </div>
+      <div>
+        <h2>Envíanos un Mensaje</h2>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Nombre</label><input type="text" id="ct-name" placeholder="Tu nombre"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Correo</label><input type="email" id="ct-email" placeholder="tu@correo.com"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Asunto</label>
+              <select id="ct-subject">
+                <option value="">Seleccione...</option>
+                <option>Consulta sobre producto</option>
+                <option>Problema con pedido</option>
+                <option>Devolución</option>
+                <option>Colaboración</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Mensaje</label><textarea id="ct-message" placeholder="Escribe tu mensaje aquí..."></textarea></div>
+          </div>
+          <button class="send-btn" onclick="sendContact()">Enviar Mensaje</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1123,30 +1218,38 @@ footer { background: var(--cream); border-top: 1px solid var(--grey-200); paddin
 
 <!-- ══════ JAVASCRIPT ══════ -->
 <script>
+// ─── CURRENCY STATE ───
+let currentCurrency = 'COP';
+const rates = { COP: 1, USD: 0.00024, EUR: 0.00022 };
+const symbols = { COP: '$ ', USD: 'US$ ', EUR: '€ ' };
+
 // ─── DATA ───
 const products = [
-  { id:1, name:"Capitán", color:"Café Oscuro", price:890000, cat:"heritage", type:"boot" },
-  { id:2, name:"Presidente", color:"Nogal", price:950000, cat:"heritage", type:"boot" },
-  { id:3, name:"Diplomático", color:"Brandy", price:890000, cat:"heritage", type:"boot" },
-  { id:4, name:"Cadet", color:"Marrón Claro", price:780000, cat:"heritage", type:"boot" },
-  { id:5, name:"Legend", color:"Negro Matte", price:890000, cat:"urban", type:"boot" },
-  { id:6, name:"Scout", color:"Gris Urbano", price:690000, cat:"urban", type:"boot" },
-  { id:7, name:"Cavalier", color:"Negro", price:850000, cat:"urban", type:"boot" },
-  { id:8, name:"Casa Moto", color:"Negro Matte", price:980000, cat:"urban", type:"boot" },
-  { id:9, name:"Billetera Clásica", color:"Café", price:280000, cat:"essentials", type:"wallet" },
-  { id:10, name:"Billetera Ejecutiva", color:"Negro", price:320000, cat:"essentials", type:"wallet" },
-  { id:11, name:"Cinturón Heritage", color:"Café Oscuro", price:350000, cat:"essentials", type:"belt" },
-  { id:12, name:"Estuche Cigar", color:"Cognac", price:420000, cat:"essentials", type:"wallet" },
-  { id:13, name:"Executive Oxford", color:"Negro Pulido", price:1100000, cat:"executive", type:"shoe" },
-  { id:14, name:"Derby Clásico", color:"Marrón Oscuro", price:980000, cat:"executive", type:"shoe" },
-  { id:15, name:"Loafer Premium", color:"Cognac", price:920000, cat:"executive", type:"shoe" },
-  { id:16, name:"Wingtip Elite", color:"Bicolor", price:1050000, cat:"executive", type:"shoe" },
+  { id:1, name:"Capitán", color:"Café Oscuro", price:890000, cat:"heritage", type:"boot", desc:"Bota clásica de cuero crupón con costuras a mano y suela de goma resistente. El modelo icónico de la colección Heritage." },
+  { id:2, name:"Presidente", color:"Nogal", price:950000, cat:"heritage", type:"boot", desc:"Elegancia traditional en cada detalle. Costuras dobles, horquilla de acero y acabado a mano por nuestros maestros artesanos." },
+  { id:3, name:"Diplomático", color:"Brandy", price:890000, cat:"heritage", type:"boot", desc:"Perfecto equilibrio entre estilo y confort. Suela flexible y plantilla de cuero genuino para máximo apoyo durante todo el día." },
+  { id:4, name:"Cadet", color:"Marrón Claro", price:780000, cat:"heritage", type:"boot", desc:"La entrada a la familia Heritage. Más ligera y versátil, ideal para uso diario sin renunciar a la calidad Old Dog." },
+  { id:5, name:"Legend", color:"Negro Matte", price:890000, cat:"urban", type:"boot", desc:"Diseño urbano audaz con acabado matte que absorbe la luz. Perfecta para la ciudad, desde la oficina hasta la noche." },
+  { id:6, name:"Scout", color:"Gris Urbano", price:690000, cat:"urban", type:"boot", desc:"La bota más accesible de la línea Urban. Sin comprometer la calidad, con un estilo que habla por sí solo." },
+  { id:7, name:"Cavalier", color:"Negro", price:850000, cat:"urban", type:"boot", desc:"Inspirada en la cultura del motociclismo, con refuerzos estratégicos y un diseño que se adapta a cualquier lifestyle." },
+  { id:8, name:"Casa Moto", color:"Negro Matte", price:980000, cat:"urban", type:"boot", desc:"La bota premium de la línea Urban. Materiales top-tier, diseño exclusivo y un nivel de acabado que no tiene competencia." },
+  { id:9, name:"Billetera Clásica", color:"Café", price:280000, cat:"essentials", type:"wallet", desc:"Billetera bifold de cuero genuino. Espaciosa, elegante y duradera. El complemento perfecto para cualquier outfit." },
+  { id:10, name:"Billetera Ejecutiva", color:"Negro", price:320000, cat:"essentials", type:"wallet", desc:"Billetera slim-fit para el profesional moderno. Ultra delgada con espacios para hasta 8 tarjetas y un bolsillo de billetes." },
+  { id:11, name:"Cinturón Heritage", color:"Café Oscuro", price:350000, cat:"essentials", type:"belt", desc:"Cinturón de cuero crupón que combina perfectamente con las botas Heritage. Hebilla de bronce envejecido." },
+  { id:12, name:"Estuche Cigar", color:"Cognac", price:420000, cat:"essentials", type:"wallet", desc:"Estuche de cuero para 2 cigarros con cierre magnético. Un detalle de lujo que eleva cualquier momento de ocio." },
+  { id:13, name:"Executive Oxford", color:"Negro Pulido", price:1100000, cat:"executive", type:"shoe", desc:"El Oxford clásico redefinido. Cuero pulido a espejo, suela de cuero y una silueta que domina cualquier sala de reuniones." },
+  { id:14, name:"Derby Clásico", color:"Marrón Oscuro", price:980000, cat:"executive", type:"shoe", desc:"Versatilidad pura. El Derby es el zapato que se adapta a todo: jeans, pantalón de traje o chinos de fin de semana." },
+  { id:15, name:"Loafer Premium", color:"Cognac", price:920000, cat:"executive", type:"shoe", desc:"Elegancia sin esfuerzo. Este loafer en Cognac es el definition del estilo casual-profesional que Colombia necesita." },
+  { id:16, name:"Wingtip Elite", color:"Bicolor", price:1050000, cat:"executive", type:"shoe", desc:"El zapato más audaz de la colección Executive. El brogan wingtip en bicolor es un statement de estilo que no pasa desapercibido." },
 ];
+
+// Gift card product
+const giftCardProduct = { id:99, name:"Gift Card Old Dog", color:"Premium", price:0, cat:"giftcard", type:"giftcard" };
 
 let cart = [];
 let currentProduct = null;
 
-// ─── BOOT SVG ───
+// ─── SVG GENERATORS ───
 function bootSVG(color1, color2) {
   return `<path d="M45 30 C45 30 60 22 90 26 L105 26 C120 26 128 38 128 52 L128 150 C128 165 132 180 143 187 L175 205 C190 213 196 225 196 240 L196 268 C196 278 190 285 180 285 L38 285 C28 285 24 278 24 268 L24 248 C24 233 32 222 45 218 L45 30Z" fill="${color1}" stroke="${color2}" stroke-width="2"/>
   <rect x="24" y="275" width="172" height="22" rx="3" fill="${color2}" opacity="0.7"/>
@@ -1165,33 +1268,72 @@ function shoeSVG(color1, color2) {
   <path d="M15 148 L190 148 L195 158 L10 158 Z" fill="${color2}" opacity="0.6"/>
   <path d="M85 78 L85 128" stroke="${color2}" stroke-width="1.5" opacity="0.4"/>`;
 }
+function beltSVG(color1, color2) {
+  return `<rect x="15" y="85" width="170" height="30" rx="4" fill="${color1}" stroke="${color2}" stroke-width="2"/>
+  <rect x="80" y="80" width="40" height="40" rx="3" fill="${color2}" opacity="0.7"/>
+  <rect x="86" y="86" width="28" height="28" rx="2" fill="${color1}" stroke="${color2}" stroke-width="1"/>`;
+}
+function giftcardSVG(color1, color2) {
+  return `<rect x="20" y="50" width="160" height="100" rx="8" fill="${color1}" stroke="${color2}" stroke-width="2"/>
+  <line x1="20" y1="80" x2="180" y2="80" stroke="${color2}" stroke-width="1" opacity="0.4"/>
+  <text x="100" y="130" text-anchor="middle" fill="${color2}" font-size="18" font-weight="bold" opacity="0.6">GIFT</text>`;
+}
 
 const colorMap = {
-  "Café Oscuro":["#5a3520","#3a2010"], "Nogal":["#6b4c2a","#4a3018"],
+  "Café Oscuro":[" #5a3520","#3a2010"], "Nogal":["#6b4c2a","#4a3018"],
   "Brandy":["#8b5e3c","#5a3a20"], "Marrón Claro":["#a07850","#6b4a2c"],
   "Negro Matte":["#1a1a1a","#333"], "Gris Urbano":["#5a5a5a","#3a3a3a"],
   "Negro":["#111","#2a2a2a"], "Café":["#7a5535","#4a3318"],
   "Cognac":["#8b6230","#5a3f1e"], "Negro Pulido":["#0d0d0d","#2a2a2a"],
-  "Marrón Oscuro":["#4a2c14","#2f1c0c"], "Bicolor":["#c4a46b","#3a2810"]
+  "Marrón Oscuro":["#4a2c14","#2f1c0c"], "Bicolor":["#c4a46b","#3a2810"],
+  "Premium":["#2c1810","#8b6f47"]
 };
 
 function getProductSVG(p) {
   const c = colorMap[p.color] || ["#7a6050","#4a3525"];
   if(p.type==="wallet") return walletSVG(c[0],c[1]);
   if(p.type==="shoe") return shoeSVG(c[0],c[1]);
+  if(p.type==="belt") return beltSVG(c[0],c[1]);
+  if(p.type==="giftcard") return giftcardSVG(c[0],c[1]);
   return bootSVG(c[0],c[1]);
 }
 
-// ─── FORMAT ───
-function fmt(n){ return "$ "+n.toLocaleString("es-CO"); }
+// ─── CURRENCY ───
+function fmt(n) {
+  const converted = n * (rates[currentCurrency] || 1);
+  if(currentCurrency === 'COP') return symbols[currentCurrency] + n.toLocaleString("es-CO");
+  return symbols[currentCurrency] + converted.toFixed(2).replace('.',',');
+}
+function changeCurrency(val) {
+  currentCurrency = val;
+  // re-render everything
+  renderGrid("heritageGrid","heritage");
+  renderGrid("executiveGrid","executive");
+  renderGrid("allGrid", currentActiveTab || "all");
+  updateCart();
+  // update gift card amounts
+  updateGiftCardAmounts();
+  showToast("Moneda cambiada a " + val);
+}
+function updateGiftCardAmounts() {
+  const gc = document.getElementById('giftCards');
+  if(!gc || !gc.classList.contains('active')) return;
+  const el1 = document.getElementById('gcAmt1');
+  const el2 = document.getElementById('gcAmt2');
+  const el3 = document.getElementById('gcAmt3');
+  if(el1) el1.textContent = fmt(250000);
+  if(el2) el2.textContent = fmt(500000);
+  if(el3) el3.textContent = fmt(1000000);
+}
 
-// ─── RENDER PRODUCTS ───
+// ─── RENDER ───
+let currentActiveTab = 'all';
 function renderGrid(containerId, filter) {
   const list = filter==="all" ? products : products.filter(p=>p.cat===filter);
   document.getElementById(containerId).innerHTML = list.map(p => `
     <div class="product-card" onclick="openDetail(${p.id})">
       <div class="prod-img-wrap">
-        <svg viewBox="0 0 200 200" width="100%" height="100%" style="background:${colorMap[p.color]?colorMap[p.color][0]+'33':'#f2efe9'}">
+        <svg viewBox="0 0 200 200" width="100%" height="100%" style="background:${(colorMap[p.color]||["#7a6050"])[0]}33}">
           <g transform="translate(20,10) scale(0.8)">${getProductSVG(p)}</g>
         </svg>
         <div class="quick-add" onclick="event.stopPropagation();addToCart(${p.id})">+ Agregar</div>
@@ -1204,7 +1346,6 @@ function renderGrid(containerId, filter) {
   `).join("");
 }
 
-// Initial render
 renderGrid("heritageGrid","heritage");
 renderGrid("executiveGrid","executive");
 renderGrid("allGrid","all");
@@ -1213,19 +1354,19 @@ renderGrid("allGrid","all");
 function switchTab(btn, cat) {
   document.querySelectorAll(".tab-pill").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
+  currentActiveTab = cat;
   renderGrid("allGrid", cat);
 }
 function filterTab(cat) {
-  // Scroll to all collections and switch tab
   document.querySelectorAll(".tab-pill").forEach(b=>{
     b.classList.remove("active");
     if(b.textContent.toLowerCase().includes(cat) || (cat==="all" && b.textContent==="Todas")) b.classList.add("active");
   });
-  // also set "Todas" active if none matched
   if(cat==="all") document.querySelectorAll(".tab-pill")[0].classList.add("active");
+  currentActiveTab = cat;
   renderGrid("allGrid", cat);
-  // scroll
-  document.querySelector(".tab-pills").scrollIntoView({behavior:"smooth",block:"start"});
+  goHome();
+  setTimeout(()=>{ document.querySelector(".tab-pills").scrollIntoView({behavior:"smooth",block:"start"}); }, 100);
 }
 function scrollToTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
 
@@ -1236,9 +1377,22 @@ function openDetail(id) {
   document.getElementById("detailName").textContent = currentProduct.name;
   document.getElementById("detailColor").textContent = currentProduct.color;
   document.getElementById("detailPrice").textContent = fmt(currentProduct.price);
+  document.getElementById("detailDesc").textContent = currentProduct.desc;
+  const reviews = 800 + currentProduct.id * 137;
+  document.getElementById("detailRating").innerHTML = `★★★★☆ <span style="color:var(--grey-600);font-size:12px;">(${reviews} reseñas)</span>`;
   const c = colorMap[currentProduct.color] || ["#7a6050","#4a3525"];
   document.getElementById("detailSVG").innerHTML = getProductSVG(currentProduct);
   document.getElementById("detailSVG").style.background = c[0]+"22";
+  // Size options: hide sizes for non-footwear
+  const sizeDiv = document.querySelector(".size-options");
+  const sizeLabel = sizeDiv.previousElementSibling;
+  if(currentProduct.type === "wallet" || currentProduct.type === "belt" || currentProduct.type === "giftcard") {
+    sizeDiv.style.display = "none";
+    sizeLabel.style.display = "none";
+  } else {
+    sizeDiv.style.display = "flex";
+    sizeLabel.style.display = "block";
+  }
   document.getElementById("detailOverlay").classList.add("open");
   document.getElementById("detailModal").classList.add("open");
 }
@@ -1263,7 +1417,16 @@ function addToCart(id){
   if(existing) existing.qty++;
   else cart.push({...p, qty:1});
   updateCart();
-  showToast("Agregado: "+p.name);
+  showToast("✓ Agregado: "+p.name);
+}
+function addGiftCard(amount) {
+  const gc = {...giftCardProduct, price:amount, name:`Gift Card ${fmt(amount)}`};
+  gc.id = 99 + amount; // unique id per amount
+  const existing = cart.find(c=>c.id===gc.id);
+  if(existing) existing.qty++;
+  else cart.push({...gc, qty:1});
+  updateCart();
+  showToast("✓ Gift Card agregada al carrito");
 }
 function removeFromCart(id){
   cart = cart.filter(c=>c.id!==id);
@@ -1281,7 +1444,6 @@ function updateCart(){
   document.getElementById("cartCount").textContent = count;
   const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
   document.getElementById("cartTotal").textContent = fmt(total);
-  // render cart body
   const body = document.getElementById("cartBody");
   if(cart.length===0){ body.innerHTML='<div class="cart-empty">Tu carrito está vacío</div>'; return; }
   body.innerHTML = cart.map(c=>`
@@ -1310,13 +1472,109 @@ function updateCart(){
 function openCart(){ document.getElementById("cartOverlay").classList.add("open"); document.getElementById("cartSidebar").classList.add("open"); }
 function closeCart(){ document.getElementById("cartOverlay").classList.remove("open"); document.getElementById("cartSidebar").classList.remove("open"); }
 
+// ─── SEARCH ───
+function openSearch(){ document.getElementById("searchOverlay").classList.add("active"); document.getElementById("searchInput").value=""; document.getElementById("searchResults").innerHTML=""; setTimeout(()=>document.getElementById("searchInput").focus(),100); }
+function closeSearch(){ document.getElementById("searchOverlay").classList.remove("active"); }
+function searchProducts(){
+  const q = document.getElementById("searchInput").value.toLowerCase().trim();
+  const res = document.getElementById("searchResults");
+  if(!q){ res.innerHTML=""; return; }
+  const matches = products.filter(p=>
+    p.name.toLowerCase().includes(q)||
+    p.color.toLowerCase().includes(q)||
+    p.cat.toLowerCase().includes(q)||
+    p.desc.toLowerCase().includes(q)
+  );
+  if(matches.length===0){ res.innerHTML='<div class="search-no-results" style="grid-column:1/-1;">No se encontraron productos.</div>'; return; }
+  res.innerHTML = matches.map(p=>`
+    <div class="product-card" onclick="closeSearch();openDetail(${p.id})">
+      <div class="prod-img-wrap">
+        <svg viewBox="0 0 200 200" width="100%" height="100%" style="background:${(colorMap[p.color]||["#7a6050"])[0]}33">
+          <g transform="translate(20,10) scale(0.8)">${getProductSVG(p)}</g>
+        </svg>
+        <div class="quick-add" onclick="event.stopPropagation();closeSearch();addToCart(${p.id})">+ Agregar</div>
+      </div>
+      <p class="prod-name">${p.name}</p>
+      <p class="prod-color">${p.color}</p>
+      <p class="prod-price">${fmt(p.price)}</p>
+    </div>
+  `).join("");
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeSearch(); closeDetail(); closeCart(); closeShippingModal(); }});
+
+// ─── SHIPPING MODAL ───
+function openShippingModal(){ document.getElementById("shippingOverlay").classList.add("open"); document.getElementById("shippingModal").classList.add("open"); }
+function closeShippingModal(){ document.getElementById("shippingOverlay").classList.remove("open"); document.getElementById("shippingModal").classList.remove("open"); }
+
+// ─── NAVIGATION ───
+function navigateTo(pageId){
+  document.getElementById("mainSite").classList.add("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(pageId).classList.add("active");
+  window.scrollTo(0,0);
+  // update gift card prices if navigating there
+  if(pageId==='giftCards') setTimeout(updateGiftCardAmounts, 50);
+}
+function goHome(){
+  document.getElementById("mainSite").classList.remove("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("checkoutPage").classList.remove("active");
+  document.getElementById("successPage").classList.remove("active");
+  window.scrollTo(0,0);
+}
+
+// ─── SOCIAL ───
+function socialClick(platform){ showToast("Visita nuestra página de "+platform+" 🎯"); }
+
+// ─── NEWSLETTER ───
+function subscribeNewsletter(){
+  const input = document.getElementById("newsletterEmail");
+  const email = input.value.trim();
+  if(!email || !email.includes("@") || !email.includes(".")){
+    showToast("Por favor ingresa un correo válido");
+    input.style.borderColor = "#e53935";
+    setTimeout(()=>input.style.borderColor="",2000);
+    return;
+  }
+  input.value = "";
+  showToast("✓ ¡Suscripción exitosa! Gracias por unirte.");
+}
+
+// ─── FAQ ───
+function toggleFAQ(item){
+  const wasOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-item").forEach(i=>i.classList.remove("open"));
+  if(!wasOpen) item.classList.add("open");
+}
+
+// ─── CONTACT ───
+function sendContact(){
+  const name = document.getElementById("ct-name").value.trim();
+  const email = document.getElementById("ct-email").value.trim();
+  const subject = document.getElementById("ct-subject").value;
+  const message = document.getElementById("ct-message").value.trim();
+  if(!name || !email || !subject || !message){
+    showToast("Por favor completa todos los campos");
+    return;
+  }
+  if(!email.includes("@")){
+    showToast("Ingresa un correo válido");
+    return;
+  }
+  document.getElementById("ct-name").value="";
+  document.getElementById("ct-email").value="";
+  document.getElementById("ct-subject").value="";
+  document.getElementById("ct-message").value="";
+  showToast("✓ Mensaje enviado. Te responderemos pronto.");
+}
+
 // ─── CHECKOUT ───
 function goToCheckout(){
   if(cart.length===0){ showToast("El carrito está vacío"); return; }
   closeCart();
   document.getElementById("mainSite").classList.add("hidden");
+  document.querySelectorAll(".inner-page").forEach(p=>p.classList.remove("active"));
   document.getElementById("checkoutPage").classList.add("active");
-  // fill summary
   const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
   document.getElementById("osTotal").textContent = fmt(total);
   document.getElementById("osSummaryItems").innerHTML = cart.map(c=>`
@@ -1324,18 +1582,69 @@ function goToCheckout(){
   `).join("") + `<div class="os-item"><span class="os-name">Envío</span><span style="color:#43a047;font-weight:600;">Gratuito</span></div>`;
 }
 function closeCheckout(){
-  document.getElementById("mainSite").classList.remove("hidden");
   document.getElementById("checkoutPage").classList.remove("active");
+  document.getElementById("mainSite").classList.remove("hidden");
   openCart();
 }
 function selectPay(btn, method){
   document.querySelectorAll(".pay-method").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
   document.getElementById("cardFields").style.display = method==="card" ? "block" : "none";
+  document.getElementById("nequiFields").style.display = method==="nequi" ? "block" : "none";
+  document.getElementById("daviPlataFields").style.display = method==="daviplata" ? "block" : "none";
+  document.getElementById("transferFields").style.display = method==="transfer" ? "block" : "none";
 }
 
-// ─── PLACE ORDER ───
+// ─── VALIDATION & ORDER ───
 function placeOrder(){
+  // Validate personal info
+  const fields = [
+    {id:'co-first', label:'Nombre'},
+    {id:'co-last', label:'Apellido'},
+    {id:'co-email', label:'Correo'},
+    {id:'co-addr', label:'Dirección'},
+    {id:'co-city', label:'Ciudad'},
+    {id:'co-phone', label:'Teléfono'}
+  ];
+  for(const f of fields){
+    const el = document.getElementById(f.id);
+    if(!el.value.trim()){
+      showToast("Por favor ingresa tu " + f.label);
+      el.classList.add("error");
+      el.focus();
+      setTimeout(()=>el.classList.remove("error"),2000);
+      return;
+    }
+  }
+  // Email validation
+  const email = document.getElementById('co-email').value.trim();
+  if(!email.includes("@") || !email.includes(".")){
+    showToast("Ingresa un correo válido");
+    document.getElementById('co-email').classList.add("error");
+    setTimeout(()=>document.getElementById('co-email').classList.remove("error"),2000);
+    return;
+  }
+  // Dept validation
+  if(!document.getElementById('co-dept').value){
+    showToast("Selecciona un departamento");
+    return;
+  }
+  // Payment validation per method
+  const activeMethod = document.querySelector('.pay-method.active').textContent;
+  if(activeMethod.includes('Tarjeta')){
+    const card = document.getElementById('co-card').value.replace(/\s/g,'');
+    if(card.length < 16){ showToast("Ingresa el número de tarjeta completo"); return; }
+    if(!document.getElementById('co-cardName').value.trim()){ showToast("Ingresa el nombre en la tarjeta"); return; }
+    if(document.getElementById('co-exp').value.length < 5){ showToast("Ingresa la fecha de vencimiento"); return; }
+    if(!document.getElementById('co-cvv').value.trim()){ showToast("Ingresa el CVV"); return; }
+  }
+  if(activeMethod.includes('Nequi')){
+    if(document.getElementById('co-nequi').value.replace(/\s/g,'').length < 10){ showToast("Ingresa un número de celular válido"); return; }
+  }
+  if(activeMethod.includes('DaviPlata')){
+    if(document.getElementById('co-daviplata').value.replace(/\s/g,'').length < 10){ showToast("Ingresa un número de celular válido"); return; }
+  }
+  // Process
   document.getElementById("processingOverlay").classList.add("active");
   setTimeout(()=>{
     document.getElementById("processingOverlay").classList.remove("active");
@@ -1345,9 +1654,15 @@ function placeOrder(){
     document.getElementById("orderNum").textContent = "Pedido #" + orderNum;
     cart = [];
     updateCart();
+    // Clear form
+    fields.forEach(f=>document.getElementById(f.id).value="");
+    document.getElementById('co-card').value="";
+    document.getElementById('co-cardName').value="";
+    document.getElementById('co-exp').value="";
+    document.getElementById('co-cvv').value="";
   }, 2600);
 }
-function goHome(){
+function goHome2(){
   document.getElementById("successPage").classList.remove("active");
   document.getElementById("mainSite").classList.remove("hidden");
   window.scrollTo(0,0);
@@ -1358,7 +1673,7 @@ function showToast(msg){
   const t = document.getElementById("toast");
   t.textContent = msg;
   t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"),2200);
+  setTimeout(()=>t.classList.remove("show"),2400);
 }
 
 // ─── FORMATTERS ───
@@ -1369,6 +1684,12 @@ function formatCard(el){
 function formatExp(el){
   let v = el.value.replace(/\D/g,"").substring(0,4);
   if(v.length>=2) v = v.substring(0,2)+"/"+v.substring(2);
+  el.value = v;
+}
+function formatPhone(el){
+  let v = el.value.replace(/\D/g,"").substring(0,10);
+  if(v.length > 3 && v.length <= 6) v = v.substring(0,3)+" "+v.substring(3);
+  else if(v.length > 6) v = v.substring(0,3)+" "+v.substring(3,6)+" "+v.substring(6);
   el.value = v;
 }
 </script>
